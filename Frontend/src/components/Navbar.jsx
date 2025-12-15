@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import Navitems from "./Navitems";
 import { FiUser } from "react-icons/fi";
 import { FiHome } from "react-icons/fi";
-
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 function Navbar() {
     const [isSticky, setIsSticky] = useState(false);
+    const navigate = useNavigate();
+    const { isAuthenticated } = useAuth();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -16,6 +19,14 @@ function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const handleClick = () => {
+        if (isAuthenticated) {
+            navigate("/dashboard");
+        } else {
+            navigate("/my-account");
+        }
+    };
+
     return (
         <header
             className={`w-full fixed top-0 left-0 z-50 transition-all ${isSticky ? "bg-white shadow-md py-3" : "bg-transparent py-5"
@@ -23,14 +34,14 @@ function Navbar() {
         >
             <nav className="wrapper w-full gap-10 flex items-center justify-between">
 
-                <div className="flex items-center">
+                <div className="flex items-center cursor-pointer">
                     <img
                         src="/logo.webp"
                         alt="logo"
                         className="w-28"
+                        onClick={() => navigate("/")}
                     />
                 </div>
-
                 <div className="flex items-center gap-5">
 
 
@@ -62,7 +73,10 @@ function Navbar() {
                     <span className="hidden md:block text-gray-400">|</span>
 
                     <div className="flex items-center gap-4">
-                        <button className="hidden md:flex items-center gap-2">
+                        <button
+                            onClick={handleClick}
+                            className="hidden cursor-pointer md:flex items-center gap-2"
+                        >
                             <FiUser size={18} />
                             My account
                         </button>

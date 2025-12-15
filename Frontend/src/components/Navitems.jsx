@@ -28,7 +28,7 @@ export default function Navitems() {
             <li className="relative group cursor-pointer">
                 <div
                     className={`
-                        flex items-center gap-1
+                        flex items-center gap-1.5
                         relative
                         after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-red-400
                         after:w-0 after:transition-all after:duration-300
@@ -41,7 +41,7 @@ export default function Navitems() {
 
                 <div
                     className="
-        absolute left-0 top-full mt-3 
+        absolute left-0 top-full mt-1
         bg-white shadow-xl rounded-xl p-5 w-72
         z-50
         
@@ -90,7 +90,7 @@ export default function Navitems() {
 
                 <div
                     className="
-        absolute left-0 top-full mt-3 
+        absolute left-0 top-full mt-1.5 
         bg-white shadow-xl rounded-xl p-5 w-72
         z-50
         
@@ -140,7 +140,7 @@ export default function Navitems() {
 
                 <div
                     className="
-            absolute left-0 top-full mt-3 
+            absolute left-0 top-full mt-1.5 
             bg-white shadow-xl rounded-xl p-5 w-80
             z-50
 
@@ -190,7 +190,7 @@ export default function Navitems() {
 
                 <div
                     className="
-            absolute left-0 top-full mt-3 
+            absolute left-0 top-full mt-1.5 
             bg-white shadow-xl rounded-xl p-5 w-64
             z-50
 
@@ -242,7 +242,7 @@ export default function Navitems() {
 
                 <div
                     className="
-            absolute left-0 top-full mt-3 
+            absolute left-0 top-full mt-1.5
             bg-white shadow-xl rounded-xl p-5 w-64
             z-50
 

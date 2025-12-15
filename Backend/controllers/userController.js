@@ -2,6 +2,11 @@ import db from "../config/db.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
+
+const generateToken = (user_id) =>
+  jwt.sign({ user_id }, process.env.JWT_SECRET, { expiresIn: "1d" });
+
+
 export const addUser = async (req, res, next) => {
   try {
     const {
@@ -24,19 +29,12 @@ export const addUser = async (req, res, next) => {
 
     let accRows;
 
-    // -----------------------------------
-    // ⭐ MODE 1: User entered LAST 6 digits only
-    // -----------------------------------
     if (account_number.length === 6) {
       [accRows] = await db.query(
         "SELECT id, user_id FROM tbl_accounts WHERE RIGHT(account_number, 6) = ?",
         [account_number]
       );
-    }
-    // -----------------------------------
-    // ⭐ MODE 2: User entered FULL account number
-    // -----------------------------------
-    else {
+    } else {
       [accRows] = await db.query(
         "SELECT id, user_id FROM tbl_accounts WHERE account_number = ?",
         [account_number]
@@ -74,9 +72,12 @@ export const addUser = async (req, res, next) => {
       [user.user_id, accRows[0].id]
     );
 
+    const token = generateToken(user.user_id);
+
     return res.status(201).json({
       success: true,
-      message: "User registered and account linked successfully",
+      message: "User registered succesfully",
+      token,
       user
     });
 
@@ -89,14 +90,13 @@ export const addUser = async (req, res, next) => {
 
 
 
+
 export const loginUser = async (req, res, next) => {
   try {
     const { card_number, login_id, password } = req.body;
 
     if (!card_number || !login_id || !password) {
-      return res.status(400).json({
-        message: "All fields are required"
-      });
+      return res.status(400).json({ message: "All fields are required" });
     }
 
     const [accountResult] = await db.query(
@@ -134,11 +134,7 @@ export const loginUser = async (req, res, next) => {
       return res.status(403).json({ message: "Account is inactive" });
     }
 
-    const token = jwt.sign(
-      { user_id: user.user_id },
-      process.env.JWT_SECRET,
-      { expiresIn: "1d" }
-    );
+    const token = generateToken(user.user_id);
 
     return res.status(200).json({
       success: true,
@@ -156,6 +152,7 @@ export const loginUser = async (req, res, next) => {
     next(err);
   }
 };
+
 
 
 

@@ -6,7 +6,7 @@ export const pagesMenu = [
     { label: "News", link: "/pages/news" },
     { label: "Open account", link: "/open-account" },
     { label: "My account", link: "/my-account" },
-    { label: "Terms & conditions", link: "/pages/terms" },
+    { label: "Terms & conditions", link: "/pages/terms-and-conditions" },
     { label: "Privacy policy", link: "/pages/privacy-policy" },
     { label: "404 error page", link: "/404" }
 ];

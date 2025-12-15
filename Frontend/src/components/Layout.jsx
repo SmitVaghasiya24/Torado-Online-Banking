@@ -12,7 +12,7 @@ function Layout() {
 
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 600); 
+    }, 600);
 
     return () => clearTimeout(timer);
   }, [location.pathname]);

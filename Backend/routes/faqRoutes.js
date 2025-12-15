@@ -5,8 +5,8 @@ import { addFaq, getAllFaqs, getFaqsByCategory, updateFaq, deleteFaq } from "../
 const router = express.Router();
 
 router.post("/add_faq", verifyToken, addFaq);
-router.get("/all_faq", verifyToken, getAllFaqs);
-router.get("/category_faq/:category_id", verifyToken, getFaqsByCategory);
+router.get("/all_faq", getAllFaqs);
+router.get("/category_faq/:category_id", getFaqsByCategory);
 router.put("/update_faq/:id", verifyToken, updateFaq);
 router.delete("/delete_faq/:id", verifyToken, deleteFaq);
 
