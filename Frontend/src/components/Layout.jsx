@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Loader from "../components/Loader";
+import Footer from "./Footer";
 
 function Layout() {
   const location = useLocation();
@@ -26,6 +27,7 @@ function Layout() {
       <div className="pt-24">
         <Outlet />
       </div>
+      <Footer/>
     </>
   );
 }

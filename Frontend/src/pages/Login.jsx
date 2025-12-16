@@ -36,56 +36,62 @@ function Login() {
             password: form.password,
         });
 
-        if (!success) {
-            return;
-        }
+        if (!success) return;
 
         toast.success("Login successful");
         navigate("/dashboard", { replace: true });
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center">
-            <div className="w-full max-w-md md:max-w-lg lg:max-w-xl bg-gray-100 rounded-xl shadow-lg p-10">
-                <h2 className="text-lg font-semibold mb-6 flex items-center gap-2">
+        <div className="min-h-screen flex items-center md:items-start justify-center px-4">
+            <div className="w-full max-w-md sm:max-w-lg bg-gray-100 rounded-xl shadow-lg p-6 sm:p-10">
+
+                <h2 className="text-base sm:text-lg font-semibold mb-6 flex items-center gap-2">
                     🔒 Login to your account
                 </h2>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
+
                     <div>
-                        <label className="text-sm text-gray-600">Card number*</label>
+                        <label className="text-sm text-gray-600">
+                            Card number*
+                        </label>
                         <input
                             type="text"
                             name="card_number"
                             value={form.card_number}
                             onChange={handleChange}
-                            className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="mt-1 w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
 
                     <div>
-                        <label className="text-sm text-gray-600">Login ID*</label>
+                        <label className="text-sm text-gray-600">
+                            Login ID*
+                        </label>
                         <input
                             type="text"
                             name="login_id"
                             value={form.login_id}
                             onChange={handleChange}
-                            className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="mt-1 w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
 
                     <div>
-                        <label className="text-sm text-gray-600">Password*</label>
+                        <label className="text-sm text-gray-600">
+                            Password*
+                        </label>
                         <input
                             type="password"
                             name="password"
                             value={form.password}
                             onChange={handleChange}
-                            className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="mt-1 w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
 
-                    <div className="flex items-center justify-between text-sm">
+                    <div className="flex items-center justify-between text-xs sm:text-sm">
                         <label className="flex items-center gap-2 text-gray-600">
                             <input
                                 type="checkbox"
@@ -103,18 +109,17 @@ function Login() {
                         >
                             Forgot Password?
                         </span>
-
                     </div>
 
                     <button
                         type="submit"
-                        className="w-full bg-red-600 hover:bg-red-700 text-white py-2.5 rounded-md font-medium transition"
+                        className="w-full bg-red-600 hover:bg-red-700 text-white py-2.5 rounded-md font-medium transition text-sm sm:text-base"
                     >
                         Log in
                     </button>
                 </form>
 
-                <p className="text-sm text-center mt-6 text-gray-600">
+                <p className="text-xs sm:text-sm text-center mt-6 text-gray-600">
                     Don’t have an Account?{" "}
                     <span
                         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

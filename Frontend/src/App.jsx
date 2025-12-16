@@ -13,6 +13,7 @@ import TermsPage from "./pages/page/TermsPage";
 import CmsPage from "./pages/page/CmsPage";
 import Error from "./pages/page/Error";
 import Faq from "./pages/page/Faq";
+import Atm from "./pages/Atm";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="my-account" element={<MyAccount />} />
           <Route path="forgot-password" element={<ForgotPassword />} />
+          <Route path="atm-locator" element={<Atm />} />
 
           <Route
             path="dashboard"

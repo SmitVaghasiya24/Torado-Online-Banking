@@ -54,18 +54,20 @@ export default function Faqs() {
     const rightFaqs = faqs.filter((_, i) => i % 2 !== 0);
 
     return (
-        <div className="max-w-7xl mx-auto px-4 py-20">
-            <h1 className="text-center text-4xl md:text-5xl font-semibold mb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
+
+            <h1 className="text-center text-2xl sm:text-3xl md:text-5xl font-semibold mb-8 sm:mb-12">
                 Frequently asked questions
             </h1>
 
-            <div className="flex flex-wrap justify-center gap-3 mb-14">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14">
                 <button
                     onClick={() => fetchCategoryFaq("all")}
-                    className={`px-5 py-2 rounded-lg border transition
-                        ${activeCategory === "all"
-                            ? "bg-red-600 text-white"
-                            : "bg-white text-gray-700"
+                    className={`px-4 sm:px-5 py-2 rounded-lg border transition text-sm sm:text-base
+                        ${
+                            activeCategory === "all"
+                                ? "bg-red-600 text-white"
+                                : "bg-white text-gray-700"
                         }`}
                 >
                     All Questions
@@ -75,10 +77,11 @@ export default function Faqs() {
                     <button
                         key={cat.id}
                         onClick={() => fetchCategoryFaq(cat.id)}
-                        className={`px-5 py-2 rounded-lg border transition
-                            ${activeCategory === cat.id
-                                ? "bg-red-600 text-white"
-                                : "bg-white text-gray-700"
+                        className={`px-4 sm:px-5 py-2 rounded-lg border transition text-sm sm:text-base
+                            ${
+                                activeCategory === cat.id
+                                    ? "bg-red-600 text-white"
+                                    : "bg-white text-gray-700"
                             }`}
                     >
                         {cat.name}
@@ -87,11 +90,13 @@ export default function Faqs() {
             </div>
 
             {loading ? (
-                <p className="text-center">Loading...</p>
+                <p className="text-center text-sm sm:text-base">
+                    Loading...
+                </p>
             ) : (
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
 
-                    <div className="space-y-6">
+                    <div className="space-y-4 sm:space-y-6">
                         {leftFaqs.map((faq) => (
                             <FaqItem
                                 key={faq.id}
@@ -104,7 +109,7 @@ export default function Faqs() {
                         ))}
                     </div>
 
-                    <div className="space-y-6">
+                    <div className="space-y-4 sm:space-y-6">
                         {rightFaqs.map((faq) => (
                             <FaqItem
                                 key={faq.id}
@@ -116,9 +121,9 @@ export default function Faqs() {
                             />
                         ))}
                     </div>
+
                 </div>
             )}
-            
         </div>
     );
 }

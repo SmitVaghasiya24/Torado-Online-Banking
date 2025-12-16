@@ -40,7 +40,7 @@ export default function ContactDetails() {
             return;
         }
 
-        const token = localStorage.getItem("token"); // 👈 token fetch
+        const token = localStorage.getItem("token"); 
 
         try {
             setLoading(true);
@@ -52,7 +52,7 @@ export default function ContactDetails() {
                 formData,
                 {
                     headers: {
-                        Authorization: `Bearer ${token}`, // 👈 token send
+                        Authorization: `Bearer ${token}`, 
                     },
                 }
             );
