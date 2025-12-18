@@ -77,7 +77,7 @@ export default function Subscribe() {
                             placeholder="Enter your email address"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="flex-1 h-12 px-4 rounded-lg text-white border outline-none"
+                            className="flex-1 min-h-14 md:min-h-12 px-4 rounded-lg text-white border outline-none"
                         />
                         <button
                             onClick={handleSubscribe}

@@ -92,14 +92,28 @@ export const addNews = async (req, res, next) => {
 
 export const getAllNews = async (req, res) => {
     try {
-        const [rows] = await db.query("CALL sp_get_all_news()");
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 10;
+        const offset = (page - 1) * limit;
 
+        const [[{ total }]] = await db.query(
+            "SELECT COUNT(*) AS total FROM tbl_news"
+        );
 
-        const newsList = rows[0];
+        const [rows] = await db.query(
+            "CALL sp_get_all_news(?, ?)",
+            [limit, offset]
+        );
+
+        const totalPages = Math.ceil(total / limit);
 
         return res.status(200).json({
             success: true,
-            data: newsList
+            page,
+            limit,
+            total,
+            totalPages,
+            data: rows[0]
         });
 
     } catch (error) {
@@ -110,6 +124,7 @@ export const getAllNews = async (req, res) => {
         });
     }
 };
+
 
 
 

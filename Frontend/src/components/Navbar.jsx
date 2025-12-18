@@ -80,7 +80,7 @@ function Navbar() {
                         <FiUser size={22} />
                     </button>
 
-                    <button onClick={() => navigate("/atm-branch")}>
+                    <button onClick={() => navigate("/atm-locator")}>
                         <FiHome size={22} />
                     </button>
 

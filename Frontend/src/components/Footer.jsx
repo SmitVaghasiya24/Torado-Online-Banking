@@ -11,10 +11,11 @@ export default function Footer() {
             <div className="container py-16 grid gap-10 md:grid-cols-4">
                 <div>
                     <div className="flex items-center gap-2 mb-4">
-                        <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white font-bold">
-                            T
+                        <div
+                            className="flex items-center cursor-pointer"
+                        >
+                            <img src="/logo-white.webp" alt="logo" className="w-28" />
                         </div>
-                        <span className="text-white text-xl font-semibold">Torado</span>
                     </div>
 
                     <p className="text-sm mb-2">Need Help</p>

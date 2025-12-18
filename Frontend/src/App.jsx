@@ -14,6 +14,10 @@ import CmsPage from "./pages/page/CmsPage";
 import Error from "./pages/page/Error";
 import Faq from "./pages/page/Faq";
 import Atm from "./pages/Atm";
+import Services from "./pages/page/Services";
+import ServiceDetails from "./pages/page/ServiceDetails";
+import News from "./pages/page/News";
+import NewsDetails from "./pages/page/NewsDetails";
 
 function App() {
   return (
@@ -42,6 +46,10 @@ function App() {
           <Route path="pages/:slug" element={<CmsPage />} />
           <Route path="pages/faq" element={<Faq />} />
           <Route path="404" element={<Error />} />
+          <Route path="pages/services" element={<Services />} />
+          <Route path="pages/services/:slug" element={<ServiceDetails />} />
+          <Route path="pages/news" element={<News />} />
+          <Route path="pages/news/:slug" element={<NewsDetails />} />
         </Route>
       </Routes>
     </BrowserRouter>
