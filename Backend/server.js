@@ -16,6 +16,7 @@ import casestudyRoutes from './routes/casestudyRoutes.js';
 import newscatRoutes from './routes/newscatRoutes.js';
 import newsRoutes from './routes/newsRoutes.js';
 import subscriberroutes from './routes/subscriberroutes.js';
+import newsCommentRoutes from './routes/newsCommentRoutes.js';
 
 
 import dotenv from 'dotenv';
@@ -36,6 +37,7 @@ app.use('/api', userRoutes);
 app.use('/api', accountRoutes);
 app.use('/api', managementRoutes);
 app.use('/api', subscriberroutes);
+app.use('/api', newsCommentRoutes);
 
 
 app.use('/api/admin', adminRoutes);

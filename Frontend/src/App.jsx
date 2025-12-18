@@ -18,6 +18,10 @@ import Services from "./pages/page/Services";
 import ServiceDetails from "./pages/page/ServiceDetails";
 import News from "./pages/page/News";
 import NewsDetails from "./pages/page/NewsDetails";
+import CaseStudy from "./pages/page/CaseStudy";
+import CaseStudyDetails from "./pages/page/CaseStudyDetails";
+import PersonalLoan from "./pages/PersonalLoan";
+import LoanApply from "./pages/LoanApply";
 
 function App() {
   return (
@@ -31,6 +35,8 @@ function App() {
           <Route path="my-account" element={<MyAccount />} />
           <Route path="forgot-password" element={<ForgotPassword />} />
           <Route path="atm-locator" element={<Atm />} />
+          <Route path="personal-loan" element={<PersonalLoan />} />
+          <Route path="personal-loan-apply" element={<LoanApply />} />
 
           <Route
             path="dashboard"
@@ -50,6 +56,8 @@ function App() {
           <Route path="pages/services/:slug" element={<ServiceDetails />} />
           <Route path="pages/news" element={<News />} />
           <Route path="pages/news/:slug" element={<NewsDetails />} />
+          <Route path="pages/case-studies" element={<CaseStudy />} />
+          <Route path="pages/case-study/:slug" element={<CaseStudyDetails />} />
         </Route>
       </Routes>
     </BrowserRouter>

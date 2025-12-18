@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import FaqItem from "./FaqItem";
 
-export default function Faqs() {
+export default function Faqs({
+    showCategories = true,
+    faqType = null
+}) {
     const [categories, setCategories] = useState([]);
     const [faqs, setFaqs] = useState([]);
     const [activeCategory, setActiveCategory] = useState("all");
@@ -10,9 +13,11 @@ export default function Faqs() {
     const [openId, setOpenId] = useState(null);
 
     useEffect(() => {
-        fetchCategories();
+        if (showCategories) {
+            fetchCategories();
+        }
         fetchAllFaqs();
-    }, []);
+    }, [faqType]);
 
     useEffect(() => {
         if (faqs.length > 0) {
@@ -29,10 +34,18 @@ export default function Faqs() {
 
     const fetchAllFaqs = async () => {
         setLoading(true);
+
         const res = await axios.get(
             "http://localhost:5000/api/admin/all_faq"
         );
-        setFaqs(res.data.data);
+
+        let data = res.data.data;
+
+        if (faqType && showCategories) {
+            data = data.filter((faq) => faq.type === faqType);
+        }
+
+        setFaqs(data);
         setLoading(false);
     };
 
@@ -46,7 +59,14 @@ export default function Faqs() {
                 : `http://localhost:5000/api/admin/category_faq/${id}`;
 
         const res = await axios.get(url);
-        setFaqs(res.data.data);
+
+        let data = res.data.data;
+
+        if (faqType && showCategories) {
+            data = data.filter((faq) => faq.type === faqType);
+        }
+
+        setFaqs(data);
         setLoading(false);
     };
 
@@ -57,37 +77,38 @@ export default function Faqs() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
 
             <h1 className="text-center text-2xl sm:text-3xl md:text-5xl font-semibold mb-8 sm:mb-12">
-                Frequently asked questions
+                {showCategories ? "Frequently asked questions" : "Personal Loan FAQs"}
             </h1>
 
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14">
-                <button
-                    onClick={() => fetchCategoryFaq("all")}
-                    className={`px-4 sm:px-5 py-2 rounded-lg border transition text-sm sm:text-base
-                        ${
-                            activeCategory === "all"
+
+            {showCategories && (
+                <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14">
+                    <button
+                        onClick={() => fetchCategoryFaq("all")}
+                        className={`px-4 sm:px-5 py-2 rounded-lg border transition text-sm sm:text-base
+                            ${activeCategory === "all"
                                 ? "bg-red-600 text-white"
                                 : "bg-white text-gray-700"
-                        }`}
-                >
-                    All Questions
-                </button>
-
-                {categories.map((cat) => (
-                    <button
-                        key={cat.id}
-                        onClick={() => fetchCategoryFaq(cat.id)}
-                        className={`px-4 sm:px-5 py-2 rounded-lg border transition text-sm sm:text-base
-                            ${
-                                activeCategory === cat.id
-                                    ? "bg-red-600 text-white"
-                                    : "bg-white text-gray-700"
                             }`}
                     >
-                        {cat.name}
+                        All Questions
                     </button>
-                ))}
-            </div>
+
+                    {categories.map((cat) => (
+                        <button
+                            key={cat.id}
+                            onClick={() => fetchCategoryFaq(cat.id)}
+                            className={`px-4 sm:px-5 py-2 rounded-lg border transition text-sm sm:text-base
+                                ${activeCategory === cat.id
+                                    ? "bg-red-600 text-white"
+                                    : "bg-white text-gray-700"
+                                }`}
+                        >
+                            {cat.name}
+                        </button>
+                    ))}
+                </div>
+            )}
 
             {loading ? (
                 <p className="text-center text-sm sm:text-base">

@@ -9,7 +9,7 @@ import Download from "../../components/Download";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import StatsCounter from "../../components/Customer";
+import StatsCounter from "../../components/StatsCounter";
 
 const testimonials = [
     {

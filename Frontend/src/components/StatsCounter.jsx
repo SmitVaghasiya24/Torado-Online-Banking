@@ -27,7 +27,6 @@ const stats = [
     },
 ];
 
-// ✅ Hook is ALWAYS called
 function useCountUp(start, end, shouldStart, duration = 1500) {
     const [value, setValue] = useState(start);
 
@@ -65,13 +64,12 @@ export default function StatsCounter() {
     const sectionRef = useRef(null);
     const [visible, setVisible] = useState(false);
 
-    // 👇 Start when section enters viewport
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setVisible(true);
-                    observer.disconnect(); // run once
+                    observer.disconnect(); 
                 }
             },
             { threshold: 0.4 }
@@ -87,7 +85,7 @@ export default function StatsCounter() {
     return (
         <div ref={sectionRef} className="space-y-6">
             {stats.map((s, i) => {
-                // ✅ Hook ALWAYS called
+             
                 const count = useCountUp(
                     s.start,
                     s.end,
