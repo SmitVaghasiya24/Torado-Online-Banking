@@ -17,6 +17,9 @@ import newscatRoutes from './routes/newscatRoutes.js';
 import newsRoutes from './routes/newsRoutes.js';
 import subscriberroutes from './routes/subscriberroutes.js';
 import newsCommentRoutes from './routes/newsCommentRoutes.js';
+import loanApplicationRoutes from './routes/loanApplicationRoutes.js';
+import openaccountRoutes from './routes/openaccountRoutes.js';
+import mortgageapplyRoutes from './routes/mortgageapplyRoutes.js';
 
 
 import dotenv from 'dotenv';
@@ -38,6 +41,9 @@ app.use('/api', accountRoutes);
 app.use('/api', managementRoutes);
 app.use('/api', subscriberroutes);
 app.use('/api', newsCommentRoutes);
+app.use('/api', loanApplicationRoutes);
+app.use('/api', openaccountRoutes);
+app.use('/api', mortgageapplyRoutes);
 
 
 app.use('/api/admin', adminRoutes);

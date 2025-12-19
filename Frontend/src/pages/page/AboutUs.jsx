@@ -6,6 +6,7 @@ import FolderCard from "../../components/FolderCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import Download from "../../components/Download";
+import LatestNews from "../../components/LatestNews";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -270,6 +271,7 @@ function AboutUs() {
             </section>
 
             <Download />
+            
         </div>
     );
 }

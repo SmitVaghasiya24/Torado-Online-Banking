@@ -63,9 +63,13 @@ function Navbar() {
                         My Account
                     </button>
 
-                    <button className="bg-blue-600 text-white px-4 py-2 rounded">
-                        Open An Account
+                    <button
+                        onClick={() => navigate('/open-account')}
+                        className="relative overflow-hidden bg-[#171717] text-white px-4 py-2 rounded group">
+                        <span className="absolute inset-0 bg-[#E30012] -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                        <span className="relative z-10">Open An Account</span>
                     </button>
+
 
                     <button
                         onClick={() => navigate("/atm-locator")}

@@ -22,6 +22,8 @@ import CaseStudy from "./pages/page/CaseStudy";
 import CaseStudyDetails from "./pages/page/CaseStudyDetails";
 import PersonalLoan from "./pages/PersonalLoan";
 import LoanApply from "./pages/LoanApply";
+import OpenAccount from "./pages/OpenAccount";
+import MortgageApply from "./pages/mortgage/MortgageApply";
 
 function App() {
   return (
@@ -37,6 +39,7 @@ function App() {
           <Route path="atm-locator" element={<Atm />} />
           <Route path="personal-loan" element={<PersonalLoan />} />
           <Route path="personal-loan-apply" element={<LoanApply />} />
+          <Route path="open-account" element={<OpenAccount />} />
 
           <Route
             path="dashboard"
@@ -58,6 +61,9 @@ function App() {
           <Route path="pages/news/:slug" element={<NewsDetails />} />
           <Route path="pages/case-studies" element={<CaseStudy />} />
           <Route path="pages/case-study/:slug" element={<CaseStudyDetails />} />
+
+
+          <Route path="mortgage-apply" element={<MortgageApply />} />
         </Route>
       </Routes>
     </BrowserRouter>

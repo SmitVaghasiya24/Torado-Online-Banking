@@ -20,7 +20,6 @@ export const subscribe = async (req, res) => {
             req.socket.remoteAddress ||
             null;
 
-        const createdBy = req.user_id || req.admin_id || null;
 
         const query = `
   INSERT INTO tbl_subscribers (
