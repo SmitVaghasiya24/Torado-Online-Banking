@@ -95,7 +95,7 @@ function MortgageApply() {
 
 
     const inputClass =
-        "w-full border border-gray-300 rounded-md px-4 py-2 text-sm " +
+        "w-full border border-gray-300 rounded-md px-4 py-4 text-sm " +
         "focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition";
 
     return (
@@ -117,35 +117,35 @@ function MortgageApply() {
 
                 <form
                     onSubmit={handleSubmit}
-                    className="bg-white p-6 sm:p-10 rounded-2xl space-y-12"
+                    className="bg-white p-8 sm:p-12 lg:p-16 rounded-3xl space-y-16 max-w-6xl mx-auto"
                 >
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 pb-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 pb-12 ">
                         <div>
-                            <h4 className="text-4xl font-medium mb-3">
+                            <h4 className="text-4xl font-medium mb-4">
                                 Request Type
                             </h4>
-                            <label className="flex items-center gap-2 text-sm text-gray-700">
+                            <label className="flex items-center gap-3 text-base text-gray-700">
                                 <input
                                     type="checkbox"
                                     checked
                                     readOnly
-                                    className="accent-red-600"
+                                    className="accent-red-600 w-5 h-5"
                                 />
                                 Mortgage application
                             </label>
                         </div>
 
                         <div>
-                            <h4 className="text-3xl font-medium mb-3">
+                            <h4 className="text-3xl font-medium mb-4">
                                 I'm interested in
                             </h4>
 
-                            <div className="space-y-2 text-sm text-gray-700">
-                                <label className="flex items-center gap-2">
+                            <div className="space-y-3 text-base text-gray-700">
+                                <label className="flex items-center gap-3">
                                     <input
                                         type="radio"
                                         name="interest"
-                                        className="accent-red-600"
+                                        className="accent-red-600 w-5 h-5"
                                         checked={form.interested_purchase_home === 1}
                                         onChange={() =>
                                             handleInterestChange("interested_purchase_home")
@@ -154,11 +154,11 @@ function MortgageApply() {
                                     Purchasing a new home
                                 </label>
 
-                                <label className="flex items-center gap-2">
+                                <label className="flex items-center gap-3">
                                     <input
                                         type="radio"
                                         name="interest"
-                                        className="accent-red-600"
+                                        className="accent-red-600 w-5 h-5"
                                         checked={form.interested_move_mortgage === 1}
                                         onChange={() =>
                                             handleInterestChange("interested_move_mortgage")
@@ -167,11 +167,11 @@ function MortgageApply() {
                                     Moving my mortgage
                                 </label>
 
-                                <label className="flex items-center gap-2">
+                                <label className="flex items-center gap-3">
                                     <input
                                         type="radio"
                                         name="interest"
-                                        className="accent-red-600"
+                                        className="accent-red-600 w-5 h-5"
                                         checked={form.interested_refinance === 1}
                                         onChange={() =>
                                             handleInterestChange("interested_refinance")
@@ -184,161 +184,83 @@ function MortgageApply() {
                     </div>
 
                     <div>
-                        <h4 className="text-3xl md:text-5xl font-semibold mb-6">
+                        <h4 className="text-4xl md:text-5xl font-semibold mb-10">
                             Personal information
                         </h4>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                            <div>
-                                <label className="block text-sm mb-1">Full name</label>
-                                <input
-                                    type="text"
-                                    name="full_name"
-                                    value={form.full_name}
-                                    onChange={handleChange}
-                                    className={inputClass}
-                                />
-                            </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                            {[
+                                ["Full name", "full_name", "text"],
+                                ["Date of birth", "date_of_birth", "date"],
+                                ["Social Security Number", "ssn", "text"],
+                            ].map(([label, name, type]) => (
+                                <div key={name}>
+                                    <label className="block text-base font-medium mb-2">
+                                        {label}
+                                    </label>
+                                    <input
+                                        type={type}
+                                        name={name}
+                                        value={form[name]}
+                                        onChange={handleChange}
+                                        className={inputClass} />
+                                </div>
+                            ))}
 
                             <div>
-                                <label className="block text-sm mb-1">Date of birth</label>
-                                <input
-                                    type="date"
-                                    name="date_of_birth"
-                                    value={form.date_of_birth}
-                                    onChange={handleChange}
-                                    className={inputClass}
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm mb-1">
-                                    Social Security Number
-                                </label>
-                                <input
-                                    type="text"
-                                    name="ssn"
-                                    value={form.ssn}
-                                    onChange={handleChange}
-                                    className={inputClass}
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm mb-1">
+                                <label className="block text-base font-medium mb-2">
                                     Marital status
                                 </label>
                                 <select
                                     name="marital_status"
                                     value={form.marital_status}
                                     onChange={handleChange}
-                                    className={inputClass}
-                                >
+                                    className={inputClass}                                >
                                     <option value="">Select</option>
                                     <option value="single">Single</option>
                                     <option value="married">Married</option>
                                 </select>
                             </div>
 
-                            <div>
-                                <label className="block text-sm mb-1">
-                                    Home address
-                                </label>
-                                <input
-                                    type="text"
-                                    name="home_address"
-                                    value={form.home_address}
-                                    onChange={handleChange}
-                                    className={inputClass}
-                                />
-                            </div>
+                            {[
+                                ["Home address", "home_address"],
+                                ["City", "city"],
+                                ["Province", "province"],
+                                ["Postal code", "postal_code"],
+                                ["Telephone number", "telephone_number"],
+                                ["Email address", "email"],
+                            ].map(([label, name]) => (
+                                <div key={name}>
+                                    <label className="block text-base font-medium mb-2">
+                                        {label}
+                                    </label>
+                                    <input
+                                        type={name === "email" ? "email" : "text"}
+                                        name={name}
+                                        value={form[name]}
+                                        onChange={handleChange}
+                                        className={inputClass} />
+                                </div>
+                            ))}
 
                             <div>
-                                <label className="block text-sm mb-1">City</label>
-                                <input
-                                    type="text"
-                                    name="city"
-                                    value={form.city}
-                                    onChange={handleChange}
-                                    className={inputClass}
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm mb-1">Province</label>
-                                <input
-                                    type="text"
-                                    name="province"
-                                    value={form.province}
-                                    onChange={handleChange}
-                                    className={inputClass}
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm mb-1">
-                                    Postal code
-                                </label>
-                                <input
-                                    type="text"
-                                    name="postal_code"
-                                    value={form.postal_code}
-                                    onChange={handleChange}
-                                    className={inputClass}
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm mb-1">
-                                    Telephone number
-                                </label>
-                                <input
-                                    type="text"
-                                    name="telephone_number"
-                                    value={form.telephone_number}
-                                    onChange={handleChange}
-                                    className={inputClass}
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm mb-1">
-                                    Email address
-                                </label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={form.email}
-                                    onChange={handleChange}
-                                    className={inputClass}
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm mb-1">
+                                <label className="block text-base font-medium mb-2">
                                     Gross annual income
                                 </label>
                                 <select
                                     name="gross_annual_income"
                                     value={form.gross_annual_income}
                                     onChange={handleChange}
-                                    className={inputClass}
-                                >
+                                    className={inputClass}                                >
                                     <option value="">Select amount</option>
-                                    <option value="20001-40000">
-                                        20,001-40,000
-                                    </option>
-                                    <option value="40001-60000">
-                                        40,001 - 60,000
-                                    </option>
-                                    <option value="60001-80000">
-                                        60,001 - 80,000
-                                    </option>
+                                    <option value="20001-40000">20,001 - 40,000</option>
+                                    <option value="40001-60000">40,001 - 60,000</option>
+                                    <option value="60001-80000">60,001 - 80,000</option>
                                 </select>
                             </div>
 
                             <div>
-                                <label className="block text-sm mb-1">
+                                <label className="block text-base font-medium mb-2">
                                     Down payment amount
                                 </label>
                                 <input
@@ -346,28 +268,27 @@ function MortgageApply() {
                                     name="down_payment_amount"
                                     value={form.down_payment_amount}
                                     onChange={handleChange}
-                                    className={inputClass}
-                                />
+                                    className={inputClass} />
                             </div>
                         </div>
                     </div>
 
-                    <div className="flex items-start gap-3">
+                    <div className="flex items-start gap-4">
                         <input
                             type="checkbox"
                             name="terms_confirmed"
                             checked={form.terms_confirmed}
-                            className="mt-1 accent-red-600"
                             onChange={handleChange}
+                            className="mt-1 w-5 h-5 accent-red-600"
                         />
-                        <p className="text-sm text-gray-600">
+                        <p className="text-base text-gray-600">
                             I confirm that all information mentioned above is true.
                         </p>
                     </div>
 
                     {message && (
                         <div
-                            className={`text-sm px-4 py-2 rounded-md ${isSuccess
+                            className={`text-base px-5 py-3 rounded-lg ${isSuccess
                                 ? "text-green-700 bg-green-50"
                                 : "text-red-700 bg-red-50"
                                 }`}
@@ -378,12 +299,13 @@ function MortgageApply() {
 
                     <button
                         type="submit"
-                        className="relative overflow-hidden bg-red-600 text-white px-8 py-3 rounded-md transition group"
+                        className="relative overflow-hidden bg-red-600 text-white px-14 py-4 text-lg rounded-lg transition group"
                     >
                         <span className="absolute inset-0 bg-[#000080] -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
                         <span className="relative z-10">Submit Now</span>
                     </button>
                 </form>
+
 
             </section>
             <Subscribe />

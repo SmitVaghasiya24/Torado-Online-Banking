@@ -111,63 +111,62 @@ function LoanApply() {
 
         <form
           onSubmit={handleSubmit}
-          className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 bg-white p-6 sm:p-10 rounded-2xl"
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 bg-white p-4 sm:p-8 lg:p-10 rounded-2xl max-w-6xl mx-auto"
         >
-
           <div>
-            <label className="block text-sm mb-1">First name</label>
+            <label className="block text-base mb-2">First name</label>
             <input
               type="text"
               name="first_name"
               required
               value={formData.first_name}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+              className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
             />
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Date of Birth</label>
+            <label className="block text-base mb-2">Date of Birth</label>
             <input
               type="date"
               name="date_of_birth"
               value={formData.date_of_birth}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+              className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
             />
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Telephone number</label>
+            <label className="block text-base mb-2">Telephone number</label>
             <input
               type="tel"
               name="telephone"
               value={formData.telephone}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+              className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
             />
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Email address</label>
+            <label className="block text-base mb-2">Email address</label>
             <input
               type="email"
               name="email"
               required
               value={formData.email}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+              className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
             />
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Marital status</label>
+            <label className="block text-base mb-2">Marital status</label>
             <select
               name="marital_status"
               value={formData.marital_status}
               required
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+              className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
             >
               <option value="single">Single</option>
               <option value="married">Married</option>
@@ -176,23 +175,23 @@ function LoanApply() {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Home address</label>
+            <label className="block text-base mb-2">Home address</label>
             <input
               type="text"
               name="home_address"
               value={formData.home_address}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+              className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
             />
           </div>
 
           <div>
-            <label className="block text-sm mb-1">City</label>
+            <label className="block text-base mb-2">City</label>
             <select
               name="city"
               value={formData.city}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+              className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
             >
               <option value="Ahmedabad">Ahmedabad</option>
               <option value="Surat">Surat</option>
@@ -211,47 +210,46 @@ function LoanApply() {
             </select>
           </div>
 
-
           <div>
-            <label className="block text-sm mb-1">Postal code</label>
+            <label className="block text-base mb-2">Postal code</label>
             <input
               type="text"
               name="postal_code"
               value={formData.postal_code}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+              className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
             />
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Profession</label>
+            <label className="block text-base mb-2">Profession</label>
             <input
               type="text"
               name="profession"
               value={formData.profession}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+              className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
             />
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Name of the organization</label>
+            <label className="block text-base mb-2">Name of the organization</label>
             <input
               type="text"
               name="organization_name"
               value={formData.organization_name}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+              className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
             />
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Monthly income</label>
+            <label className="block text-base mb-2">Monthly income</label>
             <select
               name="monthly_income"
               value={formData.monthly_income}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+              className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
             >
               <option value="">Select amount</option>
               <option value="0-20000">0 - 20,000</option>
@@ -263,12 +261,12 @@ function LoanApply() {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Select your desired amount</label>
+            <label className="block text-base mb-2">Select your desired amount</label>
             <select
               name="desired_amount"
               value={formData.desired_amount}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+              className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
             >
               <option value="">Select amount</option>
               <option value="50000">50,000</option>
@@ -280,12 +278,12 @@ function LoanApply() {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Loan tenure (Month)</label>
+            <label className="block text-base mb-2">Loan tenure (Month)</label>
             <select
               name="loan_tenure_month"
               value={formData.loan_tenure_month}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+              className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
             >
               <option value="">Select tenure</option>
               <option value="6">6 month</option>
@@ -298,14 +296,14 @@ function LoanApply() {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">
+            <label className="block text-base mb-2">
               Total monthly installments of all existing loans
             </label>
             <select
               name="existing_loan_tenure_month"
               value={formData.existing_loan_tenure_month}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+              className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
             >
               <option value="">Select</option>
               <option value="0">No existing loan</option>
@@ -318,38 +316,34 @@ function LoanApply() {
             </select>
           </div>
 
-          <div className="md:col-span-2 flex items-start gap-3 mt-4">
-            <input
-              type="checkbox"
-              className="mt-1 accent-red-600"
-            />
-            <p className="text-sm text-gray-600 leading-relaxed">
+          <div className="md:col-span-2 flex items-start gap-4 mt-6">
+            <input type="checkbox" className="mt-1 accent-red-600 w-5 h-5" />
+            <p className="text-base text-gray-600 leading-relaxed">
               I/we do hereby confirm that all information mentioned above is true.
             </p>
           </div>
 
-
           {message && (
             <div
-              className={`md:col-span-2 px-4 py- rounded-md text-sm
-                ${isSuccess ? " text-green-600" : " text-red-700"}
-              `}
+              className={`md:col-span-2 text-base ${isSuccess ? "text-green-600" : "text-red-700"
+                }`}
             >
               {message}
             </div>
           )}
 
-
-          <div className="md:col-span-2 mt-4">
+          <div className="md:col-span-2 mt-6">
             <button
               type="submit"
-              className="relative overflow-hidden bg-red-600 text-white px-8 py-3 rounded-md transition group"
+              className="relative overflow-hidden bg-red-600 text-white px-12 py-4 text-lg rounded-md transition group"
             >
               <span className="absolute inset-0 bg-[#000080] -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
               <span className="relative z-10">Submit Now</span>
             </button>
           </div>
         </form>
+
+
       </section>
     </div>
   );

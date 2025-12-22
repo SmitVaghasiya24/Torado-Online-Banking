@@ -75,6 +75,7 @@ function Customers() {
                 {testimonials.map((t, i) => (
                     <SwiperSlide key={i}>
                         <FolderCard
+                            headerHeight={50}
                             bgColor="white"
                             borderColor="#e5e7eb"
                             className="rounded-2xl p-6 h-80 sm:h-[265px]"

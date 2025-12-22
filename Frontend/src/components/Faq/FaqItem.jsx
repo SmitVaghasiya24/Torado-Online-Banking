@@ -20,7 +20,7 @@ export default function FaqItem({ faq, isOpen, onToggle }) {
             className={`
                 border rounded-xl px-5 py-4
                 transition-colors duration-300
-                ${isOpen ? "border-blue-600" : "border-gray-200"}
+                ${isOpen ? "border-black" : "border-gray-200"}
             `}
         >
             <button
@@ -35,7 +35,7 @@ export default function FaqItem({ faq, isOpen, onToggle }) {
                 <FiChevronDown
                     className={`
                         text-xl transition-transform duration-300
-                        ${isOpen ? "rotate-180 text-blue-600" : "text-gray-500"}
+                        ${isOpen ? "rotate-180 text-black" : "text-gray-500"}
                     `}
                 />
             </button>

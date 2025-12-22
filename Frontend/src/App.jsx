@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import './App.css'
+import TopScroll from './components/TopScroll'
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Contact from "./pages/Contacat";
@@ -23,12 +24,16 @@ import CaseStudyDetails from "./pages/page/CaseStudyDetails";
 import PersonalLoan from "./pages/PersonalLoan";
 import LoanApply from "./pages/LoanApply";
 import OpenAccount from "./pages/OpenAccount";
-import MortgageApply from "./pages/mortgage/MortgageApply";
+import MortgageApply from "./pages/mortgage/ApplyMortgage";
+import ExploreMortgage from "./pages/mortgage/ExploreMortgage";
+import RateMortgage from "./pages/mortgage/RateMortgage";
+import CalculatorMortgage from "./pages/mortgage/CalculatorMortgage";
 
 function App() {
   return (
     <BrowserRouter>
       <Toaster position="top-right" />
+      <TopScroll/>
 
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -64,6 +69,9 @@ function App() {
 
 
           <Route path="mortgage-apply" element={<MortgageApply />} />
+          <Route path="mortgage-explore" element={<ExploreMortgage />} />
+          <Route path="mortgage-rate" element={<RateMortgage />} />
+          <Route path="mortgage-calculator" element={<CalculatorMortgage />} />
         </Route>
       </Routes>
     </BrowserRouter>

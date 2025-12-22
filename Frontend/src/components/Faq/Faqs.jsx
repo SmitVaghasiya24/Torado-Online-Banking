@@ -73,11 +73,24 @@ export default function Faqs({
     const leftFaqs = faqs.filter((_, i) => i % 2 === 0);
     const rightFaqs = faqs.filter((_, i) => i % 2 !== 0);
 
+    const faqTitles = {
+        personal: "Personal Loan FAQs",
+        mortgage: "Mortgage FAQs",
+        creditCard: "Credit Card FAQs",
+        autoLoan: "Auto Loan FAQs",
+        homeLoan: "Home Loan FAQs",
+    };
+
+    const headingText = showCategories
+        ? "Frequently asked questions"
+        : faqTitles[faqType] || "FAQs";
+
+
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
 
             <h1 className="text-center text-2xl sm:text-3xl md:text-5xl font-semibold mb-8 sm:mb-12">
-                {showCategories ? "Frequently asked questions" : "Personal Loan FAQs"}
+                {headingText}
             </h1>
 
 

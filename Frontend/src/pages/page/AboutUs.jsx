@@ -50,6 +50,34 @@ const testimonials = [
     },
 ];
 
+
+const steps = [
+    {
+        no: "01",
+        title: "User-friendly interface",
+        desc:
+            "Start by getting pre-approved for a mortgage, which involves providing the necessary financial information to a lender.",
+    },
+    {
+        no: "02",
+        title: "Account management",
+        desc:
+            "Once you find a suitable lender, you'll complete a mortgage application and provide documents such as proof of income.",
+    },
+    {
+        no: "03",
+        title: "Mobile banking Apps",
+        desc:
+            "The lender will review your application, verify the provided information, and assess your creditworthiness and the property’s value.",
+    },
+    {
+        no: "04",
+        title: "Enhanced security features",
+        desc:
+            "If approved, the lender will provide a mortgage offer outlining the terms, interest rate, loan amount, and any conditions.",
+    },
+];
+
 function AboutUs() {
     const [members, setMembers] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -162,6 +190,80 @@ function AboutUs() {
                 </div>
             </section>
 
+
+
+            <section className="relative bg-linear-to-br from-gray-50 to-indigo-50 py-16 sm:py-20">
+                <div className="container mx-auto px-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+
+                        <div>
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4 leading-tight">
+                                Easy online banking
+                            </h2>
+
+                            <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-xl mb-8">
+                                Easy online banking refers to the convenience and user-friendly nature of
+                                banking services accessible through online platforms.
+                            </p>
+
+
+                            <div className="space-y-6">
+                                {steps.map((step, index) => (
+                                    <div
+                                        key={index}
+                                        className="flex gap-6 pb-6 border-b last:border-b-0 border-gray-200"
+                                    >
+                                        <span className="text-red-600 text-lg font-semibold">
+                                            {step.no}
+                                        </span>
+
+                                        <div>
+                                            <h4 className="text-lg font-semibold mb-2">
+                                                {step.title}
+                                            </h4>
+                                            <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                                                {step.desc}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="relative flex justify-center lg:justify-end mb-16 md:mb-0">
+                            <div className="relative w-full max-w-sm sm:max-w-md">
+
+                                <img
+                                    src="/page/img-1.webp"
+                                    alt=""
+                                    className="rounded-2xl shadow-lg w-full"
+                                />
+
+                                <img
+                                    src="/page/img-2.webp"
+                                    alt=""
+                                    className="
+        rounded-2xl 
+        shadow-xl 
+        w-4/5 sm:w-5/6
+        absolute
+        -bottom-20 sm:-bottom-28 md:-bottom-40 lg:-bottom-56
+        left-1/2 sm:left-1/6
+        -translate-x-1/2
+        bg-white 
+        border-8 
+        border-white
+      "
+                                />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <Subscribe />
+
             <section className="container mx-auto px-4 py-20 lg:py-28">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14 items-start">
                     <div className="lg:col-span-2">
@@ -237,7 +339,7 @@ function AboutUs() {
                 </div>
             </section>
 
-            <Subscribe />
+
 
             <section className="container mx-auto px-4 py-20">
                 <h2 className="text-3xl sm:text-4xl font-semibold text-center mb-14">
@@ -271,7 +373,7 @@ function AboutUs() {
             </section>
 
             <Download />
-            
+
         </div>
     );
 }

@@ -107,49 +107,48 @@ function OpenAccount() {
 
                 <form
                     onSubmit={handleSubmit}
-                    className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6"
+                    className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 max-w-6xl mx-auto"
                 >
-
                     <div className="md:col-span-2">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div>
-                                <label className="block text-sm mb-1">First name</label>
+                                <label className="block text-base mb-2">First name</label>
                                 <input
                                     name="first_name"
                                     value={formData.first_name}
                                     required
                                     onChange={handleChange}
-                                    className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                                    className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-sm mb-1">Middle name</label>
+                                <label className="block text-base mb-2">Middle name</label>
                                 <input
                                     name="middle_name"
                                     value={formData.middle_name}
                                     onChange={handleChange}
-                                    className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                                    className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-sm mb-1">Last name</label>
+                                <label className="block text-base mb-2">Last name</label>
                                 <input
                                     name="last_name"
                                     value={formData.last_name}
                                     required
                                     onChange={handleChange}
-                                    className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                                    className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                                 />
                             </div>
                         </div>
                     </div>
 
                     <div className="md:col-span-2">
-                        <label className="block text-sm mb-2">Taxpayer ID</label>
-                        <div className="flex gap-6 text-sm">
-                            <label className="flex items-center gap-2">
+                        <label className="block text-base mb-3">Taxpayer ID</label>
+                        <div className="flex gap-8 text-base">
+                            <label className="flex items-center gap-3">
                                 <input
                                     type="radio"
                                     name="taxpayer_type"
@@ -160,7 +159,7 @@ function OpenAccount() {
                                 Social security number
                             </label>
 
-                            <label className="flex items-center gap-2">
+                            <label className="flex items-center gap-3">
                                 <input
                                     type="radio"
                                     name="taxpayer_type"
@@ -174,7 +173,7 @@ function OpenAccount() {
                     </div>
 
                     <div className="md:col-span-2">
-                        <label className="block text-sm mb-1">
+                        <label className="block text-base mb-2">
                             {formData.taxpayer_type === "ssn"
                                 ? "Social Security Number"
                                 : "Individual Tax Identification Number"}
@@ -184,17 +183,17 @@ function OpenAccount() {
                             value={formData.taxpayer_number}
                             required
                             onChange={handleChange}
-                            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                            className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm mb-1">ID type</label>
+                        <label className="block text-base mb-2">ID type</label>
                         <select
                             name="id_type"
                             value={formData.id_type}
                             onChange={handleChange}
-                            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                            className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                         >
                             <option value="business">Business</option>
                             <option value="passport">Passport</option>
@@ -203,23 +202,23 @@ function OpenAccount() {
                     </div>
 
                     <div>
-                        <label className="block text-sm mb-1">ID number</label>
+                        <label className="block text-base mb-2">ID number</label>
                         <input
                             name="id_number"
                             value={formData.id_number}
                             required
                             onChange={handleChange}
-                            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                            className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm mb-1">State issue</label>
+                        <label className="block text-base mb-2">State issue</label>
                         <select
                             name="state_of_issue"
                             value={formData.state_of_issue}
                             onChange={handleChange}
-                            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                            className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                         >
                             <option value="Florida">Florida</option>
                             <option value="California">California</option>
@@ -231,37 +230,37 @@ function OpenAccount() {
                         </select>
                     </div>
 
-
                     <div>
-                        <label className="block text-sm mb-1">Expiration date</label>
+                        <label className="block text-base mb-2">Expiration date</label>
                         <input
                             type="date"
                             name="id_expiration_date"
                             value={formData.id_expiration_date}
                             required
                             onChange={handleChange}
-                            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                            className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm mb-1">Date of birth</label>
+                        <label className="block text-base mb-2">Date of birth</label>
                         <input
                             type="date"
                             name="date_of_birth"
                             value={formData.date_of_birth}
                             required
                             onChange={handleChange}
-                            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                            className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                         />
                     </div>
+
                     <div>
-                        <label className="block text-sm mb-1">Citizenship</label>
+                        <label className="block text-base mb-2">Citizenship</label>
                         <select
                             name="citizenship"
                             value={formData.citizenship}
                             onChange={handleChange}
-                            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                            className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                         >
                             <option value="Florida">Florida</option>
                             <option value="United States">United States</option>
@@ -273,57 +272,56 @@ function OpenAccount() {
                         </select>
                     </div>
 
-
                     <div>
-                        <label className="block text-sm mb-1">Email Address</label>
+                        <label className="block text-base mb-2">Email Address</label>
                         <input
                             name="email"
                             value={formData.email}
                             required
                             onChange={handleChange}
-                            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                            className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm mb-1">Phone Number</label>
+                        <label className="block text-base mb-2">Phone Number</label>
                         <input
                             name="phone_number"
                             value={formData.phone_number}
                             required
                             onChange={handleChange}
-                            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                            className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm mb-1">Home address 01</label>
+                        <label className="block text-base mb-2">Home address 01</label>
                         <input
                             name="home_address_1"
                             value={formData.home_address_1}
                             required
                             onChange={handleChange}
-                            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                            className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm mb-1">Home address 02 (optional)</label>
+                        <label className="block text-base mb-2">Home address 02 (optional)</label>
                         <input
                             name="home_address_2"
                             value={formData.home_address_2}
                             onChange={handleChange}
-                            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                            className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm mb-1">City</label>
+                        <label className="block text-base mb-2">City</label>
                         <select
                             name="city"
                             value={formData.city}
                             onChange={handleChange}
-                            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                            className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                         >
                             <option value="Florida">Florida</option>
                             <option value="Miami">Miami</option>
@@ -337,12 +335,12 @@ function OpenAccount() {
                     </div>
 
                     <div>
-                        <label className="block text-sm mb-1">State</label>
+                        <label className="block text-base mb-2">State</label>
                         <select
                             name="state"
                             value={formData.state}
                             onChange={handleChange}
-                            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                            className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                         >
                             <option value="Florida">Florida</option>
                             <option value="California">California</option>
@@ -356,61 +354,60 @@ function OpenAccount() {
                     </div>
 
                     <div>
-                        <label className="block text-sm mb-1">Zip code</label>
+                        <label className="block text-base mb-2">Zip code</label>
                         <input
                             name="zip_code"
                             value={formData.zip_code}
                             required
                             onChange={handleChange}
-                            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                            className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm mb-1">Profession</label>
+                        <label className="block text-base mb-2">Profession</label>
                         <input
                             name="profession"
                             value={formData.profession}
                             required
                             onChange={handleChange}
-                            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
+                            className="w-full border border-gray-300 rounded-md px-5 py-3 text-base focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-200 transition"
                         />
                     </div>
-                    <div className="md:col-span-2 flex items-start gap-3 text-sm text-gray-600">
+
+                    <div className="md:col-span-2 flex items-start gap-4 text-base text-gray-600 mt-4">
                         <input
                             type="checkbox"
                             name="terms_accepted"
                             checked={formData.terms_accepted}
                             required
                             onChange={handleChange}
-                            className="accent-red-600 mt-1"
+                            className="accent-red-600 mt-1 w-5 h-5"
                         />
                         <p>
                             By clicking this checkbox, I agree to the all terms and conditions
                         </p>
                     </div>
 
-
                     {message && (
-                        <div className={`md:col-span-2 text-sm ${isSuccess ? "text-green-600" : "text-red-600"}`}>
+                        <div className={`md:col-span-2 text-base ${isSuccess ? "text-green-600" : "text-red-600"}`}>
                             {message}
                         </div>
                     )}
-                    <div className="md:col-span-2">
-                        <button
-                            className="relative overflow-hidden bg-[#E30012] text-white px-6 py-3 rounded group"
-                        >
-                            <span
-                                className="absolute inset-0 bg-[#000080] -translate-y-full group-hover:translate-y-0 transition-transform duration-300"
-                            ></span>
 
+                    <div className="md:col-span-2 mt-4">
+                        <button
+                            className="relative overflow-hidden bg-[#E30012] text-white px-10 py-4 text-lg rounded group"
+                        >
+                            <span className="absolute inset-0 bg-[#000080] -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
                             <span className="relative z-10">
                                 Open account
                             </span>
                         </button>
                     </div>
-
                 </form>
+
+
             </section>
         </>
     );
