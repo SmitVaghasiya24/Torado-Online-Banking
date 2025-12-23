@@ -32,13 +32,13 @@ function LatestNews() {
         <section className="relative overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[520px]">
 
-                <div className=" bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white">
+                <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white">
                     <div className="wrapper relative flex items-center px-6 sm:px-26 py-45">
                         <div className="absolute inset-0 flex items-center justify-center opacity-20">
                             <div className="w-96 h-96 bg-white rotate-45"></div>
                         </div>
 
-                        <div className=" relative max-w-lg">
+                        <div className="relative max-w-lg">
                             <h2 className="text-4xl font-semibold leading-tight mb-6">
                                 Latest IRA <br /> banking news
                             </h2>
@@ -49,11 +49,12 @@ function LatestNews() {
                                 pulvinar pretium.
                             </p>
 
+                            <div className="latest-news-pagination"></div>
                         </div>
                     </div>
                 </div>
 
-                <div className=" px-6 sm:px-12 py-16 relative z-10 lg:-ml-52 rounded-2xl shadow-xl">
+                <div className="px-6 sm:px-12 py-16 relative z-10 lg:-ml-52 rounded-2xl shadow-xl">
                     <Swiper
                         modules={[Autoplay, Pagination]}
                         spaceBetween={30}
@@ -62,10 +63,14 @@ function LatestNews() {
                             delay: 3500,
                             disableOnInteraction: false,
                         }}
-                        pagination={{ clickable: true }}
+                        pagination={{
+                            el: ".latest-news-pagination",
+                            clickable: true,
+                        }}
+
                         breakpoints={{
                             768: { slidesPerView: 1 },
-                            1024: { slidesPerView: 2 },
+                            1024: { slidesPerView: 2.5 },
                         }}
                     >
                         {news.map((item) => (
@@ -74,7 +79,7 @@ function LatestNews() {
                                     onClick={() =>
                                         navigate(`/pages/news/${item.slug}`)
                                     }
-                                    className="cursor-pointer bg-white rounded-2xl overflow-hidden border hover:shadow-lg transition"
+                                    className="cursor-pointer bg-white rounded-2xl overflow-hidden border border-gray-200  transition"
                                 >
                                     <div className="relative">
                                         <img
@@ -97,8 +102,7 @@ function LatestNews() {
 
                                     <div className="p-6">
                                         <p className="text-sm text-gray-500 mb-2">
-                                            By: {item.author} | (
-                                            {item.comments_count}) Comment
+                                            By: {item.author} | ({item.comments_count}) Comment
                                         </p>
 
                                         <h3 className="text-xl font-semibold mb-6 leading-snug">
@@ -114,6 +118,7 @@ function LatestNews() {
                         ))}
                     </Swiper>
                 </div>
+
             </div>
         </section>
     );

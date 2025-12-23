@@ -172,7 +172,7 @@ function CalculatorMortgage() {
             </section>
 
 
-            <Faqs showCategories={false} faqType="mortgage" />
+            <Faqs showCategories={false} faqType="mortgageCalculator" />
 
             <Subscribe />
 

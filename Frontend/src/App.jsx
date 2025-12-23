@@ -28,6 +28,11 @@ import MortgageApply from "./pages/mortgage/ApplyMortgage";
 import ExploreMortgage from "./pages/mortgage/ExploreMortgage";
 import RateMortgage from "./pages/mortgage/RateMortgage";
 import CalculatorMortgage from "./pages/mortgage/CalculatorMortgage";
+import OfferMortgage from "./pages/mortgage/OfferMortgage";
+import BankingOverview   from "./pages/banking/BankingOverview";
+import CheckingAccount from "./pages/banking/CheckingAccount";
+import SavingAccount from "./pages/banking/SavingAccount";
+import CertificateDeposite from "./pages/banking/CertificateDeposite";
 
 function App() {
   return (
@@ -72,6 +77,13 @@ function App() {
           <Route path="mortgage-explore" element={<ExploreMortgage />} />
           <Route path="mortgage-rate" element={<RateMortgage />} />
           <Route path="mortgage-calculator" element={<CalculatorMortgage />} />
+          <Route path="mortgage-offers" element={<OfferMortgage />} />
+
+          <Route path="banking-overview" element={<BankingOverview />} />
+          <Route path="banking-checking" element={<CheckingAccount />} />
+          <Route path="banking-saving" element={<SavingAccount />} />
+          <Route path="banking-certificates" element={<CertificateDeposite />} />
+
         </Route>
       </Routes>
     </BrowserRouter>

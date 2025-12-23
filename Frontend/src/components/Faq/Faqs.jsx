@@ -76,6 +76,10 @@ export default function Faqs({
     const faqTitles = {
         personal: "Personal Loan FAQs",
         mortgage: "Mortgage FAQs",
+        mortgageOffer: "Mortgage Offers FAQs",
+        mortgageCalculator: "Mortgage Calculator FAQs",
+        checkingaccount: "Checking account FAQs",
+        savingaccount: "Saving account FAQs",
         creditCard: "Credit Card FAQs",
         autoLoan: "Auto Loan FAQs",
         homeLoan: "Home Loan FAQs",

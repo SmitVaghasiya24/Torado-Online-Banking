@@ -3,7 +3,7 @@ import React from 'react'
 function Download() {
     return (
         <div>
-            <section className="max-w-7xl mx-auto px-4 py-20">
+            <section className="max-w-7xl mx-auto px-4 py-16">
                 <div
                     className="
                     relative overflow-hidden rounded-3xl
