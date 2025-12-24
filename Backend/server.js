@@ -21,6 +21,7 @@ import loanApplicationRoutes from './routes/loanApplicationRoutes.js';
 import openaccountRoutes from './routes/openaccountRoutes.js';
 import mortgageapplyRoutes from './routes/mortgageapplyRoutes.js';
 import mortgageRateRoutes from './routes/mortgageRateRoutes.js';
+import creditCardCategoryRoutes from './routes/creditCardCategoryRoutes.js';
 
 
 import dotenv from 'dotenv';
@@ -46,6 +47,7 @@ app.use('/api', loanApplicationRoutes);
 app.use('/api', openaccountRoutes);
 app.use('/api', mortgageapplyRoutes);
 app.use('/api', mortgageRateRoutes);
+app.use('/api', creditCardCategoryRoutes);
 
 
 

@@ -57,7 +57,7 @@ function Navbar() {
 
                     <button
                         onClick={handleClick}
-                        className="flex items-center gap-2"
+                        className="flex cursor-pointer items-center gap-2"
                     >
                         <FiUser size={18} />
                         My Account
@@ -65,7 +65,7 @@ function Navbar() {
 
                     <button
                         onClick={() => navigate('/open-account')}
-                        className="relative overflow-hidden bg-[#171717] text-white px-4 py-2 rounded group">
+                        className="relative cursor-pointer overflow-hidden bg-[#171717] text-white px-4 py-2 rounded group">
                         <span className="absolute inset-0 bg-[#E30012] -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
                         <span className="relative z-10">Open An Account</span>
                     </button>

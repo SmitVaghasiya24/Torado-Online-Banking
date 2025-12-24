@@ -20,7 +20,7 @@ const getMulterUploader = (folderName = '') => {
     });
 
     const fileFilter = (req, file, cb) => {
-        const allowedTypes = /mp4|jpeg|jpg|png|webp/;
+        const allowedTypes = /mp4|svg|jpeg|jpg|png|webp/;
         const ext = allowedTypes.test(path.extname(file.originalname).toLowerCase());
         const mime = allowedTypes.test(file.mimetype);
         if (ext && mime) {

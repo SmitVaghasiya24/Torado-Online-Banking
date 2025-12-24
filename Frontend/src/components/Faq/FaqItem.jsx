@@ -26,15 +26,15 @@ export default function FaqItem({ faq, isOpen, onToggle }) {
             <button
                 onClick={onToggle}
                 aria-expanded={isOpen}
-                className="w-full flex justify-between items-center text-left gap-4"
+                className="w-full flex cursor-pointer justify-between items-center text-left gap-4"
             >
-                <h3 className="font-medium text-lg">
+                <h3 className="font-medium cursor-pointer text-lg">
                     {faq.question}
                 </h3>
 
                 <FiChevronDown
                     className={`
-                        text-xl transition-transform duration-300
+                        text-xl  cursor-pointer transition-transform duration-300
                         ${isOpen ? "rotate-180 text-black" : "text-gray-500"}
                     `}
                 />

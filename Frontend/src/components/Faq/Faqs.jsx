@@ -80,6 +80,7 @@ export default function Faqs({
         mortgageCalculator: "Mortgage Calculator FAQs",
         checkingaccount: "Checking account FAQs",
         savingaccount: "Saving account FAQs",
+        bankingiras: "Banking IRA FAQs",
         creditCard: "Credit Card FAQs",
         autoLoan: "Auto Loan FAQs",
         homeLoan: "Home Loan FAQs",
@@ -102,7 +103,7 @@ export default function Faqs({
                 <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14">
                     <button
                         onClick={() => fetchCategoryFaq("all")}
-                        className={`px-4 sm:px-5 py-2 rounded-lg border transition text-sm sm:text-base
+                        className={`px-4 cursor-pointer sm:px-5 py-2 rounded-lg border transition text-sm sm:text-base
                             ${activeCategory === "all"
                                 ? "bg-red-600 text-white"
                                 : "bg-white text-gray-700"
@@ -115,7 +116,7 @@ export default function Faqs({
                         <button
                             key={cat.id}
                             onClick={() => fetchCategoryFaq(cat.id)}
-                            className={`px-4 sm:px-5 py-2 rounded-lg border transition text-sm sm:text-base
+                            className={`px-4 cursor-pointer sm:px-5 py-2 rounded-lg border transition text-sm sm:text-base
                                 ${activeCategory === cat.id
                                     ? "bg-red-600 text-white"
                                     : "bg-white text-gray-700"

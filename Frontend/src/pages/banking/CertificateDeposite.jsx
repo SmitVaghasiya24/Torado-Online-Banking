@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import BreadcrumbHero from "../../components/Breadcrumb";
 import { FiTrendingUp, FiShield, FiSlash, FiCheck, FiArrowRight } from "react-icons/fi";
+import Download from "../../components/Download";
+import Faqs from "../../components/Faq/Faqs";
 
 const cards = [
     {
@@ -69,6 +71,7 @@ function CertificateDeposite() {
         { months: "36 Months", rate: "4.30%" },
         { months: "60 Months", rate: "4.00%" },
     ];
+
     return (
         <div>
             <BreadcrumbHero
@@ -155,7 +158,7 @@ function CertificateDeposite() {
                         {plans.map((plan, index) => (
                             <div
                                 key={index}
-                                className="bg-gray-50 border border-gray-200 rounded-2xl px-8 py-3 text-center"
+                                className="bg-gray-50 border border-gray-200 rounded-2xl px-8 py-8 text-center"
                             >
                                 <p className="text-lg font-semibold ">
                                     {plan.months}
@@ -201,15 +204,18 @@ function CertificateDeposite() {
 
                             <div className="space-y-6">
                                 {steps.map((step, index) => (
-                                    <div
-                                        key={index}
-                                        className="flex gap-6 pb-6 border-b last:border-b-0 border-gray-200"
-                                    >
-                                        <span className="text-red-600 text-lg font-semibold">
+                                    <div key={index} className="relative flex gap-6">
+
+                                        <span className="text-red-600 text-lg font-semibold shrink-0">
                                             {step.no}
                                         </span>
 
-                                        <div>
+                                        <div
+                                            className={`relative w-full pb-6 ${index !== steps.length - 1
+                                                    ? "after:absolute after:left-0 after:bottom-0 after:w-full after:h-px after:bg-gray-200"
+                                                    : ""
+                                                }`}
+                                        >
                                             <h4 className="text-lg font-semibold mb-2">
                                                 {step.title}
                                             </h4>
@@ -217,9 +223,11 @@ function CertificateDeposite() {
                                                 {step.desc}
                                             </p>
                                         </div>
+
                                     </div>
                                 ))}
                             </div>
+
                         </div>
 
                         <div className="relative flex justify-center lg:justify-end mb-16 md:mb-0">
@@ -232,16 +240,62 @@ function CertificateDeposite() {
                                 />
 
                                 <img
-                                        src="/banking/cod-2.webp"
-                                        alt=""
-                                        className=" rounded-2xl  shadow-xl  w-4/5 sm:w-5/6 lg:h-11/12 absolute -bottom-20 sm:-bottom-28 md:-bottom-40 lg:-bottom-56 left-1/2 sm:left-1/6 -translate-x-1/2  bg-white  border-8   border-white "
-                                    />
+                                    src="/banking/cod-2.webp"
+                                    alt=""
+                                    className=" rounded-2xl  shadow-xl  w-4/5 sm:w-5/6 lg:h-11/12 absolute -bottom-20 sm:-bottom-28 md:-bottom-40 lg:-bottom-56 left-1/2 sm:left-1/6 -translate-x-1/2  bg-white  border-8   border-white "
+                                />
                             </div>
                         </div>
 
                     </div>
                 </div>
             </section>
+
+            <section className="py-16 sm:py-20">
+                <div className="container mx-auto px-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+                        <div className="flex justify-center lg:justify-start">
+                            <img
+                                src="/banking/simple-1.webp"
+                                alt="Guaranteed returns"
+                                className="w-full max-w-md sm:max-w-lg rounded-2xl object-cover shadow-md"
+                                loading="lazy"
+                            />
+                        </div>
+
+                        <div>
+                            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight mb-6">
+                                Torado bank offers high
+                                rates of guaranteed returns
+                                fully secured
+                            </h2>
+
+                            <p className="text-gray-600 leading-relaxed mb-5 max-w-xl">
+                                Banks offer CDs with fixed interest rates and guaranteed returns.
+                                These are low-risk investments where you deposit a specific amount
+                                for a fixed term, and upon maturity, you receive your principal
+                                amount along with the accrued interest.
+                            </p>
+
+                            <p className="text-gray-600 leading-relaxed max-w-xl">
+                                Some banks offer high-yield savings accounts that provide competitive
+                                interest rates compared to traditional savings accounts. These
+                                accounts allow you to earn higher returns on your deposited funds
+                                while still providing the security of a bank deposit. Banks sometimes
+                                offer fixed-rate annuities, which are insurance contracts that
+                                guarantee a fixed rate of return over a specific period.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <Download />
+
+            <Faqs showCategories={false} faqType="savingaccount" />
+
         </div>
     )
 }

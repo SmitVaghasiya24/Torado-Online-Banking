@@ -161,15 +161,12 @@ function ExploreMortgage() {
 
                             <div className="space-y-6">
                                 {steps.map((step, index) => (
-                                    <div
-                                        key={index}
-                                        className="flex gap-6 pb-6 border-b last:border-b-0 border-gray-200"
-                                    >
-                                        <span className="text-red-600 text-lg font-semibold">
+                                    <div key={index} className="flex gap-6">
+                                        <span className="text-red-600 text-lg font-semibold shrink-0">
                                             {step.no}
                                         </span>
 
-                                        <div>
+                                        <div className={`w-full pb-6 ${index !== steps.length - 1 ? "border-b border-gray-200" : ""}`}>
                                             <h4 className="text-lg font-semibold mb-2">
                                                 {step.title}
                                             </h4>
@@ -180,6 +177,7 @@ function ExploreMortgage() {
                                     </div>
                                 ))}
                             </div>
+
                         </div>
 
                         <div className="relative flex justify-center lg:justify-end mb-16 md:mb-0">

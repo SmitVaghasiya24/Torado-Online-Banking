@@ -253,8 +253,8 @@ function CheckingAccount() {
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-20">
                         <div>
-                            <h2 className="text-4xl sm:text-5xl font-semibold leading-tight mb-6">
-                                Banking account <br /> opening system
+                            <h2 className="text-4xl sm:text-5xl font-semibold max-w-lg leading-tight mb-6">
+                                Banking account opening system
                             </h2>
 
                             <p className="text-gray-600 max-w-xl leading-relaxed">
@@ -325,7 +325,7 @@ function CheckingAccount() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-stretch">
                     <div className="flex flex-col justify-center">
                         <h2 className="text-4xl sm:text-5xl font-semibold leading-tight mb-6">
-                            Why you choose the <br /> Torado accounts
+                            Why you choose the Torado accounts
                         </h2>
 
                         <p className="text-gray-600 max-w-xl mb-10">
@@ -337,11 +337,11 @@ function CheckingAccount() {
                             {steps.map((item, index) => (
                                 <div key={index}>
                                     <div className="flex gap-6">
-                                        <span className="text-red-600 text-4xl font-semibold">
+                                        <span className="text-red-600 text-4xl font-semibold shrink-0">
                                             {item.no}
                                         </span>
 
-                                        <div>
+                                        <div className="w-full">
                                             <h4 className="font-semibold text-lg mb-2">
                                                 {item.title}
                                             </h4>
@@ -352,11 +352,14 @@ function CheckingAccount() {
                                     </div>
 
                                     {index !== steps.length - 1 && (
-                                        <hr className="mt-8 border-gray-200" />
+                                        <div className="ml-18 mt-8">
+                                            <hr className="border-gray-200" />
+                                        </div>
                                     )}
                                 </div>
                             ))}
                         </div>
+
 
                         <button
                             onClick={() => navigate("/open-account")}

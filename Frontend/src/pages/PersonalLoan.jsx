@@ -128,8 +128,8 @@ function PersonalLoan() {
                     </div>
 
                     <div>
-                        <h2 className="text-3xl sm:text-4xl font-semibold leading-tight mb-6">
-                            Personal loans have several <br /> key features
+                        <h2 className="text-3xl sm:text-4xl font-semibold max-w-md leading-tight mb-6">
+                            Personal loans have several key features
                         </h2>
 
                         <p className="text-red-600 text-lg mb-6">
@@ -137,60 +137,58 @@ function PersonalLoan() {
                             attractive to borrowers.
                         </p>
 
-                        <div className="flex gap-6 pb-8 border-b border-gray-200 mb-8">
-                            <span className="text-red-600 text-2xl font-semibold">
+                        <div className="flex gap-6 mb-8">
+                            <span className="text-red-600 text-2xl font-semibold shrink-0">
                                 01
                             </span>
 
-                            <div>
+                            <div className="w-full pb-8 border-b border-gray-200">
                                 <h4 className="text-xl font-semibold mb-2">
                                     Flexible terms
                                 </h4>
                                 <p className="text-gray-700 leading-relaxed">
-                                    Laculis ultrices egestas purus eget facilisis justo
-                                    dignissim. Eget morbi condimentum lobortis in vulputate
-                                    consequat. Id euismod consectetur amet elit habitasse
-                                    accumsan tristique.
+                                    Laculis ultrices egestas purus eget facilisis justo dignissim.
+                                    Eget morbi condimentum lobortis in vulputate consequat. Id euismod
+                                    consectetur amet elit habitasse accumsan tristique.
                                 </p>
                             </div>
                         </div>
 
-                        <div className="flex gap-6 pb-8 border-b border-gray-200 mb-8">
-                            <span className="text-red-600 text-2xl font-semibold">
+                        <div className="flex gap-6 mb-8">
+                            <span className="text-red-600 text-2xl font-semibold shrink-0">
                                 02
                             </span>
 
-                            <div>
+                            <div className="w-full pb-8 border-b border-gray-200">
                                 <h4 className="text-xl font-semibold mb-2">
                                     No early payment penalties
                                 </h4>
                                 <p className="text-gray-700 leading-relaxed">
                                     Eget morbi condimentum lobortis in vulputate consequat.
-                                    Id euismod consectetur amet elit habitasse accumsan
-                                    tristique. A non est adipiscing urna bibendum consequat
-                                    viverra.
+                                    Id euismod consectetur amet elit habitasse accumsan tristique.
+                                    A non est adipiscing urna bibendum consequat viverra.
                                 </p>
                             </div>
                         </div>
 
                         <div className="flex gap-6">
-                            <span className="text-red-600 text-2xl font-semibold">
+                            <span className="text-red-600 text-2xl font-semibold shrink-0">
                                 03
                             </span>
 
-                            <div>
+                            <div className="w-full">
                                 <h4 className="text-xl font-semibold mb-2">
                                     Easy payment options
                                 </h4>
                                 <p className="text-gray-700 leading-relaxed">
-                                    Laculis ultrices egestas purus eget facilisis justo
-                                    dignissim. Eget morbi condimentum lobortis in vulputate
-                                    consequat. Id euismod consectetur amet elit habitasse
-                                    accumsan tristique.
+                                    Laculis ultrices egestas purus eget facilisis justo dignissim.
+                                    Eget morbi condimentum lobortis in vulputate consequat. Id euismod
+                                    consectetur amet elit habitasse accumsan tristique.
                                 </p>
                             </div>
                         </div>
                     </div>
+
 
                 </div>
             </section>
@@ -258,11 +256,11 @@ function PersonalLoan() {
                             Apply for a Personal loan in <br /> easy way
                         </h2>
 
-                        <div className="flex gap-6 pb-8 border-b border-gray-200 mb-8">
-                            <span className="text-red-600 text-2xl font-semibold">
+                        <div className="flex gap-6 mb-8">
+                            <span className="text-red-600 text-2xl font-semibold shrink-0">
                                 01
                             </span>
-                            <div>
+                            <div className="w-full pb-8 border-b border-gray-200">
                                 <h4 className="text-xl font-semibold mb-2">
                                     Decide how much you need
                                 </h4>
@@ -273,11 +271,11 @@ function PersonalLoan() {
                             </div>
                         </div>
 
-                        <div className="flex gap-6 pb-8 border-b border-gray-200 mb-8">
-                            <span className="text-red-600 text-2xl font-semibold">
+                        <div className="flex gap-6 mb-8">
+                            <span className="text-red-600 text-2xl font-semibold shrink-0">
                                 02
                             </span>
-                            <div>
+                            <div className="w-full pb-8 border-b border-gray-200">
                                 <h4 className="text-xl font-semibold mb-2">
                                     Prequalify and compare offers
                                 </h4>
@@ -288,11 +286,11 @@ function PersonalLoan() {
                             </div>
                         </div>
 
-                        <div className="flex gap-6 pb-8 border-b border-gray-200 mb-8">
-                            <span className="text-red-600 text-2xl font-semibold">
+                        <div className="flex gap-6 mb-8">
+                            <span className="text-red-600 text-2xl font-semibold shrink-0">
                                 03
                             </span>
-                            <div>
+                            <div className="w-full pb-8 border-b border-gray-200">
                                 <h4 className="text-xl font-semibold mb-2">
                                     Gather documents and submit the application
                                 </h4>
@@ -304,10 +302,10 @@ function PersonalLoan() {
                         </div>
 
                         <div className="flex gap-6">
-                            <span className="text-red-600 text-2xl font-semibold">
+                            <span className="text-red-600 text-2xl font-semibold shrink-0">
                                 04
                             </span>
-                            <div>
+                            <div className="w-full">
                                 <h4 className="text-xl font-semibold mb-2">
                                     Wait for approval and funding
                                 </h4>
@@ -319,6 +317,7 @@ function PersonalLoan() {
                         </div>
                     </div>
 
+
                     <div className="relative">
                         <img
                             src="/page/img-1.webp"
@@ -329,7 +328,7 @@ function PersonalLoan() {
                         <img
                             src="/page/img-2.webp"
                             alt=""
-                            className="w-4/6 rounded-3xl object-cover absolute -bottom-14 md:-bottom-40 right-2 shadow-xl"
+                            className="w-4/6 rounded-3xl border-8 border-white object-cover absolute -bottom-14 md:-bottom-40 right-2 shadow-xl"
                         />
 
                         <button

@@ -33,6 +33,9 @@ import BankingOverview   from "./pages/banking/BankingOverview";
 import CheckingAccount from "./pages/banking/CheckingAccount";
 import SavingAccount from "./pages/banking/SavingAccount";
 import CertificateDeposite from "./pages/banking/CertificateDeposite";
+import BankingIra from "./pages/banking/BankingIra";
+import SmallBusssiness from "./pages/banking/SmallBusssiness";
+import AtmLocate from "./pages/banking/AtmLocate";
 
 function App() {
   return (
@@ -83,6 +86,9 @@ function App() {
           <Route path="banking-checking" element={<CheckingAccount />} />
           <Route path="banking-saving" element={<SavingAccount />} />
           <Route path="banking-certificates" element={<CertificateDeposite />} />
+          <Route path="banking-iras" element={<BankingIra />} />
+          <Route path="banking-business" element={<SmallBusssiness />} />
+          <Route path="banking-atm-locator" element={<AtmLocate />} />
 
         </Route>
       </Routes>
