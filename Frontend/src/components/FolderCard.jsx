@@ -22,9 +22,9 @@ export default function FolderCard({
             Q 20 ${bottom} 20 ${bottom - 20}
             L 20 ${h + 10}
             Q 20 35 55 35
-            L 180 35
-            L 235 35
-            L 265 ${h}
+            L 285 35
+            L 285 35
+            L 310 ${h}
             L 340 ${h}
             Q 380 ${h} 380 ${h + 35}
             L 380 ${bottom - 20}

@@ -29,19 +29,22 @@ import ExploreMortgage from "./pages/mortgage/ExploreMortgage";
 import RateMortgage from "./pages/mortgage/RateMortgage";
 import CalculatorMortgage from "./pages/mortgage/CalculatorMortgage";
 import OfferMortgage from "./pages/mortgage/OfferMortgage";
-import BankingOverview   from "./pages/banking/BankingOverview";
+import BankingOverview from "./pages/banking/BankingOverview";
 import CheckingAccount from "./pages/banking/CheckingAccount";
 import SavingAccount from "./pages/banking/SavingAccount";
 import CertificateDeposite from "./pages/banking/CertificateDeposite";
 import BankingIra from "./pages/banking/BankingIra";
 import SmallBusssiness from "./pages/banking/SmallBusssiness";
 import AtmLocate from "./pages/banking/AtmLocate";
+import CreditcardOverview from "./pages/CreditCards/CreditcardOverview";
+import CardDetails from "./pages/CreditCards/CardDetails";
+import CreditCardApply from "./pages/CreditCards/CreditCardApply";
 
 function App() {
   return (
     <BrowserRouter>
       <Toaster position="top-right" />
-      <TopScroll/>
+      <TopScroll />
 
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -89,6 +92,10 @@ function App() {
           <Route path="banking-iras" element={<BankingIra />} />
           <Route path="banking-business" element={<SmallBusssiness />} />
           <Route path="banking-atm-locator" element={<AtmLocate />} />
+
+          <Route path="credit-cards-overview" element={<CreditcardOverview />} />
+          <Route path="credit-card-details/:slug" element={<CardDetails />} />
+          <Route path="/credit-card-apply/:slug" element={<CreditCardApply />} />
 
         </Route>
       </Routes>

@@ -113,3 +113,52 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+
+
+.credit-card-pagination .swiper-pagination-bullet {
+  background-color: #E30012;
+  opacity: 0.3;
+  width: 7px;
+  height: 7px;
+  margin: 0 6px !important;
+  transition: all 0.3s ease;
+}
+
+.credit-card-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+  background-color: #E30012;
+  position: relative;
+}
+
+.credit-card-pagination .swiper-pagination-bullet-active::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #E30012;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.float-animation {
+  animation: floatUpDown 4s ease-in-out infinite;
+}

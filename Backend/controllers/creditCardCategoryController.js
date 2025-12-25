@@ -159,7 +159,7 @@ export const updateCreditCardCategory = async (req, res, next) => {
         let icon = oldIcon;
 
         if (req.file) {
-            icon = `${req.protocol}://${req.get("host")}/uploads/credit-card-icons/${req.file.filename}`;
+            icon = `${req.protocol}://${req.get("host")}/uploads/credit-card-category-icons/${req.file.filename}`;
 
             if (oldIcon) {
                 const oldPath = path.join(

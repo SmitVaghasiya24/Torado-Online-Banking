@@ -81,9 +81,7 @@ export default function Faqs({
         checkingaccount: "Checking account FAQs",
         savingaccount: "Saving account FAQs",
         bankingiras: "Banking IRA FAQs",
-        creditCard: "Credit Card FAQs",
-        autoLoan: "Auto Loan FAQs",
-        homeLoan: "Home Loan FAQs",
+        topcreditcardquestions: "Top credit card questions",
     };
 
     const headingText = showCategories
