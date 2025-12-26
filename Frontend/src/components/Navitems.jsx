@@ -6,6 +6,7 @@ import { mortgageMenu } from "../config/mortgageMenu";
 import { personalLoanMenu } from "../config/personalLoanMenu";
 import { pagesMenu } from "../config/pagesMenu";
 import { FiPlus, FiMinus } from "react-icons/fi";
+import { NavLink } from "react-router-dom";
 
 export default function Navitems() {
     const current = window.location.pathname;
@@ -46,7 +47,7 @@ export default function Navitems() {
                         after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-red-400
                         after:w-0 after:transition-all
                         group-hover:after:w-full
-                        ${current.startsWith("/credit-cards") ? "after:w-full text-red-400" : ""}
+                        ${current.startsWith("/credit-cards") ? "after:w-full text-red-600" : ""}
                     `}
                 >
                     Credit Cards+
@@ -58,8 +59,8 @@ export default function Navitems() {
                 {/* DESKTOP DROPDOWN */}
                 <div
                     className="
-                        absolute left-0 top-full mt-1
-                        bg-white shadow-xl rounded-xl p-5 w-72
+                        absolute left-0 top-full mt-1.5
+                        bg-white shadow-xl pt-5 pr-5 pb-5 pl-0 w-72
                         z-50
                         transform transition-all duration-300
                         translate-y-4 opacity-0
@@ -69,15 +70,33 @@ export default function Navitems() {
                         hidden md:block
                     "
                 >
-                    <ul className="flex flex-col gap-3">
-                        {creditCardMenu.map(item => (
-                            <li key={item.link}>
-                                <Link to={item.link} className="text-gray-700 hover:text-blue-600">
+                    <ul className="flex flex-col">
+                        {creditCardMenu.map((item, index) => (
+                            <li
+                                key={item.link}
+                                className={`relative py-3 ${index !== creditCardMenu.length - 1
+                                    ? "after:absolute after:left-6 after:right-0 after:bottom-0 after:border-b after:border-dotted after:border-gray-300"
+                                    : ""
+                                    }`}
+                            >
+                                <NavLink
+                                    to={item.link}
+                                    className={({ isActive }) =>
+                                        `block pl-6
+                                                ${isActive
+                                            ? "text-blue-600 font-medium before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-5 before:w-1 before:bg-red-600"
+                                            : "text-gray-700 hover:text-blue-600"
+                                        }`
+                                    }
+                                >
                                     {item.label}
-                                </Link>
+                                </NavLink>
                             </li>
                         ))}
                     </ul>
+
+
+
                 </div>
 
                 {/* MOBILE LIST */}
@@ -113,23 +132,38 @@ export default function Navitems() {
 
                 <div
                     className="
-                        absolute left-0 top-full mt-1.5
-                        bg-white shadow-xl rounded-xl p-5 w-72
-                        z-50
-                        transform transition-all duration-300
-                        translate-y-4 opacity-0
-                        pointer-events-none
-                        group-hover:pointer-events-auto
-                        group-hover:translate-y-0 group-hover:opacity-100
-                        hidden md:block
-                    "
+        absolute left-0 top-full mt-1.5
+        bg-white shadow-xl pt-5 pr-5 pb-5 pl-0 w-72
+        z-50
+        transform transition-all duration-300
+        translate-y-4 opacity-0
+        pointer-events-none
+        group-hover:pointer-events-auto
+        group-hover:translate-y-0 group-hover:opacity-100
+        hidden md:block
+    "
                 >
-                    <ul className="flex flex-col gap-3">
-                        {bankingMenu.map(item => (
-                            <li key={item.link}>
-                                <Link to={item.link} className="text-gray-700 hover:text-blue-600">
+                    <ul className="flex flex-col">
+                        {bankingMenu.map((item, index) => (
+                            <li
+                                key={item.link}
+                                className={`relative py-3 ${index !== bankingMenu.length - 1
+                                    ? "after:absolute after:left-6 after:right-0 after:bottom-0 after:border-b after:border-dotted after:border-gray-300"
+                                    : ""
+                                    }`}
+                            >
+                                <NavLink
+                                    to={item.link}
+                                    className={({ isActive }) =>
+                                        `block pl-6
+                        ${isActive
+                                            ? "text-blue-600 font-medium before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-5 before:w-1 before:bg-red-600"
+                                            : "text-gray-700 hover:text-blue-600"
+                                        }`
+                                    }
+                                >
                                     {item.label}
-                                </Link>
+                                </NavLink>
                             </li>
                         ))}
                     </ul>
@@ -167,23 +201,38 @@ export default function Navitems() {
 
                 <div
                     className="
-                        absolute left-0 top-full mt-1.5
-                        bg-white shadow-xl rounded-xl p-5 w-80
-                        z-50
-                        transform transition-all duration-300
-                        translate-y-4 opacity-0
-                        pointer-events-none
-                        group-hover:pointer-events-auto
-                        group-hover:translate-y-0 group-hover:opacity-100
-                        hidden md:block
-                    "
+        absolute left-0 top-full mt-1.5
+        bg-white shadow-xl  pt-5 pr-5 pb-5 pl-0 w-80
+        z-50
+        transform transition-all duration-300
+        translate-y-4 opacity-0
+        pointer-events-none
+        group-hover:pointer-events-auto
+        group-hover:translate-y-0 group-hover:opacity-100
+        hidden md:block
+    "
                 >
-                    <ul className="flex flex-col gap-3">
-                        {mortgageMenu.map(item => (
-                            <li key={item.link}>
-                                <Link to={item.link} className="text-gray-700 hover:text-blue-600">
+                    <ul className="flex flex-col">
+                        {mortgageMenu.map((item, index) => (
+                            <li
+                                key={item.link}
+                                className={`relative py-3 ${index !== mortgageMenu.length - 1
+                                    ? "after:absolute after:left-6 after:right-0 after:bottom-0 after:border-b after:border-dotted after:border-gray-300"
+                                    : ""
+                                    }`}
+                            >
+                                <NavLink
+                                    to={item.link}
+                                    className={({ isActive }) =>
+                                        `block pl-6
+                        ${isActive
+                                            ? "text-blue-600 font-medium before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-5 before:w-1 before:bg-red-600"
+                                            : "text-gray-700 hover:text-blue-600"
+                                        }`
+                                    }
+                                >
                                     {item.label}
-                                </Link>
+                                </NavLink>
                             </li>
                         ))}
                     </ul>
@@ -221,28 +270,42 @@ export default function Navitems() {
 
                 <div
                     className="
-                        absolute left-0 top-full mt-1.5
-                        bg-white shadow-xl rounded-xl p-5 w-64
-                        z-50
-                        transform transition-all duration-300
-                        translate-y-4 opacity-0
-                        pointer-events-none
-                        group-hover:pointer-events-auto
-                        group-hover:translate-y-0 group-hover:opacity-100
-                        hidden md:block
-                    "
+        absolute left-0 top-full mt-1.5
+        bg-white shadow-xl pt-5 pr-5 pb-5 pl-0 w-64
+        z-50
+        transform transition-all duration-300
+        translate-y-4 opacity-0
+        pointer-events-none
+        group-hover:pointer-events-auto
+        group-hover:translate-y-0 group-hover:opacity-100
+        hidden md:block
+    "
                 >
-                    <ul className="flex flex-col gap-3">
-                        {personalLoanMenu.map(item => (
-                            <li key={item.link}>
-                                <Link to={item.link} className="text-gray-700 hover:text-blue-600">
+                    <ul className="flex flex-col">
+                        {personalLoanMenu.map((item, index) => (
+                            <li
+                                key={item.link}
+                                className={`relative py-3 ${index !== personalLoanMenu.length - 1
+                                        ? "after:absolute after:left-6 after:right-0 after:bottom-0 after:border-b after:border-dotted after:border-gray-300"
+                                        : ""
+                                    }`}
+                            >
+                                <NavLink
+                                    to={item.link}
+                                    className={({ isActive }) =>
+                                        `block pl-6
+                        ${isActive
+                                            ? "text-blue-600 font-medium before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-5 before:w-1 before:bg-red-600"
+                                            : "text-gray-700 hover:text-blue-600"
+                                        }`
+                                    }
+                                >
                                     {item.label}
-                                </Link>
+                                </NavLink>
                             </li>
                         ))}
                     </ul>
                 </div>
-
                 {open === "loan" && (
                     <ul className="md:hidden ml-4 mt-2 flex flex-col gap-2">
                         {personalLoanMenu.map(item => (
@@ -264,12 +327,11 @@ export default function Navitems() {
                         after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-red-500
                         after:w-0 after:transition-all
                         group-hover:after:w-full
-                        ${
-                            current.startsWith("/pages") ||
+                        ${current.startsWith("/pages") ||
                             current === "/open-account" ||
                             current === "/my-account"
-                                ? "after:w-full text-red-500"
-                                : ""
+                            ? "after:w-full text-red-500"
+                            : ""
                         }
                     `}
                 >
@@ -280,28 +342,45 @@ export default function Navitems() {
                 </div>
 
                 <div
-                    className="
-                        absolute left-0 top-full mt-1.5
-                        bg-white shadow-xl rounded-xl p-5 w-64
-                        z-50
-                        transform transition-all duration-300
-                        translate-y-4 opacity-0
-                        pointer-events-none
-                        group-hover:pointer-events-auto
-                        group-hover:translate-y-0 group-hover:opacity-100
-                        hidden md:block
-                    "
+    className="
+        absolute left-0 top-full mt-1.5
+        bg-white shadow-xl pt-5 pr-5 pb-5 pl-0 w-64
+        z-50
+        transform transition-all duration-300
+        translate-y-4 opacity-0
+        pointer-events-none
+        group-hover:pointer-events-auto
+        group-hover:translate-y-0 group-hover:opacity-100
+        hidden md:block
+    "
+>
+    <ul className="flex flex-col">
+        {pagesMenu.map((item, index) => (
+            <li
+                key={item.link}
+                className={`relative py-3 ${
+                    index !== pagesMenu.length - 1
+                        ? "after:absolute after:left-6 after:right-0 after:bottom-0 after:border-b after:border-dotted after:border-gray-300"
+                        : ""
+                }`}
+            >
+                <NavLink
+                    to={item.link}
+                    className={({ isActive }) =>
+                        `block pl-6
+                        ${
+                            isActive
+                                ? "text-blue-600 font-medium before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-5 before:w-1 before:bg-red-600"
+                                : "text-gray-700 hover:text-blue-600"
+                        }`
+                    }
                 >
-                    <ul className="flex flex-col gap-3">
-                        {pagesMenu.map(item => (
-                            <li key={item.link}>
-                                <Link to={item.link} className="text-gray-700 hover:text-blue-600">
-                                    {item.label}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                    {item.label}
+                </NavLink>
+            </li>
+        ))}
+    </ul>
+</div>
 
                 {open === "pages" && (
                     <ul className="md:hidden ml-4 mt-2 flex flex-col gap-2">

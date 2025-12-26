@@ -23,6 +23,8 @@ import mortgageapplyRoutes from './routes/mortgageapplyRoutes.js';
 import mortgageRateRoutes from './routes/mortgageRateRoutes.js';
 import creditCardCategoryRoutes from './routes/creditCardCategoryRoutes.js';
 import creditCardRoutes from './routes/creditCardRoutes.js';
+import creditCardApplyRoutes from './routes/creditCardApplyRoutes.js';
+import documentRoutes from './routes/documentRoutes.js';
 
 
 import dotenv from 'dotenv';
@@ -50,6 +52,8 @@ app.use('/api', mortgageapplyRoutes);
 app.use('/api', mortgageRateRoutes);
 app.use('/api', creditCardCategoryRoutes);
 app.use('/api', creditCardRoutes);
+app.use('/api', creditCardApplyRoutes);
+app.use('/api', documentRoutes);
 
 
 

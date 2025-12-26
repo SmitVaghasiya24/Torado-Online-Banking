@@ -90,6 +90,7 @@ function CardDetails() {
                                     src={card.card_image}
                                     alt={card.title}
                                     className="w-full"
+                                    loading="lazy"
                                 />
                             </div>
 

@@ -39,6 +39,7 @@ import AtmLocate from "./pages/banking/AtmLocate";
 import CreditcardOverview from "./pages/CreditCards/CreditcardOverview";
 import CardDetails from "./pages/CreditCards/CardDetails";
 import CreditCardApply from "./pages/CreditCards/CreditCardApply";
+import ViewAllCreditcard from "./pages/CreditCards/ViewAllCreditcard";
 
 function App() {
   return (
@@ -96,6 +97,8 @@ function App() {
           <Route path="credit-cards-overview" element={<CreditcardOverview />} />
           <Route path="credit-card-details/:slug" element={<CardDetails />} />
           <Route path="/credit-card-apply/:slug" element={<CreditCardApply />} />
+          <Route path="/credit-cards-all" element={<ViewAllCreditcard />} />
+          <Route path="/credit-cards/:categorySlug" element={<ViewAllCreditcard />} />
 
         </Route>
       </Routes>
