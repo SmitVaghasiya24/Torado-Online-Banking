@@ -19,13 +19,14 @@ export default function Navitems() {
     return (
         <ul
             className="
-                flex flex-col gap-4
-                md:flex md:flex-row md:items-center md:gap-6
-                text-[14px] font-medium
-                max-h-[70vh] overflow-y-auto md:overflow-visible
-            "
+        flex flex-col gap-4
+        lg:flex lg:flex-row lg:items-center lg:gap-6
+        text-[14px] font-medium
+        max-h-[70vh] overflow-y-auto lg:overflow-visible
+    "
         >
-            {/* HOME */}
+
+            {/* home */}
             <li
                 className={`
                     relative cursor-pointer
@@ -37,38 +38,43 @@ export default function Navitems() {
                 <Link to="/">Home</Link>
             </li>
 
-            {/* CREDIT CARDS */}
+            {/* credit cards */}
             <li className="relative group cursor-pointer">
                 <div
                     onClick={() => toggle("credit")}
                     className={`
-                        flex items-center gap-1.5
-                        relative
-                        after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-red-400
-                        after:w-0 after:transition-all
-                        group-hover:after:w-full
-                        ${current.startsWith("/credit-cards") ? "after:w-full text-red-600" : ""}
-                    `}
+            flex items-center gap-2
+            w-full
+            relative
+
+            after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-red-400
+            after:w-0 after:transition-all
+            lg:group-hover:after:w-full
+
+            ${current.startsWith("/credit-cards")
+                            ? "text-red-600 lg:after:w-full"
+                            : "text-gray-900"}
+        `}
                 >
-                    Credit Cards+
-                    <span className="md:hidden ml-auto">
+                    <span className="font-medium">Credit Cards+</span>
+
+                    <span className="ml-auto lg:hidden text-lg text-gray-600">
                         {open === "credit" ? <FiMinus /> : <FiPlus />}
                     </span>
                 </div>
 
-                {/* DESKTOP DROPDOWN */}
                 <div
                     className="
-                        absolute left-0 top-full mt-1.5
-                        bg-white shadow-xl pt-5 pr-5 pb-5 pl-0 w-72
-                        z-50
-                        transform transition-all duration-300
-                        translate-y-4 opacity-0
-                        pointer-events-none
-                        group-hover:pointer-events-auto
-                        group-hover:translate-y-0 group-hover:opacity-100
-                        hidden md:block
-                    "
+            absolute left-0 top-full mt-2
+            bg-white shadow-xl pt-5 pr-5 pb-5 pl-0 w-72
+            z-50
+            transform transition-all duration-300
+            translate-y-4 opacity-0
+            pointer-events-none
+            group-hover:pointer-events-auto
+            group-hover:translate-y-0 group-hover:opacity-100
+            hidden lg:block
+        "
                 >
                     <ul className="flex flex-col">
                         {creditCardMenu.map((item, index) => (
@@ -82,8 +88,8 @@ export default function Navitems() {
                                 <NavLink
                                     to={item.link}
                                     className={({ isActive }) =>
-                                        `block pl-6
-                                                ${isActive
+                                        `block pl-6 relative
+                            ${isActive
                                             ? "text-blue-600 font-medium before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-5 before:w-1 before:bg-red-600"
                                             : "text-gray-700 hover:text-blue-600"
                                         }`
@@ -94,54 +100,62 @@ export default function Navitems() {
                             </li>
                         ))}
                     </ul>
-
-
-
                 </div>
 
-                {/* MOBILE LIST */}
                 {open === "credit" && (
-                    <ul className="md:hidden ml-4 mt-2 flex flex-col gap-2">
+                    <ul className="lg:hidden ml-4 mt-3 flex flex-col gap-3 border-l border-gray-200 pl-4">
                         {creditCardMenu.map(item => (
                             <li key={item.link}>
-                                <Link to={item.link}>{item.label}</Link>
+                                <Link
+                                    to={item.link}
+                                    className="block py-1 text-gray-700 hover:text-blue-600"
+                                >
+                                    {item.label}
+                                </Link>
                             </li>
                         ))}
                     </ul>
                 )}
             </li>
 
-            {/* BANKING */}
+
+            {/* banking */}
             <li className="relative group cursor-pointer">
                 <div
                     onClick={() => toggle("banking")}
                     className={`
-                        flex items-center gap-1
-                        relative
-                        after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-red-500
-                        after:w-0 after:transition-all
-                        group-hover:after:w-full
-                        ${current.startsWith("/banking") ? "after:w-full text-red-500" : ""}
-                    `}
+            flex items-center gap-2
+            w-full
+            relative
+
+            after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-red-500
+            after:w-0 after:transition-all
+            lg:group-hover:after:w-full
+
+            ${current.startsWith("/banking")
+                            ? "text-red-500 lg:after:w-full"
+                            : "text-gray-900"}
+        `}
                 >
-                    Banking+
-                    <span className="md:hidden ml-auto">
+                    <span className="font-medium">Banking+</span>
+
+                    <span className="ml-auto lg:hidden text-lg text-gray-600">
                         {open === "banking" ? <FiMinus /> : <FiPlus />}
                     </span>
                 </div>
 
                 <div
                     className="
-        absolute left-0 top-full mt-1.5
-        bg-white shadow-xl pt-5 pr-5 pb-5 pl-0 w-72
-        z-50
-        transform transition-all duration-300
-        translate-y-4 opacity-0
-        pointer-events-none
-        group-hover:pointer-events-auto
-        group-hover:translate-y-0 group-hover:opacity-100
-        hidden md:block
-    "
+            absolute left-0 top-full mt-2
+            bg-white shadow-xl pt-5 pr-5 pb-5 pl-0 w-72
+            z-50
+            transform transition-all duration-300
+            translate-y-4 opacity-0
+            pointer-events-none
+            group-hover:pointer-events-auto
+            group-hover:translate-y-0 group-hover:opacity-100
+            hidden lg:block
+        "
                 >
                     <ul className="flex flex-col">
                         {bankingMenu.map((item, index) => (
@@ -155,8 +169,8 @@ export default function Navitems() {
                                 <NavLink
                                     to={item.link}
                                     className={({ isActive }) =>
-                                        `block pl-6
-                        ${isActive
+                                        `block pl-6 relative
+                            ${isActive
                                             ? "text-blue-600 font-medium before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-5 before:w-1 before:bg-red-600"
                                             : "text-gray-700 hover:text-blue-600"
                                         }`
@@ -170,47 +184,59 @@ export default function Navitems() {
                 </div>
 
                 {open === "banking" && (
-                    <ul className="md:hidden ml-4 mt-2 flex flex-col gap-2">
+                    <ul className="lg:hidden ml-4 mt-3 flex flex-col gap-3 border-l border-gray-200 pl-4">
                         {bankingMenu.map(item => (
                             <li key={item.link}>
-                                <Link to={item.link}>{item.label}</Link>
+                                <Link
+                                    to={item.link}
+                                    className="block py-1 text-gray-700 hover:text-blue-600"
+                                >
+                                    {item.label}
+                                </Link>
                             </li>
                         ))}
                     </ul>
                 )}
             </li>
 
-            {/* MORTGAGE */}
+
+            {/* mortgage */}
             <li className="relative group cursor-pointer">
                 <div
                     onClick={() => toggle("mortgage")}
                     className={`
-                        flex items-center gap-1
-                        relative
-                        after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-red-500
-                        after:w-0 after:transition-all
-                        group-hover:after:w-full
-                        ${current.startsWith("/mortgage") ? "after:w-full text-red-500" : ""}
-                    `}
+            flex items-center gap-2
+            w-full
+            relative
+
+            after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-red-500
+            after:w-0 after:transition-all
+            lg:group-hover:after:w-full
+
+            ${current.startsWith("/mortgage")
+                            ? "text-red-500 lg:after:w-full"
+                            : "text-gray-900"}
+        `}
                 >
-                    Mortgage+
-                    <span className="md:hidden ml-auto">
+                    <span className="font-medium">Mortgage+</span>
+
+                    <span className="ml-auto lg:hidden text-lg text-gray-600">
                         {open === "mortgage" ? <FiMinus /> : <FiPlus />}
                     </span>
                 </div>
 
                 <div
                     className="
-        absolute left-0 top-full mt-1.5
-        bg-white shadow-xl  pt-5 pr-5 pb-5 pl-0 w-80
-        z-50
-        transform transition-all duration-300
-        translate-y-4 opacity-0
-        pointer-events-none
-        group-hover:pointer-events-auto
-        group-hover:translate-y-0 group-hover:opacity-100
-        hidden md:block
-    "
+            absolute left-0 top-full mt-2
+            bg-white shadow-xl pt-5 pr-5 pb-5 pl-0 w-80
+            z-50
+            transform transition-all duration-300
+            translate-y-4 opacity-0
+            pointer-events-none
+            group-hover:pointer-events-auto
+            group-hover:translate-y-0 group-hover:opacity-100
+            hidden lg:block
+        "
                 >
                     <ul className="flex flex-col">
                         {mortgageMenu.map((item, index) => (
@@ -224,8 +250,8 @@ export default function Navitems() {
                                 <NavLink
                                     to={item.link}
                                     className={({ isActive }) =>
-                                        `block pl-6
-                        ${isActive
+                                        `block pl-6 relative
+                            ${isActive
                                             ? "text-blue-600 font-medium before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-5 before:w-1 before:bg-red-600"
                                             : "text-gray-700 hover:text-blue-600"
                                         }`
@@ -239,47 +265,59 @@ export default function Navitems() {
                 </div>
 
                 {open === "mortgage" && (
-                    <ul className="md:hidden ml-4 mt-2 flex flex-col gap-2">
+                    <ul className="lg:hidden ml-4 mt-3 flex flex-col gap-3 border-l border-gray-200 pl-4">
                         {mortgageMenu.map(item => (
                             <li key={item.link}>
-                                <Link to={item.link}>{item.label}</Link>
+                                <Link
+                                    to={item.link}
+                                    className="block py-1 text-gray-700 hover:text-blue-600"
+                                >
+                                    {item.label}
+                                </Link>
                             </li>
                         ))}
                     </ul>
                 )}
             </li>
 
-            {/* PERSONAL LOAN */}
+
+            {/* personal loan */}
             <li className="relative group cursor-pointer">
                 <div
                     onClick={() => toggle("loan")}
                     className={`
-                        flex items-center gap-1
-                        relative
-                        after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-red-500
-                        after:w-0 after:transition-all
-                        group-hover:after:w-full
-                        ${current.startsWith("/personal-loan") ? "after:w-full text-red-500" : ""}
-                    `}
+            flex items-center gap-2
+            w-full
+            relative
+
+            after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-red-500
+            after:w-0 after:transition-all
+            lg:group-hover:after:w-full
+
+            ${current.startsWith("/personal-loan")
+                            ? "text-red-500 lg:after:w-full"
+                            : "text-gray-900"}
+        `}
                 >
-                    Personal Loan+
-                    <span className="md:hidden ml-auto">
+                    <span className="font-medium">Personal Loan+</span>
+
+                    <span className="ml-auto lg:hidden text-lg text-gray-600">
                         {open === "loan" ? <FiMinus /> : <FiPlus />}
                     </span>
                 </div>
 
                 <div
                     className="
-        absolute left-0 top-full mt-1.5
-        bg-white shadow-xl pt-5 pr-5 pb-5 pl-0 w-64
-        z-50
-        transform transition-all duration-300
-        translate-y-4 opacity-0
-        pointer-events-none
-        group-hover:pointer-events-auto
-        group-hover:translate-y-0 group-hover:opacity-100
-        hidden md:block
-    "
+            absolute left-0 top-full mt-2
+            bg-white shadow-xl pt-5 pr-5 pb-5 pl-0 w-64
+            z-50
+            transform transition-all duration-300
+            translate-y-4 opacity-0
+            pointer-events-none
+            group-hover:pointer-events-auto
+            group-hover:translate-y-0 group-hover:opacity-100
+            hidden lg:block
+        "
                 >
                     <ul className="flex flex-col">
                         {personalLoanMenu.map((item, index) => (
@@ -293,8 +331,8 @@ export default function Navitems() {
                                 <NavLink
                                     to={item.link}
                                     className={({ isActive }) =>
-                                        `block pl-6
-                        ${isActive
+                                        `block pl-6 relative
+                            ${isActive
                                             ? "text-blue-600 font-medium before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-5 before:w-1 before:bg-red-600"
                                             : "text-gray-700 hover:text-blue-600"
                                         }`
@@ -306,94 +344,109 @@ export default function Navitems() {
                         ))}
                     </ul>
                 </div>
+
                 {open === "loan" && (
-                    <ul className="md:hidden ml-4 mt-2 flex flex-col gap-2">
+                    <ul className="lg:hidden ml-4 mt-3 flex flex-col gap-3 border-l border-gray-200 pl-4">
                         {personalLoanMenu.map(item => (
                             <li key={item.link}>
-                                <Link to={item.link}>{item.label}</Link>
+                                <Link
+                                    to={item.link}
+                                    className="block py-1 text-gray-700 hover:text-blue-600"
+                                >
+                                    {item.label}
+                                </Link>
                             </li>
                         ))}
                     </ul>
                 )}
             </li>
 
-            {/* PAGES */}
+
+            {/* pages */}
             <li className="relative group cursor-pointer">
                 <div
                     onClick={() => toggle("pages")}
                     className={`
-                        flex items-center gap-1
-                        relative
-                        after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-red-500
-                        after:w-0 after:transition-all
-                        group-hover:after:w-full
-                        ${current.startsWith("/pages") ||
+            flex items-center gap-2
+            w-full
+            relative
+
+            after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-red-500
+            after:w-0 after:transition-all
+            lg:group-hover:after:w-full
+
+            ${current.startsWith("/pages") ||
                             current === "/open-account" ||
                             current === "/my-account"
-                            ? "after:w-full text-red-500"
-                            : ""
+                            ? "text-red-500 lg:after:w-full"
+                            : "text-gray-900"
                         }
-                    `}
+        `}
                 >
-                    Pages+
-                    <span className="md:hidden ml-auto">
+                    <span className="font-medium">Pages+</span>
+
+                    <span className="ml-auto lg:hidden text-lg text-gray-600">
                         {open === "pages" ? <FiMinus /> : <FiPlus />}
                     </span>
                 </div>
 
                 <div
-    className="
-        absolute left-0 top-full mt-1.5
-        bg-white shadow-xl pt-5 pr-5 pb-5 pl-0 w-64
-        z-50
-        transform transition-all duration-300
-        translate-y-4 opacity-0
-        pointer-events-none
-        group-hover:pointer-events-auto
-        group-hover:translate-y-0 group-hover:opacity-100
-        hidden md:block
-    "
->
-    <ul className="flex flex-col">
-        {pagesMenu.map((item, index) => (
-            <li
-                key={item.link}
-                className={`relative py-3 ${
-                    index !== pagesMenu.length - 1
-                        ? "after:absolute after:left-6 after:right-0 after:bottom-0 after:border-b after:border-dotted after:border-gray-300"
-                        : ""
-                }`}
-            >
-                <NavLink
-                    to={item.link}
-                    className={({ isActive }) =>
-                        `block pl-6
-                        ${
-                            isActive
-                                ? "text-blue-600 font-medium before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-5 before:w-1 before:bg-red-600"
-                                : "text-gray-700 hover:text-blue-600"
-                        }`
-                    }
+                    className="
+            absolute left-0 top-full mt-2
+            bg-white shadow-xl pt-5 pr-5 pb-5 pl-0 w-64
+            z-50
+            transform transition-all duration-300
+            translate-y-4 opacity-0
+            pointer-events-none
+            group-hover:pointer-events-auto
+            group-hover:translate-y-0 group-hover:opacity-100
+            hidden lg:block
+        "
                 >
-                    {item.label}
-                </NavLink>
-            </li>
-        ))}
-    </ul>
-</div>
+                    <ul className="flex flex-col">
+                        {pagesMenu.map((item, index) => (
+                            <li
+                                key={item.link}
+                                className={`relative py-3 ${index !== pagesMenu.length - 1
+                                        ? "after:absolute after:left-6 after:right-0 after:bottom-0 after:border-b after:border-dotted after:border-gray-300"
+                                        : ""
+                                    }`}
+                            >
+                                <NavLink
+                                    to={item.link}
+                                    className={({ isActive }) =>
+                                        `block pl-6 relative
+                            ${isActive
+                                            ? "text-blue-600 font-medium before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-5 before:w-1 before:bg-red-600"
+                                            : "text-gray-700 hover:text-blue-600"
+                                        }`
+                                    }
+                                >
+                                    {item.label}
+                                </NavLink>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
 
                 {open === "pages" && (
-                    <ul className="md:hidden ml-4 mt-2 flex flex-col gap-2">
+                    <ul className="lg:hidden ml-4 mt-3 flex flex-col gap-3 border-l border-gray-200 pl-4">
                         {pagesMenu.map(item => (
                             <li key={item.link}>
-                                <Link to={item.link}>{item.label}</Link>
+                                <Link
+                                    to={item.link}
+                                    className="block py-1 text-gray-700 hover:text-blue-600"
+                                >
+                                    {item.label}
+                                </Link>
                             </li>
                         ))}
                     </ul>
                 )}
             </li>
 
-            {/* CONTACT */}
+
+            {/* contact */}
             <li
                 className={`
                     relative cursor-pointer

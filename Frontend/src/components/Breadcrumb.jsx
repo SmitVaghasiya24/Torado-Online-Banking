@@ -5,20 +5,24 @@ export default function BreadcrumbHero({ title, image }) {
     const pathParts = location.pathname.split("/").filter(Boolean);
 
     return (
-        <div className="w-full h-[320px] sm:h-[380px] md:h-[450px] relative mt-[-100px] overflow-hidden">
+        <div className=" w-full h-[260px] sm:h-80 md:h-[380px] lg:h-[440px] relative mt-[-100px] overflow-hidden">
 
-            <div className="absolute inset-0 bg-gradient-to-r from-[#dce7ff] to-[#E1E5F9] z-0"></div>
+            <div className="absolute inset-0 bg-linear-to-r from-[#dce7ff] to-[#E1E5F9] z-0"></div>
 
-            <div className="absolute left-0 top-0 h-full w-full md:w-[55%] flex items-center px-6 sm:px-10 md:pl-16 lg:pl-28 z-30">
+            <div className=" absolute left-0 top-0 h-full w-full md:w-[60%] flex items-center px-4 sm:px-8 md:pl-14 lg:pl-28 z-30 ">
                 <div>
-                    <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4">
+                    <h1 className=" text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 md:mb-4">
                         {title}
                     </h1>
 
-                    <nav className="flex flex-wrap items-center gap-2 text-gray-700 text-sm sm:text-base md:text-lg">
-                        <Link to="/" className="hover:text-blue-600">
+                    <nav className=" flex flex-wrap items-center gap-x-2 gap-y-1  text-gray-700 text-xs sm:text-sm md:text-base">
+                        <Link
+                            to="/"
+                            className="relative z-40 hover:text-blue-600 cursor-pointer"
+                        >
                             Home
                         </Link>
+
 
                         {pathParts.map((part, index) => {
                             const path = "/" + pathParts.slice(0, index + 1).join("/");
@@ -28,7 +32,7 @@ export default function BreadcrumbHero({ title, image }) {
 
                             return (
                                 <span key={path} className="flex items-center gap-2">
-                                    <span>|</span>
+                                    <span className="text-gray-400">|</span>
                                     <Link
                                         to={path}
                                         className={
@@ -43,15 +47,14 @@ export default function BreadcrumbHero({ title, image }) {
                             );
                         })}
                     </nav>
-
                 </div>
             </div>
 
-            <div className="absolute right-10 lg:right-20 top-[90px] h-[260px] md:h-[300px] lg:h-[350px] hidden md:block z-20">
+            <div className=" absolute right-6 sm:right-10 lg:right-20 top-20 sm:top-[90px] md:top-[100px] h-[180px] sm:h-[220px] md:h-[280px] lg:h-[340px] hidden md:block z-2 ">
                 <img
                     src={image}
                     alt="hero"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-contain"
                 />
             </div>
 

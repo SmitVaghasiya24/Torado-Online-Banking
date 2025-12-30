@@ -213,7 +213,7 @@ export const approveAdmin = async (req, res, next) => {
 export const rejectAdmin = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const updated_by = req.admin_id   ;
+        const updated_by = req.admin_id;
 
         const [result] = await db.query(
             "CALL sp_reject_admin(?, ?)",
@@ -248,6 +248,45 @@ export const deleteAdmin = async (req, res, next) => {
             message: "Admin deleted successfully"
         });
 
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+};
+
+
+
+
+export const getAdminCount = async (req, res) => {
+    try {
+        const query = "SELECT COUNT(*) AS totalAdmins FROM tbl_admins";
+
+        const [rows] = await db.query(query);
+
+        return res.status(200).json({
+            success: true,
+            totalAdmins: rows[0].totalAdmins,
+        });
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+};
+
+
+
+
+export const getPendingAdminCount = async (req, res) => {
+    try {
+        const query =
+            "SELECT COUNT(*) AS pendingAdmins FROM tbl_admins WHERE status = 'pending'";
+
+        const [rows] = await db.query(query);
+
+        return res.status(200).json({
+            success: true,
+            pendingAdmins: rows[0].pendingAdmins,
+        });
     } catch (err) {
         console.log(err);
         next(err);

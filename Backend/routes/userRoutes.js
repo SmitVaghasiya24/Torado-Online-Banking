@@ -1,6 +1,6 @@
 import express from "express";
 import db from '../config/db.js'
-import { addUser, loginUser, forgotPassword } from "../controllers/userController.js";
+import { addUser, loginUser, forgotPassword,getUserCount } from "../controllers/userController.js";
 import { verifyToken } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
@@ -8,6 +8,7 @@ const router = express.Router();
 router.post("/signup", addUser);
 router.post("/login", loginUser);
 router.post("/forgot_password", forgotPassword);
+router.get("/get_user_count", getUserCount);
 
 router.get("/me", verifyToken, async (req, res) => {
     const [rows] = await db.query(

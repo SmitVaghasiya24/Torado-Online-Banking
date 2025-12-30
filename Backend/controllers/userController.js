@@ -217,3 +217,25 @@ export const forgotPassword = async (req, res, next) => {
     next(error);
   }
 };
+
+
+
+export const getUserCount = async (req, res) => {
+  try {
+    const query = "SELECT COUNT(*) AS totalUsers FROM tbl_users";
+
+    const [rows] = await db.query(query);
+
+    return res.status(200).json({
+      success: true,
+      totalUsers: rows[0].totalUsers,
+    });
+  } catch (error) {
+    console.error(error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Database error",
+    });
+  }
+};
