@@ -276,3 +276,50 @@ export const deleteCaseStudy = async (req, res, next) => {
         next(error);
     }
 };
+
+
+
+export const updateCaseStudyStatus = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const { status } = req.body;
+        const adminId = req.admin_id;
+
+        if (!status) {
+            return res.status(400).json({
+                success: false,
+                message: "Status is required",
+            });
+        }
+
+        const allowedStatus = ["active", "inactive"];
+        if (!allowedStatus.includes(status)) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid status value",
+            });
+        }
+
+        const [result] = await db.query(
+            `UPDATE tbl_case_studies 
+       SET status = ?, updated_by = ?, updated_at = NOW()
+       WHERE id = ?`,
+            [status, adminId, id]
+        );
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "Case study not found",
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Case study status updated successfully",
+        });
+    } catch (error) {
+        console.error("Update case study status error:", error);
+        next(error)
+    }
+};

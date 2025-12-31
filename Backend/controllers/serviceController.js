@@ -161,6 +161,18 @@ export const updateService = async (req, res, next) => {
 
         const slug = slugify(title, { lower: true, strict: true });
 
+        const [slugCheck] = await db.execute(
+            "SELECT id FROM tbl_services WHERE slug = ? AND id != ?",
+            [slug, service_id]
+        );
+
+        if (slugCheck.length > 0) {
+            return res.status(409).json({
+                success: false,
+                message: "Service with same title already exists",
+            });
+        }
+
         await db.query(
             "CALL sp_update_service(?, ?, ?, ?, ?, ?, ?, ?)",
             [
@@ -248,5 +260,53 @@ export const deleteService = async (req, res, next) => {
     } catch (error) {
         console.error("Delete Service Error:", error);
         next(error);
+    }
+};
+
+
+
+
+
+export const updateServiceStatus = async (req, res, next) => {
+    const { id } = req.params;
+    const { status } = req.body;
+    const adminId = req.admin_id;
+
+    if (!id || !status) {
+        return res.status(400).json({
+            success: false,
+            message: "Service ID and status are required",
+        });
+    }
+
+    if (!["active", "inactive"].includes(status)) {
+        return res.status(400).json({
+            success: false,
+            message: "Invalid status value",
+        });
+    }
+
+    try {
+        const [result] = await db.query(
+            `UPDATE tbl_services 
+       SET status = ?, updated_by = ?, updated_at = NOW()
+       WHERE id = ?`,
+            [status, adminId, id]
+        );
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "Service not found",
+            });
+        }
+
+        return res.json({
+            success: true,
+            message: "Service status updated successfully",
+        });
+    } catch (error) {
+        console.error("Update service status error:", error);
+        next(error)
     }
 };

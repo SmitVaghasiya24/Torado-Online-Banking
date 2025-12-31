@@ -55,8 +55,9 @@ const Sidebar = () => {
                     <SidebarItem label="Dashboard" to="/dashboard" onClick={() => setOpen(false)} />
                     <SidebarItem label="Home" to="/home" onClick={() => setOpen(false)} />
                     <SidebarItem label="News" to="/admin/news" onClick={() => setOpen(false)} />
+                    <SidebarItem label="Services" to="/admin/services" onClick={() => setOpen(false)} />
+                    <SidebarItem label="Case Study" to="/admin/case-studies" onClick={() => setOpen(false)} />
                     <SidebarItem label="Faqs" to="/admin/faqs" onClick={() => setOpen(false)} />
-                    <SidebarItem label="Cards" to="/admin/cards" onClick={() => setOpen(false)} />
                     <SidebarItem label="Settings" to="/admin/settings" onClick={() => setOpen(false)} />
                 </nav>
 
