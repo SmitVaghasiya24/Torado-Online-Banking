@@ -60,6 +60,36 @@ export const getAllFaqs = async (req, res, next) => {
 };
 
 
+export const getAllFaqForAdmin = async (req, res, next) => {
+    try {
+        const [rows] = await db.execute(`
+      SELECT 
+        f.id,
+        f.category_id,
+        c.name AS category_name,
+        f.question,
+        f.answer,
+        f.status,
+        f.created_at,
+        f.updated_at
+      FROM tbl_faqs f
+      LEFT JOIN tbl_faq_categories c 
+        ON c.id = f.category_id
+      ORDER BY f.id DESC
+    `);
+
+        return res.status(200).json({
+            success: true,
+            message: "FAQs fetched successfully",
+            data: rows,
+        });
+    } catch (error) {
+        console.error("Get all FAQs error:", error);
+        next(error);
+    }
+};
+
+
 
 export const getFaqsByCategory = async (req, res) => {
     try {
@@ -164,5 +194,85 @@ export const deleteFaq = async (req, res) => {
             message: "Internal server error",
             error: error.message
         });
+    }
+};
+
+
+export const updateFaqStatus = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const { status } = req.body;
+        const updated_by = req.admin_id;
+
+        if (!id || !status) {
+            return res.status(400).json({
+                success: false,
+                message: "FAQ id and status are required",
+            });
+        }
+
+        if (!["active", "inactive"].includes(status)) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid status value",
+            });
+        }
+
+        const [result] = await db.execute(
+            `
+      UPDATE tbl_faqs
+      SET status = ?, updated_by = ?, updated_at = NOW()
+      WHERE id = ?
+      `,
+            [status, updated_by, id]
+        );
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "FAQ not found",
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "FAQ status updated successfully",
+        });
+    } catch (error) {
+        console.error("Update FAQ status error:", error);
+        next(error);
+    }
+};
+
+export const getFaqById = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+
+        if (!id) {
+            return res.status(400).json({
+                success: false,
+                message: "FAQ ID is required",
+            });
+        }
+
+        const [rows] = await db.query(
+            "SELECT * FROM tbl_faqs WHERE id = ?",
+            [id]
+        );
+
+        if (rows.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "FAQ not found",
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            data: rows[0],
+        });
+    } catch (error) {
+        console.error("Get FAQ by ID error:", error);
+        next(error)
     }
 };

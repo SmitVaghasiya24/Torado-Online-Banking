@@ -220,19 +220,26 @@ export const updateNews = async (req, res, next) => {
         let newThumbnail = oldData.thumbnail;
 
         if (req.file) {
-            newThumbnail = `${req.protocol}://${req.get("host")}/uploads/services/${req.file.filename}`;
+            newThumbnail = `${req.protocol}://${req.get("host")}/uploads/news/${req.file.filename}`;
 
             if (oldData.thumbnail) {
-                const filePath = path.join(
-                    "uploads/services",
-                    oldData.thumbnail.split("/").pop()
+                const oldFileName = oldData.thumbnail.substring(
+                    oldData.thumbnail.lastIndexOf("/") + 1
                 );
 
-                fs.unlink(filePath, err => {
-                    if (err) console.log("Old file delete error:", err);
-                });
+                const filePath = path.join(
+                    process.cwd(),
+                    "uploads",
+                    "news",
+                    oldFileName
+                );
+
+                if (fs.existsSync(filePath)) {
+                    fs.unlinkSync(filePath);
+                }
             }
         }
+
 
         const finalAuthor = author && author.trim() !== "" ? author : oldData.author;
         const finalStatus = status || oldData.status;
@@ -333,3 +340,49 @@ export const deleteNews = async (req, res, next) => {
         next(error);
     }
 };
+
+
+
+
+
+export const updateNewsStatus = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const { status } = req.body;
+        const updated_by = req.admin_id;
+
+        if (!id || !status) {
+            return res.status(400).json({
+                success: false,
+                message: "News ID and status are required",
+            });
+        }
+
+        if (!["active", "inactive"].includes(status)) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid status value",
+            });
+        }
+
+        const [result] = await db.query(
+            `UPDATE tbl_news SET status = ?, updated_by = ? WHERE id = ?`, [status, updated_by, id]
+        );
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "News not found",
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "News status updated successfully",
+        });
+    } catch (error) {
+        console.error("Update news status error:", error);
+        next(error);
+    }
+};
+

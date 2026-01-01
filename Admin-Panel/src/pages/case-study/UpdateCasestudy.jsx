@@ -240,10 +240,7 @@ function UpdateCasestudy() {
                                 type="file"
                                 accept="image/*"
                                 onChange={handleFileChange}
-                                className="block w-full text-xs file:mr-3 file:py-1.5 file:px-3
-        file:rounded-md file:border-0
-        file:bg-gray-100 file:text-gray-700
-        hover:file:bg-gray-200 cursor-pointer"
+                                className="block w-full text-xs file:mr-3 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 cursor-pointer"
                             />
                         </div>
 
@@ -251,7 +248,9 @@ function UpdateCasestudy() {
 
 
                     <div className="flex flex-col sm:flex-row justify-start gap-3 pt-4">
-                        <Button className="cursor-pointer" type="submit" disabled={submitting}>
+                        <Button
+                         className=" h-11 px-6 rounded-xl font-medium  bg-gray-900 text-white  hover:bg-gray-800 focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0 disabled:opacity-60 disabled:cursor-not-allowed  transition-all "
+                        type="submit" disabled={submitting}>
                             {submitting ? "Updating..." : "Update Case Study"}
                         </Button>
                         <Button
@@ -262,8 +261,6 @@ function UpdateCasestudy() {
                         >
                             Cancel
                         </Button>
-
-
                     </div>
                 </form>
             </div>

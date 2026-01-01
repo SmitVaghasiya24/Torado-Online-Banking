@@ -20,7 +20,7 @@ function Services() {
     const token = authData?.token;
     const role = authData?.admin?.role;
 
-    const canUpdateStatus = ["superadmin", "admin", "content_manager"].includes(role);
+    const canManageService = ["superadmin", "admin", "content_manager"].includes(role);
 
     const fetchServices = async (pageNumber = 1) => {
         try {
@@ -74,28 +74,58 @@ function Services() {
         fetchServices(page);
     }, [page]);
 
+
+    const deleteService = async (id) => {
+        const confirmDelete = window.confirm(
+            "Are you sure you want to delete this service?"
+        );
+
+        if (!confirmDelete) return;
+
+        try {
+            await axios.delete(
+                `http://localhost:5000/api/admin/delete_service/${id}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            toast.success("Service deleted successfully");
+
+            setServices((prev) => prev.filter((item) => item.id !== id));
+        } catch (error) {
+            console.error(error);
+            toast.error("Failed to delete service");
+        }
+    };
+
+
     return (
         <div className="max-w-7xl mx-auto px-2 py-8">
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-6">
                 <h2 className="text-2xl text-center font-semibold">Services</h2>
 
-
-                <Button
-                    onClick={() => navigate("/admin/add-service")}
-                    className="flex bg-black text-white items-center gap-2 w-full sm:w-auto"
-                >
-                    + Add New Service
-                </Button>
+                {canManageService && (
+                    <Button
+                        onClick={() => navigate("/admin/add-service")}
+                        className="flex bg-black text-white items-center gap-2 w-full sm:w-auto"
+                    >
+                        + Add New Service
+                    </Button>
+                )}
             </div>
 
             <div className="bg-white border border-gray-200 rounded-xl overflow-x-auto">
                 <table className="w-full text-sm min-w-225">
                     <thead className="bg-gray-50 border-b border-gray-200">
                         <tr className="text-left text-gray-600">
+                            <th className="px-6 py-4">Id</th>
                             <th className="px-6 py-4">Thumbnail</th>
                             <th className="px-6 py-4">Title</th>
                             <th className="px-6 py-4">Category</th>
-                               <th className="px-6 py-4">Created</th>
+                            <th className="px-6 py-4">Created</th>
                             <th className="px-6 py-4">Status</th>
                             <th className="px-6 py-4">Action</th>
                         </tr>
@@ -120,6 +150,9 @@ function Services() {
                                     key={item.id}
                                     className="border-b border-gray-200 hover:bg-gray-50"
                                 >
+                                    <td className="px-6 py-4 font-medium">
+                                        {item.id}
+                                    </td>
                                     <td className="px-6 py-4">
                                         <img
                                             src={item.thumbnail}
@@ -136,53 +169,60 @@ function Services() {
                                         {item.category_name}
                                     </td>
 
-                                     <td className="px-6 py-4 text-gray-500">
+                                    <td className="px-6 py-4 text-gray-500">
                                         {new Date(item.created_at).toLocaleDateString()}
                                     </td>
 
 
+                                   <td className="px-4 py-3">
+                                            <div className="relative inline-block">
+                                                <select
+                                                    value={item.status}
+                                                    disabled={!canManageService || updatingId === item.id}
+                                                    onChange={(e) =>
+                                                        updateStatus(item.id, e.target.value)
+                                                    }
+                                                    className={`appearance-none px-4 py-1.5 pr-8 text-xs font-medium rounded-full  border transition-all cursor-pointer focus:outline-none focus:ring-0 ${item.status === "active"
+                                                        ? "bg-green-100 text-green-700 border-green-200 hover:bg-green-200"
+                                                        : "bg-red-50 text-red-700 border-red-200 hover:bg-red-100"
+                                                        } ${!canManageService || updatingId === item.id
+                                                            ? "opacity-60 cursor-not-allowed"
+                                                            : ""
+                                                        }
+                                                   `}
+                                                >
+                                                    <option value="active">Active</option>
+                                                    <option value="inactive">Inactive</option>
+                                                </select>
+
+                                                <span className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-xs text-gray-400">
+                                                    ▼
+                                                </span>
+                                            </div>
+                                        </td>
+
                                     <td className="px-6 py-4">
-                                        <div className="relative inline-block">
-                                            <select
-                                                value={item.status}
-                                                disabled={!canUpdateStatus || updatingId === item.id}
-                                                onChange={(e) =>
-                                                    updateStatus(item.id, e.target.value)
-                                                }
-                                                className={`appearance-none px-4 py-1.5 pr-8 text-xs font-medium rounded-full border transition-all cursor-pointer focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 ${item.status === "active"
-                                                    ? "bg-green-100 text-green-700 border-green-200 hover:bg-green-200"
-                                                    : "bg-red-50 text-red-700 border-red-200 hover:bg-red-100"
-                                                    }
-                                                        ${updatingId === item.id
-                                                        ? "opacity-60 cursor-not-allowed"
-                                                        : ""
-                                                    }
-                                                 `}
+                                        <div className="flex items-center gap-2">
+                                            <Button
+                                                variant="outline"
+                                                disabled={!canManageService || updatingId === item.id}
+                                                size="sm"
+                                                onClick={() => navigate(`/admin/edit-service/${item.slug}`)}
+                                                className="h-8 px-3 rounded-xl border-blue-200 text-blue-600 bg-white hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition flex items-center gap-1.5"
                                             >
-                                                <option value="active">Active</option>
-                                                <option value="inactive">Inactive</option>
-                                            </select>
+                                                Edit
+                                            </Button>
 
-                                            <span className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-xs text-gray-400">
-                                                ▼
-                                            </span>
+                                            <Button
+                                                variant="outline"
+                                                disabled={!canManageService || updatingId === item.id}
+                                                size="sm"
+                                                onClick={() => deleteService(item.id)}
+                                                className="h-8 px-3 rounded-xl border-red-200 text-red-600 bg-white hover:bg-red-50 hover:border-red-300 hover:text-red-700 transition flex items-center gap-1.5"
+                                            >
+                                                Delete
+                                            </Button>
                                         </div>
-                                    </td>
-
-
-                                   
-                                    <td className="px-6 py-4">
-                                        <Button
-                                            variant="outline"
-                                            size="sm"
-                                            onClick={() => navigate(`/admin/edit-service/${item.slug}`)}
-                                            className="h-8 cursor-pointer px-3 rounded-xl border-gray-200 text-gray-700 bg-white/60 backdrop-blur hover:bg-gray-100 hover:border-gray-300 hover:text-gray-900 shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.08)] transition-all duration-200 focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0 flex items-center gap-1.5"
-                                        >
-                                            <Pencil className="size-3.5 opacity-70" />
-                                            <span className="font-medium">Edit</span>
-                                        </Button>
-
-
                                     </td>
                                 </tr>
                             ))}
@@ -206,7 +246,7 @@ function Services() {
                     <button
                         disabled={page === 1}
                         onClick={() => setPage((p) => p - 1)}
-                        className="px-3 py-2 text-sm border rounded disabled:opacity-40"
+                        className="px-3 py-2 cursor-pointer text-sm border rounded disabled:opacity-40"
                     >
                         Prev
                     </button>
@@ -215,12 +255,12 @@ function Services() {
                         <button
                             key={i}
                             onClick={() => setPage(i + 1)}
-                            className={`w-9 h-9 rounded border text-sm
-                ${page === i + 1
+                            className={`w-9 h-9 cursor-pointer rounded border text-sm
+                                ${page === i + 1
                                     ? "bg-gray-900 text-white border-gray-900"
                                     : "hover:bg-gray-100"
                                 }
-              `}
+                            `}
                         >
                             {i + 1}
                         </button>
@@ -229,7 +269,7 @@ function Services() {
                     <button
                         disabled={page === totalPages}
                         onClick={() => setPage((p) => p + 1)}
-                        className="px-3 py-2 text-sm border rounded disabled:opacity-40"
+                        className="px-3 py-2 cursor-pointer text-sm border rounded disabled:opacity-40"
                     >
                         Next
                     </button>

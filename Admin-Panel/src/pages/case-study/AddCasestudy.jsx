@@ -8,13 +8,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
 
 function AddCasestudy() {
     const navigate = useNavigate();
@@ -79,7 +72,7 @@ function AddCasestudy() {
         } catch (error) {
             toast.error("Failed to add case study");
             console.log(error);
-            
+
         } finally {
             setLoading(false);
         }
@@ -180,28 +173,23 @@ function AddCasestudy() {
                         </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row justify-end gap-3 pt-4">
+                    <div className="flex flex-col sm:flex-row justify-start gap-3 pt-4">
+                        
+
+                        <Button
+                            type="submit"
+                            disabled={loading}
+                            className=" h-11 px-6 rounded-xl font-medium  bg-gray-900 text-white  hover:bg-gray-800 focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0 disabled:opacity-60 disabled:cursor-not-allowed  transition-all "
+                        >
+                            {loading ? "Saving..." : "Add Case Study"}
+                        </Button>
+
                         <Button
                             type="button"
                             variant="outline"
                             onClick={() => navigate(-1)}
                         >
                             Cancel
-                        </Button>
-
-                        <Button
-                            type="submit"
-                            disabled={loading}
-                            className="
-    h-11 px-6 rounded-xl font-medium
-    bg-gray-900 text-white
-    hover:bg-gray-800
-    focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0
-    disabled:opacity-60 disabled:cursor-not-allowed
-    transition-all
-  "
-                        >
-                            {loading ? "Saving..." : "Add Case Study"}
                         </Button>
 
                     </div>
