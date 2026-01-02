@@ -82,10 +82,10 @@ function UpdateNews() {
         const fetchMetaData = async () => {
             try {
                 const [catRes, tagRes] = await Promise.allSettled([
-                    axios.get("http://localhost:5000/api/admin/get_category", {
+                    axios.get("http://localhost:5000/api/admin/get_news_category", {
                         headers: { Authorization: `Bearer ${token}` },
                     }),
-                    axios.get("http://localhost:5000/api/admin/get_tag", {
+                    axios.get("http://localhost:5000/api/admin/get_news_tag", {
                         headers: { Authorization: `Bearer ${token}` },
                     }),
                 ]);
@@ -296,8 +296,8 @@ function UpdateNews() {
                                     }))
                                 }
                                 className={`h-9 rounded-md border px-3 text-sm focus:outline-none focus:ring-1 ${formData.status === "active"
-                                        ? "border-green-300 bg-green-50 focus:ring-green-500"
-                                        : "border-red-300 bg-red-50 focus:ring-red-500"
+                                    ? "border-green-300 bg-green-50 focus:ring-green-500"
+                                    : "border-red-300 bg-red-50 focus:ring-red-500"
                                     }`}
                             >
                                 <option value="active">Active</option>
@@ -335,7 +335,7 @@ function UpdateNews() {
 
 
                     <div className="flex justify-start gap-4 pt-2">
-                        <Button type="submit"  className=" h-11 px-6 rounded-xl font-medium  bg-gray-900 text-white  hover:bg-gray-800 focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0 disabled:opacity-60 disabled:cursor-not-allowed  transition-all ">Update News</Button>
+                        <Button type="submit" className=" h-11 px-6 rounded-xl font-medium  bg-gray-900 text-white  hover:bg-gray-800 focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0 disabled:opacity-60 disabled:cursor-not-allowed  transition-all ">Update News</Button>
                         <Button
                             className="cursor-pointer"
                             type="button"

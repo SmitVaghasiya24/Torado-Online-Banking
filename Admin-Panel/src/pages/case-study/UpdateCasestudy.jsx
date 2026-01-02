@@ -249,8 +249,8 @@ function UpdateCasestudy() {
 
                     <div className="flex flex-col sm:flex-row justify-start gap-3 pt-4">
                         <Button
-                         className=" h-11 px-6 rounded-xl font-medium  bg-gray-900 text-white  hover:bg-gray-800 focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0 disabled:opacity-60 disabled:cursor-not-allowed  transition-all "
-                        type="submit" disabled={submitting}>
+                            className=" h-11 px-6 rounded-xl font-medium  bg-gray-900 text-white  hover:bg-gray-800 focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0 disabled:opacity-60 disabled:cursor-not-allowed  transition-all "
+                            type="submit" disabled={submitting}>
                             {submitting ? "Updating..." : "Update Case Study"}
                         </Button>
                         <Button

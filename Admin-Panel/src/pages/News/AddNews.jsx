@@ -41,10 +41,10 @@ function AddNews() {
         const fetchInitialData = async () => {
             try {
                 const [categoryRes, tagRes] = await Promise.allSettled([
-                    axios.get("http://localhost:5000/api/admin/get_category", {
+                    axios.get("http://localhost:5000/api/admin/get_news_category", {
                         headers: { Authorization: `Bearer ${token}` },
                     }),
-                    axios.get("http://localhost:5000/api/admin/get_tag", {
+                    axios.get("http://localhost:5000/api/admin/get_news_tag", {
                         headers: { Authorization: `Bearer ${token}` },
                     }),
                 ]);

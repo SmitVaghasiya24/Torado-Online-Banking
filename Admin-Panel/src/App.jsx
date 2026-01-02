@@ -24,6 +24,11 @@ import Faq from "./pages/Faq/Faq";
 import AddFaq from "./pages/Faq/AddFaq";
 import UpdateFaq from "./pages/Faq/UpdateaFaq";
 import Category from "./pages/Faq/Category";
+import ServiceCategory from "./pages/Services/Category";
+import Category_Tag from "./pages/News/Category_Tag";
+import Team from "./pages/Management_Team/Team";  
+import AddTeam from "./pages/Management_Team/AddTeam";
+import UpdateaTeam from "./pages/Management_Team/UpdateaTeam";
 
 function App() {
   const caseStudyRoles = ["superadmin", "admin", "content_manager"];
@@ -46,6 +51,9 @@ function App() {
             <Route path="/admin/news" element={<News />} />
             <Route path="/admin/faqs" element={<Faq />} />
             <Route path="/admin/category" element={<Category />} />
+            <Route path="/admin/service/category" element={<ServiceCategory />} />
+            <Route path="/admin/news/category&tag" element={<Category_Tag />} />
+            <Route path="/admin/management-team" element={<Team />} />
 
             <Route element={<ProtectedRoleRoute allowedRoles={caseStudyRoles} />}>
               <Route path="/admin/add-case-study" element={<AddCasestudy />} />
@@ -62,6 +70,8 @@ function App() {
             <Route element={<ProtectedRoleRoute allowedRoles={adminRoles} />}>
               <Route path="/admin-dashboard" element={<AdminDashboard />} />
               <Route path="/admin/approvals" element={<AdminApprovals />} />
+              <Route path="/admin/add-management-team" element={<AddTeam />} />
+              <Route path="/admin/edit-management-team/:id" element={<UpdateaTeam />} />
             </Route>
 
           </Route>

@@ -133,12 +133,19 @@ function News() {
                 <h2 className="text-2xl text-center font-semibold">News</h2>
 
                 {canManageNews && (
-                    <Button
-                        onClick={() => navigate("/admin/add-news")}
-                        className="flex items-center justify-center gap-2 bg-black text-white w-full sm:w-auto"
-                    >
-                        + Add New News
-                    </Button>
+                    <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+                        <Button
+                            onClick={() => navigate("/admin/add-news")}
+                            className="flex items-center justify-center gap-2 bg-black text-white w-full sm:w-auto"
+                        >
+                            + Add New News
+                        </Button>
+                        <Button
+                            onClick={() => navigate("/admin/news/category&tag")}
+                            className="w-full border cursor-pointer sm:w-auto"                    >
+                            Category & Tag
+                        </Button>
+                    </div>
                 )}
             </div>
 

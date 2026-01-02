@@ -221,10 +221,10 @@ function UpdateService() {
                     </div>
 
                     <div className="md:col-span-2 flex gap-3">
-                        <Button  className=" h-11 px-6 rounded-xl font-medium  bg-gray-900 text-white  hover:bg-gray-800 focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0 disabled:opacity-60 disabled:cursor-not-allowed  transition-all " 
-                        type="submit">Update Service</Button>
+                        <Button className=" h-11 px-6 cursor-pointer rounded-xl font-medium  bg-gray-900 text-white  hover:bg-gray-800 focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0 disabled:opacity-60 disabled:cursor-not-allowed  transition-all "
+                            type="submit">Update Service</Button>
                         <Button
-                        className="cursor-pointer"
+                            className="cursor-pointer"
                             type="button"
                             variant="outline"
                             onClick={() => navigate(-1)}

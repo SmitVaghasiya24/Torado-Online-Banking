@@ -202,7 +202,7 @@ export const getNewsTags = async (req, res, next) => {
 
         res.status(200).json({
             success: true,
-            data: rows[0]  
+            data: rows[0]
         });
 
     } catch (error) {
@@ -289,6 +289,80 @@ export const deleteNewsTag = async (req, res, next) => {
 
     } catch (error) {
         console.log(error);
+        next(error);
+    }
+};
+
+
+
+
+export const updateNewsCategoryStatus = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const { status } = req.body;
+        const updated_by = req.admin_id;
+
+
+        if (!["active", "inactive"].includes(status)) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid status value",
+            });
+        }
+
+        const [result] = await db.query(
+            "UPDATE tbl_news_categories SET status = ?,updated_by = ? WHERE id = ?",
+            [status, updated_by, id]
+        );
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "News category not found",
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "News category status updated successfully",
+        });
+    } catch (error) {
+        next(error);
+    }
+};
+
+
+export const updateNewsTagStatus = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const { status } = req.body;
+        const updated_by = req.admin_id;
+
+
+        if (!["active", "inactive"].includes(status)) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid status value",
+            });
+        }
+
+        const [result] = await db.query(
+            "UPDATE tbl_news_tags SET status = ?,updated_by = ? WHERE id = ?",
+            [status, updated_by, id]
+        );
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "News tag not found",
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "News tag status updated successfully",
+        });
+    } catch (error) {
         next(error);
     }
 };

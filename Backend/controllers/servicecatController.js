@@ -209,3 +209,53 @@ export const deleteServiceCategory = async (req, res) => {
         });
     }
 };
+
+
+
+
+export const updateServiceCategoryStatus = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const { status } = req.body;
+        const updated_by = req.admin_id;
+
+        if (!id || !status) {
+            return res.status(400).json({
+                success: false,
+                message: "Category id and status are required",
+            });
+        }
+
+        if (!["active", "inactive"].includes(status)) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid status value",
+            });
+        }
+
+        const [existing] = await db.query(
+            "SELECT id FROM tbl_service_categories WHERE id = ?",
+            [id]
+        );
+
+        if (existing.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "Service category not found",
+            });
+        }
+
+        await db.query(
+            "UPDATE tbl_service_categories SET status = ?,updated_by = ?, updated_at = NOW() WHERE id = ?",
+            [status, updated_by, id]
+        );
+
+        return res.status(200).json({
+            success: true,
+            message: "Service category status updated successfully",
+        });
+    } catch (error) {
+        console.error("Update service category status error:", error);
+        next(error)
+    }
+};

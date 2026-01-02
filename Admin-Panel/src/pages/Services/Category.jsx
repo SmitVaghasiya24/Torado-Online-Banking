@@ -2,15 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 
 function Category() {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [adding, setAdding] = useState(false);
     const [updatingId, setUpdatingId] = useState(null);
-
+    const [adding, setAdding] = useState(false);
     const [name, setName] = useState("");
 
     const [editingId, setEditingId] = useState(null);
@@ -28,7 +25,7 @@ function Category() {
         try {
             setLoading(true);
             const res = await axios.get(
-                "http://localhost:5000/api/admin/get_faq_category",
+                "http://localhost:5000/api/admin/get_service_category",
                 {
                     headers: { Authorization: `Bearer ${token}` },
                 }
@@ -56,12 +53,11 @@ function Category() {
         try {
             setAdding(true);
             await axios.post(
-                "http://localhost:5000/api/admin/add_faq_category",
+                "http://localhost:5000/api/admin/add_service_category",
                 { name },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
-
-            toast.success("Category added");
+            toast.success("Category added successfully");
             setName("");
             fetchCategories();
         } catch (error) {
@@ -77,7 +73,7 @@ function Category() {
         try {
             setUpdatingId(id);
             await axios.patch(
-                `http://localhost:5000/api/admin/update_faq_category_status/${id}`,
+                `http://localhost:5000/api/admin/update_service_category_status/${id}`,
                 { status },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -111,7 +107,7 @@ function Category() {
         try {
             setUpdatingId(id);
             await axios.put(
-                `http://localhost:5000/api/admin/update_faq_category/${id}`,
+                `http://localhost:5000/api/admin/update_service_category/${id}`,
                 { name: editName },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -132,7 +128,7 @@ function Category() {
 
         try {
             await axios.delete(
-                `http://localhost:5000/api/admin/delete_faq_category/${id}`,
+                `http://localhost:5000/api/admin/delete_service_category/${id}`,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
             toast.success("Category deleted");
@@ -143,32 +139,35 @@ function Category() {
         }
     };
 
-
     return (
-        <div className="max-w-6xl mx-auto px-2 py-6 space-y-6">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-                <h2 className="text-2xl font-semibold">FAQ Categories</h2>
+        <div className="p-6 space-y-6">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <h2 className="text-2xl font-semibold">
+                    Service Categories
+                </h2>
 
-                <div className="bg-white w-full lg:max-w-xl border border-gray-200 rounded-xl p-4">
-                    <div className="flex flex-col sm:flex-row gap-3 items-end">
-                        <div className="w-full space-y-2">
-                            {/* <Label>New Category</Label> */}
-                            <Input
+                {canManageCategory && (
+                    <div className="bg-white border border-gray-200 rounded-xl p-4 w-full lg:max-w-md">
+                        <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
+                            <input
+                                type="text"
                                 placeholder="Enter category name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
+                                className="w-full sm:flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
                             />
-                        </div>
 
-                        <Button
-                            onClick={addCategory}
-                            disabled={adding}
-                            className="bg-black text-white w-full sm:w-auto"
-                        >
-                            {adding ? "Adding..." : "+ Add Category"}
-                        </Button>
+                            <button
+                                onClick={addCategory}
+                                disabled={adding}
+                                className="w-full sm:w-auto bg-black whitespace-nowrap cursor-pointer text-white px-4 py-2 rounded-lg text-sm disabled:opacity-60"
+                            >
+                                {adding ? "Adding..." : "+ Add Category"}
+                            </button>
+                        </div>
                     </div>
-                </div>
+                )}
+
             </div>
 
             <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
@@ -177,23 +176,22 @@ function Category() {
                         <thead className="bg-gray-50 border-b border-gray-200 text-gray-600">
                             <tr>
                                 <th className="px-6 py-4 text-left">ID</th>
-                                <th className="px-6 py-4 text-left">Category Name</th>
+                                <th className="px-6 py-4 text-left">Name</th>
+                                <th className="px-6 py-4 text-left">Slug</th>
                                 <th className="px-6 py-4 text-left">Status</th>
                                 <th className="px-6 py-4 text-left">Created</th>
-                                <th className="px-6 py-4 text-left">Updated</th>
-                                <th className="pl-6 pr-3 py-4 text-left">Action</th>
+                                <th className="px-6 py-4 text-left">Action</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            {loading &&
-                                [...Array(5)].map((_, i) => (
-                                    <tr key={i}>
-                                        <td colSpan="6" className="px-6 py-4">
-                                            <div className="h-4 bg-gray-100 rounded animate-pulse" />
-                                        </td>
-                                    </tr>
-                                ))}
+                            {loading && (
+                                <tr>
+                                    <td colSpan="6" className="px-6 py-6 text-center">
+                                        Loading...
+                                    </td>
+                                </tr>
+                            )}
 
                             {!loading &&
                                 categories.map((cat) => (
@@ -205,23 +203,19 @@ function Category() {
 
                                         <td className="px-6 py-4">
                                             {editingId === cat.id ? (
-                                                <Input
+                                                <input
                                                     value={editName}
                                                     onChange={(e) => setEditName(e.target.value)}
-                                                    onKeyDown={(e) => {
-                                                        if (e.key === "Enter" && updatingId !== cat.id) {
-                                                            updateCategory(cat.id);
-                                                        }
-                                                    }}
-                                                    className="h-8 max-w-xs"
+                                                    className="border border-gray-300 rounded px-2 py-1 text-sm w-full"
                                                 />
-
                                             ) : (
                                                 cat.name
                                             )}
                                         </td>
 
-                                        <td className="px-4 py-3">
+                                        <td className="px-6 py-4 text-gray-500">{cat.slug}</td>
+
+                                        <td className="px-6 py-4">
                                             <div className="relative inline-block">
                                                 <select
                                                     value={cat.status}
@@ -229,34 +223,33 @@ function Category() {
                                                     onChange={(e) =>
                                                         updateStatus(cat.id, e.target.value)
                                                     }
-                                                    className={`appearance-none px-4 py-1.5 pr-8 text-xs font-medium rounded-full  border transition-all cursor-pointer focus:outline-none focus:ring-0 ${cat.status === "active"
-                                                        ? "bg-green-100 text-green-700 border-green-200 hover:bg-green-200"
-                                                        : "bg-red-50 text-red-700 border-red-200 hover:bg-red-100"
-                                                        } ${!canManageCategory || updatingId === cat.id
-                                                            ? "opacity-60 cursor-not-allowed"
-                                                            : ""
+                                                    className={`appearance-none px-3 py-1 pr-7 text-xs rounded-full font-medium border
+                                                        ${cat.status === "active"
+                                                            ? "bg-green-100 text-green-700 border-green-200"
+                                                            : "bg-red-100 text-red-700 border-red-200"
                                                         }
-                                                   `}
+                                                            ${(!canManageCategory || updatingId === cat.id)
+                                                            ? "opacity-60 cursor-not-allowed"
+                                                            : "cursor-pointer"
+                                                        }
+                                                    `}
                                                 >
                                                     <option value="active">Active</option>
                                                     <option value="inactive">Inactive</option>
                                                 </select>
 
-                                                <span className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-xs text-gray-400">
+                                                <span className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-[10px] text-gray-400">
                                                     ▼
                                                 </span>
                                             </div>
                                         </td>
 
+
                                         <td className="px-6 py-4 text-gray-500">
                                             {new Date(cat.created_at).toLocaleDateString()}
                                         </td>
 
-                                        <td className="px-6 py-4 text-gray-500">
-                                            {new Date(cat.updated_at).toLocaleDateString()}
-                                        </td>
-
-                                        <td className="pl-6 pr-3 py-4">
+                                        <td className="px-6 py-4">
                                             <div className="flex items-center gap-2">
                                                 {editingId === cat.id ? (
                                                     <>
@@ -264,7 +257,7 @@ function Category() {
                                                             size="sm"
                                                             disabled={updatingId === cat.id}
                                                             onClick={() => updateCategory(cat.id)}
-                                                            className="h-8 cursor-pointer px-3 bg-green-600 text-white"
+                                                            className="h-8 px-3 cursor-pointer bg-green-600 text-white"
                                                         >
                                                             Save
                                                         </Button>
@@ -281,19 +274,20 @@ function Category() {
                                                     <>
                                                         <Button
                                                             variant="outline"
-                                                            size="sm"
                                                             disabled={!canManageCategory}
+                                                            size="sm"
                                                             onClick={() => startEdit(cat)}
-                                                            className="h-8 px-3 cursor-pointer border-blue-200 text-blue-600"
+                                                            className="h-8 px-3 cursor-pointer rounded-xl border-blue-200 text-blue-600 bg-white hover:bg-blue-50"
                                                         >
                                                             Edit
                                                         </Button>
+
                                                         <Button
                                                             variant="outline"
-                                                            size="sm"
                                                             disabled={!canManageCategory}
+                                                            size="sm"
                                                             onClick={() => deleteCategory(cat.id)}
-                                                            className="h-8 px-3 cursor-pointer border-red-200 text-red-600"
+                                                            className="h-8 px-3 cursor-pointer rounded-xl border-red-200 text-red-600 bg-white hover:bg-red-50"
                                                         >
                                                             Delete
                                                         </Button>
@@ -303,14 +297,6 @@ function Category() {
                                         </td>
                                     </tr>
                                 ))}
-
-                            {!loading && categories.length === 0 && (
-                                <tr>
-                                    <td colSpan="6" className="px-6 py-10 text-center text-gray-500">
-                                        No categories found
-                                    </td>
-                                </tr>
-                            )}
                         </tbody>
                     </table>
                 </div>

@@ -108,12 +108,22 @@ function Services() {
                 <h2 className="text-2xl text-center font-semibold">Services</h2>
 
                 {canManageService && (
-                    <Button
-                        onClick={() => navigate("/admin/add-service")}
-                        className="flex bg-black text-white items-center gap-2 w-full sm:w-auto"
-                    >
-                        + Add New Service
-                    </Button>
+                     <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+                        <Button
+                            onClick={() => navigate("/admin/add-service")}
+                            className="flex bg-black text-white items-center gap-2 w-full sm:w-auto"
+                        >
+                            + Add New Service
+                        </Button>
+
+                        <Button
+                            onClick={() => navigate("/admin/service/category")}
+                            variant="outline"
+                            className="w-full cursor-pointer sm:w-auto"
+                        >
+                            Category
+                        </Button>
+                    </div>
                 )}
             </div>
 
@@ -174,32 +184,32 @@ function Services() {
                                     </td>
 
 
-                                   <td className="px-4 py-3">
-                                            <div className="relative inline-block">
-                                                <select
-                                                    value={item.status}
-                                                    disabled={!canManageService || updatingId === item.id}
-                                                    onChange={(e) =>
-                                                        updateStatus(item.id, e.target.value)
+                                    <td className="px-4 py-3">
+                                        <div className="relative inline-block">
+                                            <select
+                                                value={item.status}
+                                                disabled={!canManageService || updatingId === item.id}
+                                                onChange={(e) =>
+                                                    updateStatus(item.id, e.target.value)
+                                                }
+                                                className={`appearance-none px-4 py-1.5 pr-8 text-xs font-medium rounded-full  border transition-all cursor-pointer focus:outline-none focus:ring-0 ${item.status === "active"
+                                                    ? "bg-green-100 text-green-700 border-green-200 hover:bg-green-200"
+                                                    : "bg-red-50 text-red-700 border-red-200 hover:bg-red-100"
+                                                    } ${!canManageService || updatingId === item.id
+                                                        ? "opacity-60 cursor-not-allowed"
+                                                        : ""
                                                     }
-                                                    className={`appearance-none px-4 py-1.5 pr-8 text-xs font-medium rounded-full  border transition-all cursor-pointer focus:outline-none focus:ring-0 ${item.status === "active"
-                                                        ? "bg-green-100 text-green-700 border-green-200 hover:bg-green-200"
-                                                        : "bg-red-50 text-red-700 border-red-200 hover:bg-red-100"
-                                                        } ${!canManageService || updatingId === item.id
-                                                            ? "opacity-60 cursor-not-allowed"
-                                                            : ""
-                                                        }
                                                    `}
-                                                >
-                                                    <option value="active">Active</option>
-                                                    <option value="inactive">Inactive</option>
-                                                </select>
+                                            >
+                                                <option value="active">Active</option>
+                                                <option value="inactive">Inactive</option>
+                                            </select>
 
-                                                <span className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-xs text-gray-400">
-                                                    ▼
-                                                </span>
-                                            </div>
-                                        </td>
+                                            <span className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-xs text-gray-400">
+                                                ▼
+                                            </span>
+                                        </div>
+                                    </td>
 
                                     <td className="px-6 py-4">
                                         <div className="flex items-center gap-2">

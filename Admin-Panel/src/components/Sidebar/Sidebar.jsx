@@ -49,11 +49,12 @@ const Sidebar = () => {
                         <>
                             <SidebarItem label="Admin Dashboard" to="/admin-dashboard" onClick={() => setOpen(false)} />
                             <SidebarItem label="Admin Approvals" to="/admin/approvals" onClick={() => setOpen(false)} />
+                            <SidebarItem label="Management Team" to="/admin/management-team" onClick={() => setOpen(false)} />
                         </>
                     )}
 
                     <SidebarItem label="Dashboard" to="/dashboard" onClick={() => setOpen(false)} />
-                    <SidebarItem label="Home" to="/home" onClick={() => setOpen(false)} />
+                    {/* <SidebarItem label="Home" to="/home" onClick={() => setOpen(false)} /> */}
                     <SidebarItem label="News" to="/admin/news" onClick={() => setOpen(false)} />
                     <SidebarItem label="Services" to="/admin/services" onClick={() => setOpen(false)} />
                     <SidebarItem label="Case Study" to="/admin/case-studies" onClick={() => setOpen(false)} />

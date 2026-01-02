@@ -178,12 +178,10 @@ function UpdateFaq() {
                         <Button
                             type="button"
                             variant="outline"
-                            onClick={() => navigate("/admin/faq")}
+                            onClick={() => navigate("/admin/faqs")}
                         >
                             Cancel
                         </Button>
-
-
                     </div>
                 </form>
             </div>
