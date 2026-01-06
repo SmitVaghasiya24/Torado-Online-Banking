@@ -108,10 +108,10 @@ function Services() {
                 <h2 className="text-2xl text-center font-semibold">Services</h2>
 
                 {canManageService && (
-                     <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+                    <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
                         <Button
                             onClick={() => navigate("/admin/add-service")}
-                            className="flex bg-black text-white items-center gap-2 w-full sm:w-auto"
+                            className="flex bg-black cursor-pointer text-white items-center gap-2 w-full sm:w-auto"
                         >
                             + Add New Service
                         </Button>

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { adminAuth } from "../../context/AdminContext"
 import { useNavigate, NavLink } from "react-router-dom"
 import { FiMenu, FiX } from "react-icons/fi"
@@ -8,16 +8,45 @@ const Sidebar = () => {
     const navigate = useNavigate()
     const [open, setOpen] = useState(false)
 
+    const scrollRef = useRef(null)
+    const scrollTimeoutRef = useRef(null)
+
     const handleLogout = () => {
         logout()
         navigate("/login")
     }
 
+    useEffect(() => {
+        const el = scrollRef.current
+        if (!el) return
+
+        const handleScroll = () => {
+            el.classList.add("scrolling")
+
+            if (scrollTimeoutRef.current) {
+                clearTimeout(scrollTimeoutRef.current)
+            }
+
+            scrollTimeoutRef.current = setTimeout(() => {
+                el.classList.remove("scrolling")
+            }, 700)
+        }
+
+        el.addEventListener("scroll", handleScroll)
+
+        return () => {
+            el.removeEventListener("scroll", handleScroll)
+            if (scrollTimeoutRef.current) {
+                clearTimeout(scrollTimeoutRef.current)
+            }
+        }
+    }, [])
+
     return (
         <>
             <div className="lg:hidden h-14 flex items-center justify-between px-4 border-b bg-slate-900 text-white fixed top-0 left-0 right-0 z-50">
                 <h1 className="text-lg font-semibold">Admin Panel</h1>
-                <button onClick={() => setOpen(true)}>
+                <button onClick={() => setOpen(true)} className="cursor-pointer">
                     <FiMenu size={22} />
                 </button>
             </div>
@@ -39,27 +68,34 @@ const Sidebar = () => {
             >
                 <div className="h-16 flex items-center justify-between px-6 border-b border-slate-800">
                     <h1 className="text-xl font-semibold">Admin Panel</h1>
-                    <button className="lg:hidden" onClick={() => setOpen(false)}>
+                    <button
+                        className="lg:hidden cursor-pointer"
+                        onClick={() => setOpen(false)}
+                    >
                         <FiX size={22} />
                     </button>
                 </div>
 
-                <nav className="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+                <nav
+                    ref={scrollRef}
+                    className="flex-1 px-4 py-6 space-y-2 overflow-y-auto sidebar-scroll"
+                >
                     {["superadmin", "admin"].includes(admin?.role) && (
                         <>
                             <SidebarItem label="Admin Dashboard" to="/admin-dashboard" onClick={() => setOpen(false)} />
                             <SidebarItem label="Admin Approvals" to="/admin/approvals" onClick={() => setOpen(false)} />
+                            <SidebarItem label="Admin List" to="/admin/adminlist" onClick={() => setOpen(false)} />
                             <SidebarItem label="Management Team" to="/admin/management-team" onClick={() => setOpen(false)} />
                         </>
                     )}
 
                     <SidebarItem label="Dashboard" to="/dashboard" onClick={() => setOpen(false)} />
-                    {/* <SidebarItem label="Home" to="/home" onClick={() => setOpen(false)} /> */}
+                    <SidebarItem label="Credit Cards" to="/admin/credit-cards" onClick={() => setOpen(false)} />
                     <SidebarItem label="News" to="/admin/news" onClick={() => setOpen(false)} />
                     <SidebarItem label="Services" to="/admin/services" onClick={() => setOpen(false)} />
                     <SidebarItem label="Case Study" to="/admin/case-studies" onClick={() => setOpen(false)} />
                     <SidebarItem label="Faqs" to="/admin/faqs" onClick={() => setOpen(false)} />
-                    <SidebarItem label="Settings" to="/admin/settings" onClick={() => setOpen(false)} />
+                    <SidebarItem label="Mortgage Rate" to="/admin/mortgage-rate" onClick={() => setOpen(false)} />
                 </nav>
 
                 <div className="border-t border-slate-800 p-4">
@@ -68,7 +104,7 @@ const Sidebar = () => {
                             <div className="w-11 h-11 rounded-full bg-gradient-to-br from-slate-600 to-slate-800 flex items-center justify-center text-sm font-semibold text-white ring-2 ring-slate-800">
                                 {admin?.name?.charAt(0)}
                             </div>
-                            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full ring-2 ring-slate-900"></span>
+                            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full ring-2 ring-slate-900" />
                         </div>
 
                         <div className="min-w-0 flex-1">
@@ -88,7 +124,7 @@ const Sidebar = () => {
 
                     <button
                         onClick={handleLogout}
-                        className="w-full flex cursor-pointer justify-center gap-2 text-sm font-medium px-4 py-2.5 rounded-xl bg-slate-800/80 text-slate-200 hover:bg-red-600 hover:text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-500/40"
+                        className="w-full flex cursor-pointer justify-center gap-2 text-sm font-medium px-4 py-2.5 rounded-xl bg-slate-800/80 text-slate-200 hover:bg-red-600 hover:text-white transition-all duration-200 focus:outline-none"
                     >
                         Logout
                     </button>
@@ -103,7 +139,7 @@ const SidebarItem = ({ label, to, onClick }) => (
         to={to}
         onClick={onClick}
         className={({ isActive }) =>
-            `block px-4 py-2 rounded-md transition
+            `block px-4 py-2 rounded-md transition cursor-pointer
             ${isActive
                 ? "bg-slate-800 text-white"
                 : "text-slate-300 hover:bg-slate-800 hover:text-white"

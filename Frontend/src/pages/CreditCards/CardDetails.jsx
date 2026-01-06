@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { FiArrowRight } from "react-icons/fi";
 import BreadcrumbHero from "../../components/Breadcrumb";
@@ -41,6 +41,7 @@ function CardDetails() {
     const { slug } = useParams();
     const [card, setCard] = useState(null);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchCard = async () => {
@@ -118,7 +119,9 @@ function CardDetails() {
                                 <button className="relative cursor-pointer overflow-hidden bg-red-600 text-white px-8 py-4 rounded-md font-medium inline-flex items-center gap-2 group">
                                     <span className="absolute inset-0 bg-[#000080] transform -translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 z-0"></span>
 
-                                    <span className="relative z-10 flex items-center gap-2">
+                                    <span
+                                        onClick={() => navigate(`/credit-card-apply/${card.slug}`)}
+                                        className="relative z-10 flex items-center gap-2">
                                         Apply Now <FiArrowRight />
                                     </span>
                                 </button>

@@ -59,6 +59,49 @@ export const addCreditCardCategory = async (req, res, next) => {
 };
 
 
+export const getCategoryById = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+
+        if (!id) {
+            return res.status(400).json({
+                success: false,
+                message: "Category id is required",
+            });
+        }
+
+        const [rows] = await db.execute(
+            `
+            SELECT 
+                id,
+                name,
+                slug,
+                icon,
+                status,
+                created_by,
+                created_at
+            FROM tbl_credit_card_categories
+            WHERE id = ?
+            LIMIT 1
+            `,
+            [id]
+        );
+
+        if (rows.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "Category not found",
+            });
+        }
+
+        res.json({
+            success: true,
+            data: rows[0],
+        });
+    } catch (error) {
+        next(error);
+    }
+};
 
 
 
@@ -212,7 +255,7 @@ export const deleteCreditCardCategory = async (req, res, next) => {
             });
         }
 
-        const updated_by = req.admin_id || null;
+     
 
         const [existing] = await db.execute(
             "SELECT icon FROM tbl_credit_card_categories WHERE id = ?",
@@ -229,8 +272,8 @@ export const deleteCreditCardCategory = async (req, res, next) => {
         const icon = existing[0].icon;
 
         await db.execute(
-            "CALL sp_delete_credit_card_category(?, ?)",
-            [id, updated_by]
+            "CALL sp_delete_credit_card_category(?)",
+            [id]
         );
 
         if (icon) {
@@ -251,6 +294,51 @@ export const deleteCreditCardCategory = async (req, res, next) => {
 
     } catch (error) {
         console.error("Delete credit card category error:", error);
+        next(error);
+    }
+};
+
+
+
+export const updateCreditCardCategoryStatus = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const { status } = req.body;
+        const updated_by = req.admin_id;
+
+
+        if (!id) {
+            return res.status(400).json({
+                success: false,
+                message: "Category id is required",
+            });
+        }
+
+        if (!status || !["active", "inactive"].includes(status)) {
+            return res.status(400).json({
+                success: false,
+                message: "Valid status is required",
+            });
+        }
+
+        const [result] = await db.execute(
+            "UPDATE tbl_credit_card_categories SET status = ?,updated_by = ? WHERE id = ?",
+            [status, updated_by, id]
+        );
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "Category not found",
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Category status updated successfully",
+        });
+    } catch (error) {
+        console.error("Update credit card category status error:", error);
         next(error);
     }
 };

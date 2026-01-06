@@ -114,7 +114,7 @@ function CaseStudy() {
                 {canManageCaseStudy && (
                     <Button
                         onClick={() => navigate("/admin/add-case-study")}
-                        className="bg-black text-white w-full sm:w-auto"
+                        className="bg-black cursor-pointer text-white w-full sm:w-auto"
                     >
                         + Add New Case Study
                     </Button>

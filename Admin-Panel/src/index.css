@@ -1,12 +1,36 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Hide scrollbar but keep scroll */
 .hide-scrollbar {
-  scrollbar-width: none;        /* Firefox */
-  -ms-overflow-style: none;     /* IE & Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;                /* Chrome, Safari */
+  display: none;
+}
+
+
+
+
+
+.sidebar-scroll {
+    overflow-y: auto;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 999px;
+}
+
+.sidebar-scroll:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(148, 163, 184, 0.45);
+}
+
+.sidebar-scroll::-webkit-scrollbar-button {
+    display: none;
 }

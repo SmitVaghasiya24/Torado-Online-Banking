@@ -147,80 +147,80 @@ export const getActiveCreditCardsUser = async (req, res, next) => {
 
 
 export const getCreditCardByIdAdmin = async (req, res, next) => {
-  try {
-    const { id } = req.params;
+    try {
+        const { id } = req.params;
 
-    if (!id) {
-      return res.status(400).json({
-        success: false,
-        message: "Credit card id is required"
-      });
+        if (!id) {
+            return res.status(400).json({
+                success: false,
+                message: "Credit card id is required"
+            });
+        }
+
+        const [result] = await db.execute(
+            "CALL sp_admin_get_credit_card_by_id(?)",
+            [Number(id)]
+        );
+
+        const card = result[0];
+
+        if (!card || card.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "Credit card not found"
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            data: card[0]
+        });
+
+    } catch (error) {
+        next(error);
     }
-
-    const [result] = await db.execute(
-      "CALL sp_admin_get_credit_card_by_id(?)",
-      [Number(id)]
-    );
-
-    const card = result[0];
-
-    if (!card || card.length === 0) {
-      return res.status(404).json({
-        success: false,
-        message: "Credit card not found"
-      });
-    }
-
-    res.status(200).json({
-      success: true,
-      data: card[0]
-    });
-
-  } catch (error) {
-    next(error);
-  }
 };
 
 
 
 
 export const getCreditCardBySlug = async (req, res) => {
-  try {
-    const { slug } = req.params;
+    try {
+        const { slug } = req.params;
 
-    if (!slug) {
-      return res.status(400).json({
-        success: false,
-        message: "Slug is required",
-      });
+        if (!slug) {
+            return res.status(400).json({
+                success: false,
+                message: "Slug is required",
+            });
+        }
+
+        const [rows] = await db.query(
+            "CALL sp_get_credit_card_by_slug(?)",
+            [slug]
+        );
+
+        const card = rows[0]?.[0];
+
+        if (!card) {
+            return res.status(404).json({
+                success: false,
+                message: "Credit card not found",
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            data: card,
+        });
+
+    } catch (error) {
+        console.error("Get Credit Card By Slug Error:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Internal server error",
+        });
     }
-
-    const [rows] = await db.query(
-      "CALL sp_get_credit_card_by_slug(?)",
-      [slug]
-    );
-
-    const card = rows[0]?.[0];
-
-    if (!card) {
-      return res.status(404).json({
-        success: false,
-        message: "Credit card not found",
-      });
-    }
-
-    return res.status(200).json({
-      success: true,
-      data: card,
-    });
-
-  } catch (error) {
-    console.error("Get Credit Card By Slug Error:", error);
-    return res.status(500).json({
-      success: false,
-      message: "Internal server error",
-    });
-  }
 };
 
 
@@ -361,25 +361,65 @@ export const updateCreditCardAdmin = async (req, res, next) => {
 export const deleteCreditCardAdmin = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const updated_by = req.admin_id || null;
 
         if (!id) {
             return res.status(400).json({
                 success: false,
-                message: "Credit card id is required"
+                message: "Credit card id is required",
             });
         }
 
-        const [result] = await db.execute(
-            "CALL sp_admin_delete_credit_card(?, ?)",
-            [Number(id), updated_by]
+        await db.execute(
+            "CALL sp_admin_delete_credit_card(?)",
+            [Number(id)]
         );
 
-        res.json({
+        return res.status(200).json({
             success: true,
-            message: "Credit card deleted successfully"
+            message: "Credit card deleted successfully",
         });
+    } catch (error) {
+        next(error);
+    }
+};
 
+
+
+export const updateCreditCardStatus = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const { status } = req.body;
+        const updated_by = req.admin_id;
+
+
+        if (!["active", "inactive"].includes(status)) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid status value",
+            });
+        }
+
+        const [existing] = await db.query(
+            "SELECT id FROM tbl_credit_cards WHERE id = ?",
+            [id]
+        );
+
+        if (existing.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "Credit card not found",
+            });
+        }
+
+        await db.query(
+            `UPDATE tbl_credit_cards SET status = ?, updated_by = ?,updated_at = NOW()  WHERE id = ?`,
+            [status, updated_by, id]
+        );
+
+        res.status(200).json({
+            success: true,
+            message: "Credit card status updated successfully",
+        });
     } catch (error) {
         next(error);
     }

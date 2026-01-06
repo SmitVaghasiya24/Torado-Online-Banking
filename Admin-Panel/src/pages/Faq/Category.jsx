@@ -152,7 +152,6 @@ function Category() {
                 <div className="bg-white w-full lg:max-w-xl border border-gray-200 rounded-xl p-4">
                     <div className="flex flex-col sm:flex-row gap-3 items-end">
                         <div className="w-full space-y-2">
-                            {/* <Label>New Category</Label> */}
                             <Input
                                 placeholder="Enter category name"
                                 value={name}

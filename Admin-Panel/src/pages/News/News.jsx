@@ -136,7 +136,7 @@ function News() {
                     <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
                         <Button
                             onClick={() => navigate("/admin/add-news")}
-                            className="flex items-center justify-center gap-2 bg-black text-white w-full sm:w-auto"
+                            className="flex items-center cursor-pointer justify-center gap-2 bg-black text-white w-full sm:w-auto"
                         >
                             + Add New News
                         </Button>

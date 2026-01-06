@@ -67,8 +67,7 @@ const AdminApprovals = () => {
                 <p className="text-slate-500">No pending admin requests</p>
             ) : (
                 <>
-                    {/* DESKTOP TABLE */}
-                    <div className="hidden md:block bg-white rounded-xl shadow border overflow-hidden">
+                    <div className="hidden md:block bg-white rounded-xl shadow border border-gray-200 overflow-hidden">
                         <table className="w-full text-sm">
                             <thead className="bg-slate-100 text-slate-600">
                                 <tr>
@@ -82,7 +81,7 @@ const AdminApprovals = () => {
                                 {admins.map(admin => (
                                     <tr
                                         key={admin.admin_id}
-                                        className="border-t hover:bg-slate-50"
+                                        className="border-t border-gray-200 hover:bg-slate-50"
                                     >
                                         <td className="p-4">{admin.name}</td>
                                         <td className="p-4">{admin.email}</td>
@@ -107,12 +106,11 @@ const AdminApprovals = () => {
                         </table>
                     </div>
 
-                    {/* MOBILE / TABLET CARDS */}
                     <div className="md:hidden space-y-4">
                         {admins.map(admin => (
                             <div
                                 key={admin.admin_id}
-                                className="bg-white border rounded-xl p-4 shadow-sm"
+                                className="bg-white border-gray-200 border rounded-xl p-4 shadow-sm"
                             >
                                 <div className="mb-2">
                                     <p className="text-sm text-slate-500">Name</p>
