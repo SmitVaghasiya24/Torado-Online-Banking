@@ -1,7 +1,7 @@
-# Full Stack Web Application
+# Torado Online Banking
 
-A modern, fully responsive full-stack web application built with **React** on the frontend and **Node.js + Express** on the backend.  
-The project includes secure authentication, role-based authorization, protected routes, and a feature-rich admin panel.
+A modern, fully responsive full-stack online banking web application built with **React** on the frontend and **Node.js + Express** on the backend.  
+The project includes secure JWT-based authentication, role-based authorization, protected routes, and a powerful admin panel for managing banking-related content.
 
 ---
 
