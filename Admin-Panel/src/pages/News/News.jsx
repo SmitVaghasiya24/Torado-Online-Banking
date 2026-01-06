@@ -187,9 +187,20 @@ function News() {
                                         />
                                     </td>
 
-                                    <td className="px-4 py-3 font-medium">
+                                    <td
+                                        onClick={() => {
+                                            if (canManageNews) {
+                                                navigate(`/admin/news/${item.slug}`);
+                                            }
+                                        }}
+                                        className={`px-4 py-3 font-medium ${canManageNews
+                                                ? "text-black hover:underline cursor-pointer"
+                                                : "text-gray-700"
+                                            }`}
+                                    >
                                         {item.title}
                                     </td>
+
 
                                     <td className="px-4 py-3">
                                         {item.author}
@@ -208,16 +219,16 @@ function News() {
                                                     updateStatus(item.id, e.target.value)
                                                 }
                                                 className={`appearance-none px-4 py-1.5 pr-8 text-xs font-medium rounded-full 
-                          border transition-all cursor-pointer focus:outline-none focus:ring-0
-                          ${item.status === "active"
+                                                            border transition-all focus:outline-none focus:ring-0
+                                                            ${item.status === "active"
                                                         ? "bg-green-100 text-green-700 border-green-200 hover:bg-green-200"
-                                                        : "bg-red-50 text-red-700 border-red-200 hover:bg-red-100"
+                                                        : "bg-red-50 text-red-700 border-red    -200 hover:bg-red-100"
                                                     }
-                          ${!canManageNews || updatingId === item.id
+                                                        ${!canManageNews || updatingId === item.id
                                                         ? "opacity-60 cursor-not-allowed"
-                                                        : ""
+                                                        : "cursor-pointer"
                                                     }
-                        `}
+                                                `}
                                             >
                                                 <option value="active">Active</option>
                                                 <option value="inactive">Inactive</option>

@@ -14,8 +14,7 @@ function MortgageRates() {
     const token = authData?.token;
     const role = authData?.admin?.role;
 
-    const canManageMortgage =
-        ["superadmin", "admin"].includes(role);
+    const canManageMortgage = ["superadmin", "admin", "content_manager"].includes(role);
 
     const fetchMortgageRates = async () => {
         try {
@@ -76,28 +75,28 @@ function MortgageRates() {
 
 
     const deleteMortgageRate = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this mortgage rate?")) {
-        return;
-    }
+        if (!window.confirm("Are you sure you want to delete this mortgage rate?")) {
+            return;
+        }
 
-    try {
-        await axios.delete(
-            `http://localhost:5000/api/admin/delete_mortgage_rate/${id}`,
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            }
-        );
+        try {
+            await axios.delete(
+                `http://localhost:5000/api/admin/delete_mortgage_rate/${id}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
 
-        toast.success("Mortgage rate deleted successfully");
+            toast.success("Mortgage rate deleted successfully");
 
-        setRates((prev) => prev.filter((item) => item.id !== id));
-    } catch (error) {
-        console.error(error);
-        toast.error("Failed to delete mortgage rate");
-    }
-};
+            setRates((prev) => prev.filter((item) => item.id !== id));
+        } catch (error) {
+            console.error(error);
+            toast.error("Failed to delete mortgage rate");
+        }
+    };
 
 
     return (

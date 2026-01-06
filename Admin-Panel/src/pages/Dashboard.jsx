@@ -18,7 +18,7 @@ function Dashboard() {
 
             <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm max-w-xl">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-6">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-slate-800 to-slate-600 flex items-center justify-center text-white text-xl font-semibold shrink-0">
+                    <div className="w-16 h-16 rounded-full bg-linear-to-br from-slate-800 to-slate-600 flex items-center justify-center text-white text-xl font-semibold shrink-0">
                         {admin?.name?.charAt(0)}
                     </div>
 

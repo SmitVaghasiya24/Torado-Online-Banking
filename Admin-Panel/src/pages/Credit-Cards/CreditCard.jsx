@@ -175,9 +175,20 @@ function CreditCard() {
                                             />
                                         </td>
 
-                                        <td className="px-6 py-4 font-medium">
+                                        <td
+                                            onClick={() => {
+                                                if (canManageCreditCards) {
+                                                    navigate(`/admin/credit-card/${card.slug}`);
+                                                }
+                                            }}
+                                            className={`px-6 py-4 font-medium ${canManageCreditCards
+                                                    ? "text-black hover:underline cursor-pointer"
+                                                    : "text-gray-700"
+                                                }`}
+                                        >
                                             {card.title}
                                         </td>
+
 
                                         <td className="px-6 py-4">
                                             {card.category_name}

@@ -171,9 +171,20 @@ function Services() {
                                         />
                                     </td>
 
-                                    <td className="px-6 py-4 font-medium">
+                                    <td
+                                        onClick={() => {
+                                            if (canManageService) {
+                                                navigate(`/admin/service/${item.slug}`);
+                                            }
+                                        }}
+                                        className={`px-6 py-4 font-medium ${canManageService
+                                                ? "text-black hover:underline cursor-pointer"
+                                                : "text-gray-700"
+                                            }`}
+                                    >
                                         {item.title}
                                     </td>
+
 
                                     <td className="px-6 py-4">
                                         {item.category_name}
@@ -192,12 +203,12 @@ function Services() {
                                                 onChange={(e) =>
                                                     updateStatus(item.id, e.target.value)
                                                 }
-                                                className={`appearance-none px-4 py-1.5 pr-8 text-xs font-medium rounded-full  border transition-all cursor-pointer focus:outline-none focus:ring-0 ${item.status === "active"
+                                                className={`appearance-none px-4 py-1.5 pr-8 text-xs font-medium rounded-full  border transition-all focus:outline-none focus:ring-0 ${item.status === "active"
                                                     ? "bg-green-100 text-green-700 border-green-200 hover:bg-green-200"
                                                     : "bg-red-50 text-red-700 border-red-200 hover:bg-red-100"
                                                     } ${!canManageService || updatingId === item.id
                                                         ? "opacity-60 cursor-not-allowed"
-                                                        : ""
+                                                        : "cursor-pointer"
                                                     }
                                                    `}
                                             >

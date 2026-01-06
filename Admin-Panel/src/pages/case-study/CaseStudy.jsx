@@ -140,7 +140,7 @@ function CaseStudy() {
                         <tbody>
                             {!loading &&
                                 caseStudies.map((item) => (
-                                    <tr key={item.id} className="border-b hover:bg-gray-50">
+                                    <tr key={item.id} className="border-b border-gray-200 hover:bg-gray-50">
                                         <td className="px-6 py-4 font-medium">{item.id}</td>
 
                                         <td className="px-6 py-4">
@@ -151,7 +151,20 @@ function CaseStudy() {
                                             />
                                         </td>
 
-                                        <td className="px-6 py-4 font-medium">{item.title}</td>
+                                        <td
+                                            onClick={() => {
+                                                if (canManageCaseStudy) {
+                                                    navigate(`/admin/case-study/${item.slug}`);
+                                                }
+                                            }}
+                                            className={`px-6 py-4 font-medium ${canManageCaseStudy
+                                                ? "text-black hover:underline cursor-pointer"
+                                                : "text-gray-700"
+                                                }`}
+                                        >
+                                            {item.title}
+                                        </td>
+
                                         <td className="px-6 py-4">{item.sector}</td>
                                         <td className="px-6 py-4">{item.location}</td>
                                         <td className="px-6 py-4 text-gray-500">
@@ -166,14 +179,17 @@ function CaseStudy() {
                                                     onChange={(e) =>
                                                         updateStatus(item.id, e.target.value)
                                                     }
-                                                    className={`appearance-none px-4 py-1.5 pr-8 text-xs font-medium rounded-full  border transition-all cursor-pointer focus:outline-none focus:ring-0 ${item.status === "active"
-                                                        ? "bg-green-100 text-green-700 border-green-200 hover:bg-green-200"
-                                                        : "bg-red-50 text-red-700 border-red-200 hover:bg-red-100"
-                                                        } ${!canManageCaseStudy || updatingId === item.id
-                                                            ? "opacity-60 cursor-not-allowed"
-                                                            : ""
+                                                    className={`appearance-none px-4 py-1.5 pr-8 text-xs font-medium rounded-full border transition-all focus:outline-none focus:ring-0
+                                                                ${item.status === "active"
+                                                            ? "bg-green-100 text-green-700 border-green-200 hover:bg-green-200"
+                                                            : "bg-red-50 text-red-700 border-red-200 hover:bg-red-100"
                                                         }
-                                                   `}
+                                                                ${!canManageCaseStudy || updatingId === item.id
+                                                            ? "opacity-60 cursor-not-allowed"
+                                                            : "cursor-pointer"
+                                                        }
+                                                    `}
+
                                                 >
                                                     <option value="active">Active</option>
                                                     <option value="inactive">Inactive</option>

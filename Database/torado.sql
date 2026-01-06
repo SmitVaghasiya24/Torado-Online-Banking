@@ -71,7 +71,7 @@ CREATE TABLE `tbl_admins` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`admin_id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -80,7 +80,7 @@ CREATE TABLE `tbl_admins` (
 
 LOCK TABLES `tbl_admins` WRITE;
 /*!40000 ALTER TABLE `tbl_admins` DISABLE KEYS */;
-INSERT INTO `tbl_admins` VALUES (1,'Smit','admin@gmail.com','$2b$10$UcHy9b.Ngd0QxDRQwHqRvefFrsaZLE8PigTtlXr.z1WHvS9FZYBaS','admin','rejected',1,2,'2025-12-09 05:34:03','2025-12-09 06:00:33'),(2,'Smit','smit@gmail.com','$2b$10$WxpGeBJJzhi0Uacrt2bvmetPA32nATZxvew0YoRvx6esS2Cnc9dCq','superadmin','approved',1,1,'2025-12-09 05:34:54','2025-12-09 05:34:54'),(3,'raj','raj@gmail.com','$2b$10$1eUWpAh9RNy54Veq/CRK..wAvAP525ZOn4Qwm3Nk86rpuo7k3o/cG','support_staff','rejected',1,2,'2025-12-09 05:43:52','2025-12-09 06:00:30');
+INSERT INTO `tbl_admins` VALUES (1,'Smit','admin@gmail.com','$2b$10$UcHy9b.Ngd0QxDRQwHqRvefFrsaZLE8PigTtlXr.z1WHvS9FZYBaS','admin','rejected',1,2,'2025-12-09 05:34:03','2025-12-09 06:00:33'),(2,'Smit','smit@gmail.com','$2b$10$WxpGeBJJzhi0Uacrt2bvmetPA32nATZxvew0YoRvx6esS2Cnc9dCq','superadmin','approved',1,1,'2025-12-09 05:34:54','2025-12-09 05:34:54'),(3,'raj','raj@gmail.com','$2b$10$1eUWpAh9RNy54Veq/CRK..wAvAP525ZOn4Qwm3Nk86rpuo7k3o/cG','support_staff','rejected',1,2,'2025-12-09 05:43:52','2025-12-09 06:00:30'),(4,'yash','yash@gmail.com','$2b$10$ds9spInjVYxctjjQObts2.p2MDfLFrLlFy2tJSJ4Mk8ToUDkMleUm','manager','approved',1,2,'2025-12-30 05:45:29','2025-12-30 07:07:07'),(5,'Henil','henil@gmail.com','$2b$10$1pD3lwEkSn0v7yFKdwYO9.8Ziho7bJPmoEN3WnbV7ih0k19PyvyAy','support_staff','approved',NULL,2,'2025-12-30 08:16:58','2025-12-30 09:53:15'),(6,'Raj Patel','raj85@gmail.com','$2b$10$g97jyEEbUxlEM25bT5EhE.Tod8wk43XG9HFa53oUoWqcH74wJuBa.','content_manager','approved',NULL,2,'2025-12-30 08:48:37','2025-12-31 05:02:08'),(7,'Lilah Salas','xyvisisyqo@mailinator.com','$2b$10$B/7thFxTjVNlZEZ6KoO7P.dRRyMs8Kw5ouRr4fVNBgsH9x7wI0Hs6','manager','rejected',NULL,2,'2025-12-30 09:46:48','2025-12-30 11:59:11'),(8,'Kyla Dodson','zyqypum@mailinator.com','$2b$10$PL/o77HgHoew5dIgmQR8t.9JPAs7dNlyOpMlE5B725YmitJuS2kPC','manager','pending',NULL,NULL,'2026-01-05 11:00:12','2026-01-05 11:00:12');
 /*!40000 ALTER TABLE `tbl_admins` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,7 +107,7 @@ CREATE TABLE `tbl_case_studies` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,7 +116,7 @@ CREATE TABLE `tbl_case_studies` (
 
 LOCK TABLES `tbl_case_studies` WRITE;
 /*!40000 ALTER TABLE `tbl_case_studies` DISABLE KEYS */;
-INSERT INTO `tbl_case_studies` VALUES (1,'Renewable Energy Initiative','renewable-energy-initiative','http://localhost:5000/uploads/case-studies/1765345243944.webp','SolarHope Initiative','Renewable Energy','Sub-Saharan Africa','SolarHope Initiative set out to provide reliable and affordable solar energy solutions to rural communities across Sub-Saharan Africa. This initiative aimed to reduce the region\'s dependency on fossil fuels, enhance the quality of life, and promote sustainable development by improving energy access.',NULL,2,NULL,'2025-12-10 05:40:43','2025-12-10 05:40:43'),(2,'Sustainable Urban Development','sustainable-urban-development','http://localhost:5000/uploads/case-studies/1765346198782.webp','SolarHope Initiative','Renewable Energy','Sub-Saharan Africa','SolarHope Initiative set out to provide reliable and affordable solar energy solutions to rural communities across Sub-Saharan Africa. This initiative aimed to reduce the region\'s dependency on fossil fuels, enhance the quality of life, and promote sustainable development by improving energy access.',NULL,2,NULL,'2025-12-10 05:56:38','2025-12-10 05:56:38'),(3,'Community-Based Conservation','community-based-conservation','http://localhost:5000/uploads/case-studies/1765346220539.webp','SolarHope Initiative','Renewable Energy','Sub-Saharan Africa','SolarHope Initiative set out to provide reliable and affordable solar energy solutions to rural communities across Sub-Saharan Africa. This initiative aimed to reduce the region\'s dependency on fossil fuels, enhance the quality of life, and promote sustainable development by improving energy access.',NULL,2,NULL,'2025-12-10 05:57:00','2025-12-10 05:57:00'),(5,'Sustainable Agriculture Initiative','sustainable-agriculture-initiative','http://localhost:5000/uploads/case-studies/1765348017445.webp','SolarHope Initiative','Renewable Energy','Sub-Saharan Africa','SolarHope Initiative set out to provide reliable and affordable solar energy solutions to rural communities across Sub-Saharan Africa. This initiative aimed to reduce the region\'s dependency on fossil fuels, enhance the quality of life, and promote sustainable development by improving energy access.','active',2,2,'2025-12-10 06:26:18','2025-12-10 06:26:57');
+INSERT INTO `tbl_case_studies` VALUES (1,'Renewable Energy Initiative','renewable-energy-initiative','http://localhost:5000/uploads/case-studies/1765345243944.webp','SolarHope Initiative','Renewable Energy','Sub-Saharan Africa','SolarHope Initiative set out to provide reliable and affordable solar energy solutions to rural communities across Sub-Saharan Africa. This initiative aimed to reduce the region\'s dependency on fossil fuels, enhance the quality of life, and promote sustainable development by improving energy access.','active',2,2,'2025-12-10 05:40:43','2025-12-31 04:50:36'),(2,'Sustainable Urban Development','sustainable-urban-development','http://localhost:5000/uploads/case-studies/1765346198782.webp','SolarHope Initiative','Renewable Energy','Sub-Saharan Africa','SolarHope Initiative set out to provide reliable and affordable solar energy solutions to rural communities across Sub-Saharan Africa. This initiative aimed to reduce the region\'s dependency on fossil fuels, enhance the quality of life, and promote sustainable development by improving energy access.','active',2,2,'2025-12-10 05:56:38','2025-12-31 05:07:49'),(3,'Community-Based Conservation','community-based-conservation','http://localhost:5000/uploads/case-studies/1765346220539.webp','SolarHope Initiative','Renewable Energy','Sub-Saharan Africa','SolarHope Initiative set out to provide reliable and affordable solar energy solutions to rural communities across Sub-Saharan Africa. This initiative aimed to reduce the region\'s dependency on fossil fuels, enhance the quality of life, and promote sustainable development by improving energy access.','active',2,2,'2025-12-10 05:57:00','2025-12-31 11:57:15'),(5,'Sustainable Agriculture Initiative','sustainable-agriculture-initiative','http://localhost:5000/uploads/case-studies/1765348017445.webp','SolarHope Initiative','Renewable Energy','Sub-Saharan Africa','SolarHope Initiative set out to provide reliable and affordable solar energy solutions to rural communities across Sub-Saharan Africa. This initiative aimed to reduce the region\'s dependency on fossil fuels, enhance the quality of life, and promote sustainable development by improving energy access.','active',2,6,'2025-12-10 06:26:18','2025-12-31 05:12:11'),(6,'Financing Clean Technology Startups','financing-clean-technology-startups','http://localhost:5000/uploads/case-studies/1767158831753.webp','SolarHope Initiative','Renewable Energy','Sub-Saharan Africa','SolarHope Initiative set out to provide reliable and affordable solar energy solutions to rural communities across Sub-Saharan Africa. This initiative aimed to reduce the region\'s dependency on fossil fuels, enhance the quality of life, and promote sustainable development by improving energy access.','active',6,2,'2025-12-31 05:27:11','2026-01-06 05:57:11'),(7,'Beatae quam ad dolor','beatae-quam-ad-dolor','http://localhost:5000/uploads/case-studies/1767179356659.webp','Id aut nulla ut aliq','Autem ducimus omnis','Cillum est commodi s','Et ipsam cupiditate ','inactive',6,6,'2025-12-31 05:35:15','2026-01-01 08:38:05'),(8,'Pariatur Sed qui pa','pariatur-sed-qui-pa','http://localhost:5000/uploads/case-studies/1767179344421.webp','Earum ducimus quis ','Ut velit exercitatio','Esse eos doloremqu','Voluptas praesentium','active',6,2,'2025-12-31 05:36:16','2025-12-31 11:09:04'),(9,'Dignissimos blanditi','dignissimos-blanditi','http://localhost:5000/uploads/case-studies/1767163853007.webp','Aliquip accusantium ','Occaecat cupidatat s','Cum ex unde exercita','In doloribus sit est','active',6,6,'2025-12-31 06:01:46','2026-01-06 04:50:13');
 /*!40000 ALTER TABLE `tbl_case_studies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -194,6 +194,55 @@ INSERT INTO `tbl_contact_messages` VALUES (1,3,'raj','raj@gmail.com','9988776655
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tbl_credit_card_apply`
+--
+
+DROP TABLE IF EXISTS `tbl_credit_card_apply`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tbl_credit_card_apply` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `middle_name` varchar(100) DEFAULT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `date_of_birth` date NOT NULL,
+  `ssn_tax_id` varchar(20) NOT NULL,
+  `is_us_citizen` tinyint(1) DEFAULT '0',
+  `residential_address1` varchar(255) NOT NULL,
+  `residential_address2` varchar(255) DEFAULT NULL,
+  `zip_code` varchar(10) DEFAULT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `province` varchar(100) DEFAULT NULL,
+  `email` varchar(150) NOT NULL,
+  `telephone_number` varchar(20) DEFAULT NULL,
+  `employment_status` varchar(100) DEFAULT NULL,
+  `total_annual_income` decimal(12,2) DEFAULT NULL,
+  `monthly_mortgage_or_rent` decimal(12,2) DEFAULT NULL,
+  `has_bank_account` tinyint(1) DEFAULT '0',
+  `terms_accepted` tinyint(1) DEFAULT '0',
+  `status` enum('active','inactive') DEFAULT 'active',
+  `created_by` int DEFAULT NULL,
+  `updated_by` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `tbl_credit_card_apply_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`user_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_credit_card_apply`
+--
+
+LOCK TABLES `tbl_credit_card_apply` WRITE;
+/*!40000 ALTER TABLE `tbl_credit_card_apply` DISABLE KEYS */;
+INSERT INTO `tbl_credit_card_apply` VALUES (1,3,'Smit','K','Vaghasiya','1998-05-12','123456789',1,'Main Street','Near Park','380015','Ahmedabad','Gujarat','smit@gmail.com','9999999999','Self Employed',750000.00,15000.00,1,1,'active',3,NULL,'2025-12-26 04:51:28','2025-12-26 04:51:28'),(2,3,'Caesar','Dana Emerson','Day','2012-04-14','Incidunt consequatu',1,'436 East Rocky First Street','Alias sed id qui dol','39654','Voluptas est consequ','Pariatur Qui modi q','xudyk@mailinator.com','+1 (156) 656-2227','Select option',189.00,7.00,1,1,'active',3,NULL,'2025-12-26 05:38:53','2025-12-26 05:38:53'),(3,3,'Chase','Gavin Tyler','Mooney','1989-10-15','Laboris commodo aliq',0,'64 North Clarendon Road','Voluptatem possimus','47672','Odio ut molestiae co','Expedita reprehender','hiqewejy@mailinator.com','+1 (886) 966-5884','Self Employed',150.00,5.00,0,1,'active',3,NULL,'2025-12-26 05:43:38','2025-12-26 05:43:38'),(4,3,'Isadora','Renee Poole','Mullen','1976-07-25','Corporis hic veritat',1,'901 Milton Extension','Consequatur Aute si','36835','Iusto quas unde odit','Nam dolores itaque d','dyfofogiw@mailinator.com','+1 (296) 553-1682','Select option',419.00,11.00,1,1,'active',3,NULL,'2025-12-26 05:43:53','2025-12-26 05:43:53'),(5,3,'Aubrey','Yoshio Best','Schwartz','2017-04-28','Beatae corrupti und',0,'46 West Fabien Drive','Et et et pariatur C','48933','Qui et enim ex qui q','Officia atque dolore','jyhy@mailinator.com','+1 (933) 167-8024','Select option',361.00,4.00,0,1,'active',3,NULL,'2025-12-26 05:45:49','2025-12-26 05:45:49'),(6,3,'Diana','Barclay Stevenson','Schroeder','2011-06-13','Placeat pariatur A',1,'955 West Oak Parkway','Voluptas et quaerat ','35354','Proident non et qui','Nam quis quaerat neq','fuzir@mailinator.com','+1 (215) 787-3619','Employed',418.00,11.00,1,1,'active',3,NULL,'2025-12-26 05:54:01','2025-12-26 05:54:01'),(7,3,'Fallon','Yoshi Montoya','Wallace','1987-11-27','Ipsum sunt dolorem',1,'201 Green New Boulevard','Consectetur omnis ex','96443','Ut voluptatem bland','Beatae et cupidatat ','leroki@mailinator.com','+1 (146) 399-1046','Student',720.00,6.00,0,1,'active',3,NULL,'2025-12-26 05:54:20','2025-12-26 05:54:20'),(8,3,'Dalton','Howard Stokes','Lambert','2011-10-27','Tempora in in animi',0,'169 East Rocky New Parkway','Cupiditate enim id n','42391','Id ut esse error mo','Molestias mollit par','bakabav@mailinator.com','+1 (217) 848-4853','Self Employed',592.00,6.00,0,1,'active',3,NULL,'2025-12-26 05:57:28','2025-12-26 05:57:28'),(9,3,'Laurel','Trevor Whitley','Albert','1975-04-18','Vel voluptate repreh',1,'859 West Clarendon Parkway','In nisi eos laboris ','77589','Voluptas praesentium','Optio duis aut quis','nicirux@mailinator.com','+1 (293) 788-9169','Unemployed',785.00,10.00,0,1,'active',3,NULL,'2025-12-26 06:02:04','2025-12-26 06:02:04'),(10,3,'George','Wilma Bauer','Hopper','1992-03-20','Optio placeat sint',1,'743 North Green First Street','Voluptas corporis no','14770','Sunt quae aut dolor ','Non maxime qui non t','kypir@mailinator.com','+1 (533) 651-8756','Student',612.00,2.00,0,1,'active',3,NULL,'2025-12-26 06:05:31','2025-12-26 06:05:31'),(11,3,'Willow','Louis Kidd','Stark','2025-11-12','Architecto esse nece',1,'52 North Second Lane','Amet dolor quis ess','64123','Voluptatem aut qui ','Expedita aperiam num','zavepag@mailinator.com','+1 (988) 561-6968','Student',976.00,4.00,1,1,'active',3,NULL,'2025-12-26 06:09:03','2025-12-26 06:09:03'),(12,3,'Genevieve','Dustin Foley','Saunders','1974-12-15','Rem et ipsum amet ',0,'865 West Rocky Old Court','In incidunt ipsum a','56536','In eligendi cumque d','Qui pariatur Recusa','xadagy@mailinator.com','+1 (331) 666-9808','Student',236.00,3.00,0,1,'active',3,NULL,'2025-12-26 06:09:10','2025-12-26 06:09:10'),(13,3,'Paul','Sierra Solomon','Wallace','1974-04-13','Rerum quo dolores co',0,'70 Clarendon Court','Sit similique dolore','35958','Voluptatibus veniam','Libero sit veniam s','naxe@mailinator.com','+1 (103) 839-2384','Unemployed',810.00,4.00,0,1,'active',3,NULL,'2025-12-26 06:10:02','2025-12-26 06:10:02'),(14,3,'Dai','Signe Dale','Salinas','2025-10-14','Sed aut vero eius of',1,'509 Clarendon Extension','Cumque voluptate quo','69548','Aut ipsa qui fugiat','Quia nisi voluptatem','qirumedo@mailinator.com','+1 (826) 557-9984','Self Employed',872.00,12.00,0,1,'active',3,NULL,'2025-12-26 12:22:16','2025-12-26 12:22:16');
+/*!40000 ALTER TABLE `tbl_credit_card_apply` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tbl_credit_card_categories`
 --
 
@@ -213,7 +262,7 @@ CREATE TABLE `tbl_credit_card_categories` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -222,8 +271,141 @@ CREATE TABLE `tbl_credit_card_categories` (
 
 LOCK TABLES `tbl_credit_card_categories` WRITE;
 /*!40000 ALTER TABLE `tbl_credit_card_categories` DISABLE KEYS */;
-INSERT INTO `tbl_credit_card_categories` VALUES (1,'Travel','travel','http://localhost:5000/uploads/credit-card-category-icons/1766572802003.svg',0,'active',2,NULL,'2025-12-24 10:40:02','2025-12-24 10:40:02'),(2,'Rewards','rewards','http://localhost:5000/uploads/credit-card-category-icons/1766572886455.svg',0,'active',2,NULL,'2025-12-24 10:41:26','2025-12-24 10:41:26'),(3,'Cash Back','cash-back','http://localhost:5000/uploads/credit-card-category-icons/1766572937854.svg',0,'active',2,NULL,'2025-12-24 10:42:17','2025-12-24 10:42:17'),(4,'Business','business','http://localhost:5000/uploads/credit-card-category-icons/1766572988751.svg',0,'active',2,NULL,'2025-12-24 10:43:08','2025-12-24 10:43:08'),(5,'Student','student','http://localhost:5000/uploads/credit-card-icons/1766576934349.svg',0,'inactive',2,2,'2025-12-24 10:44:57','2025-12-24 11:54:09');
+INSERT INTO `tbl_credit_card_categories` VALUES (1,'Travel','travel','http://localhost:5000/uploads/credit-card-category-icons/1766572802003.svg',2,'active',2,2,'2025-12-24 10:40:02','2026-01-05 08:44:47'),(2,'Rewards','rewards','http://localhost:5000/uploads/credit-card-category-icons/1766572886455.svg',0,'active',2,NULL,'2025-12-24 10:41:26','2025-12-24 10:41:26'),(3,'Cash Back','cash-back','http://localhost:5000/uploads/credit-card-category-icons/1766572937854.svg',0,'active',2,NULL,'2025-12-24 10:42:17','2025-12-24 10:42:17'),(4,'Business','business','http://localhost:5000/uploads/credit-card-category-icons/1766572988751.svg',0,'active',2,2,'2025-12-24 10:43:08','2026-01-05 09:35:11'),(5,'Student','student','http://localhost:5000/uploads/credit-card-category-icons/1766645379989.svg',0,'active',2,2,'2025-12-24 10:44:57','2026-01-06 03:51:41');
 /*!40000 ALTER TABLE `tbl_credit_card_categories` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_credit_cards`
+--
+
+DROP TABLE IF EXISTS `tbl_credit_cards`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tbl_credit_cards` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `category_id` int NOT NULL,
+  `title` varchar(150) NOT NULL,
+  `slug` varchar(120) NOT NULL,
+  `subtitle` varchar(255) DEFAULT NULL,
+  `rating` decimal(2,1) DEFAULT '0.0',
+  `total_reviews` int DEFAULT '0',
+  `max_cashback_percent` decimal(4,2) DEFAULT NULL,
+  `intro_bonus_amount` int DEFAULT NULL,
+  `selected_category_cashback` decimal(4,2) DEFAULT NULL,
+  `other_purchase_cashback` decimal(4,2) DEFAULT NULL,
+  `annual_fee` decimal(10,2) DEFAULT '0.00',
+  `annual_fee_note` varchar(255) DEFAULT NULL,
+  `intro_apr_percent` decimal(4,2) DEFAULT NULL,
+  `intro_apr_months` int DEFAULT NULL,
+  `card_image` varchar(255) DEFAULT NULL,
+  `is_featured` tinyint(1) DEFAULT '0',
+  `status` enum('active','inactive') DEFAULT 'active',
+  `created_by` int DEFAULT NULL,
+  `updated_by` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `slug` (`slug`),
+  KEY `fk_credit_card_category` (`category_id`),
+  CONSTRAINT `fk_credit_card_category` FOREIGN KEY (`category_id`) REFERENCES `tbl_credit_card_categories` (`id`) ON DELETE RESTRICT
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_credit_cards`
+--
+
+LOCK TABLES `tbl_credit_cards` WRITE;
+/*!40000 ALTER TABLE `tbl_credit_cards` DISABLE KEYS */;
+INSERT INTO `tbl_credit_cards` VALUES (1,1,'Travel card','travel-card','Earn up to 5% cash back on every purchase',4.9,757,5.00,500,5.00,1.50,0.00,'No annual fee intro the first year',2.00,0,'http://localhost:5000/uploads/credit-cards/1766656055678.webp',0,'active',2,2,'2025-12-25 09:47:35','2026-01-05 04:48:08'),(2,4,'Business card','business-card','Earn up to 5% cash back on every purchase',4.9,289,5.00,500,5.00,1.50,0.00,'No annual fee intro the first year',2.00,0,'http://localhost:5000/uploads/credit-cards/1766656133923.webp',0,'active',2,2,'2025-12-25 09:48:53','2026-01-05 04:48:26'),(3,3,'Cash back card','cash-back-card','Earn up to 5% cash back on every purchase',4.5,258,5.00,500,5.00,1.50,0.00,'No annual fee intro the first year',2.00,0,'http://localhost:5000/uploads/credit-cards/1766656382098.webp',0,'active',2,2,'2025-12-25 09:49:32','2026-01-05 07:21:34'),(4,2,'Advantage credit card','advantage-credit-card','Earn up to 5% cash back on every purchase',4.5,258,5.00,500,5.00,1.50,0.00,'No annual fee intro the first year',2.00,0,'http://localhost:5000/uploads/credit-cards/1766656438109.webp',0,'active',2,2,'2025-12-25 09:53:58','2026-01-05 06:46:28'),(5,5,'Simplicity credit card','simplicity-credit-card','Earn up to 5% cash back on every purchase',4.5,289,5.00,500,5.00,1.50,0.00,'No annual fee intro the first year',2.00,0,'http://localhost:5000/uploads/credit-cards/1766656505183.webp',0,'active',2,2,'2025-12-25 09:55:05','2026-01-05 07:19:41'),(6,5,'Fair credit card','fair-credit-card','Earn up to 5% cash back on every purchase',4.5,289,5.00,500,5.00,1.50,0.00,'No annual fee intro the first year',2.00,0,'http://localhost:5000/uploads/credit-cards/1767591655175.webp',0,'active',2,2,'2026-01-05 05:40:55','2026-01-05 06:59:37'),(8,4,'Unlimited cash rewards credit card','unlimited-cash-rewards-credit-card','Earn up to 5% cash back on every purchase',4.9,199,5.00,500,5.00,1.50,0.00,'No annual fee intro the first year',2.00,2,'http://localhost:5000/uploads/credit-cards/1767593566113.webp',1,'active',2,2,'2026-01-05 06:12:46','2026-01-05 12:28:17');
+/*!40000 ALTER TABLE `tbl_credit_cards` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `trg_credit_card_after_insert` AFTER INSERT ON `tbl_credit_cards` FOR EACH ROW BEGIN
+  IF NEW.status = 'active' THEN
+    UPDATE tbl_credit_card_categories
+    SET total_cards = total_cards + 1
+    WHERE id = NEW.category_id;
+  END IF;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `trg_credit_card_after_update` AFTER UPDATE ON `tbl_credit_cards` FOR EACH ROW BEGIN
+  IF OLD.category_id <> NEW.category_id
+     AND OLD.status = 'active'
+     AND NEW.status = 'active' THEN
+
+    UPDATE tbl_credit_card_categories
+    SET total_cards = GREATEST(total_cards - 1, 0)
+    WHERE id = OLD.category_id;
+
+    UPDATE tbl_credit_card_categories
+    SET total_cards = total_cards + 1
+    WHERE id = NEW.category_id;
+
+  END IF;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
+-- Table structure for table `tbl_documents`
+--
+
+DROP TABLE IF EXISTS `tbl_documents`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tbl_documents` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(150) NOT NULL,
+  `slug` varchar(120) NOT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `file_path` varchar(255) NOT NULL,
+  `file_type` enum('pdf') DEFAULT 'pdf',
+  `related_type` enum('credit_card','general') DEFAULT 'general',
+  `related_id` int DEFAULT NULL,
+  `status` enum('active','inactive') DEFAULT 'active',
+  `created_by` int DEFAULT NULL,
+  `updated_by` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `slug` (`slug`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_documents`
+--
+
+LOCK TABLES `tbl_documents` WRITE;
+/*!40000 ALTER TABLE `tbl_documents` DISABLE KEYS */;
+INSERT INTO `tbl_documents` VALUES (1,'Important Disclosures','important-disclosures','1766734627297.pdf','uploads/documents/1766734627297.pdf','pdf','general',NULL,'active',2,NULL,'2025-12-26 07:37:07','2025-12-26 07:37:07');
+/*!40000 ALTER TABLE `tbl_documents` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -242,7 +424,7 @@ CREATE TABLE `tbl_faq_categories` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -251,7 +433,7 @@ CREATE TABLE `tbl_faq_categories` (
 
 LOCK TABLES `tbl_faq_categories` WRITE;
 /*!40000 ALTER TABLE `tbl_faq_categories` DISABLE KEYS */;
-INSERT INTO `tbl_faq_categories` VALUES (1,'Card Replacement','active',2,NULL,'2025-12-09 07:06:53','2025-12-09 07:06:53'),(2,'Accounr Services','active',2,2,'2025-12-09 07:08:17','2025-12-09 07:12:42');
+INSERT INTO `tbl_faq_categories` VALUES (1,'Card Replacement','active',2,2,'2025-12-09 07:06:53','2026-01-02 04:27:22'),(2,'Account Services','inactive',2,2,'2025-12-09 07:08:17','2026-01-02 04:38:58'),(3,'Card payment','inactive',6,2,'2026-01-01 11:07:00','2026-01-02 04:26:33'),(4,'Security','active',6,2,'2026-01-01 11:09:03','2026-01-02 04:49:58'),(6,'Credit Report','active',2,2,'2026-01-02 04:48:09','2026-01-02 12:21:25');
 /*!40000 ALTER TABLE `tbl_faq_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -275,7 +457,7 @@ CREATE TABLE `tbl_faqs` (
   PRIMARY KEY (`id`),
   KEY `category_id` (`category_id`),
   CONSTRAINT `tbl_faqs_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `tbl_faq_categories` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -284,7 +466,7 @@ CREATE TABLE `tbl_faqs` (
 
 LOCK TABLES `tbl_faqs` WRITE;
 /*!40000 ALTER TABLE `tbl_faqs` DISABLE KEYS */;
-INSERT INTO `tbl_faqs` VALUES (1,1,'What is the best credit card for me?','Credit cards offer a convenient and widely accepted method of payment for goods and services, both online and in physical stores. Credit cards also offer various benefits and rewards programs, such as cashback.','active',2,NULL,'2025-12-09 07:21:45','2025-12-09 07:21:45'),(2,1,'How do I apply for a credit card?','Credit cards offer a convenient and widely accepted method of payment for goods and services, both online and in physical stores. Credit cards also offer various benefits and rewards programs, such as cashback.','active',2,NULL,'2025-12-09 07:22:48','2025-12-09 07:22:48'),(3,2,'What are the eligibility requirements for a credit card?','Credit cards offer a convenient and widely accepted method of payment for goods and services, both online and in physical stores. Credit cards also offer various benefits and rewards programs, such as cashback.','active',2,2,'2025-12-09 07:23:01','2025-12-09 07:30:46'),(4,2,'How does a credit card work?','Credit cards offer a convenient and widely accepted method of payment for goods and services, both online and in physical stores. Credit cards also offer various benefits and rewards programs, such as cashback.','active',2,2,'2025-12-09 07:23:09','2025-12-09 07:30:56'),(5,2,'How can I build or improve my credit with a credit card?','Credit cards offer a convenient and widely accepted method of payment for goods and services, both online and in physical stores. Credit cards also offer various benefits and rewards programs, such as cashback.','active',2,2,'2025-12-09 07:23:18','2025-12-09 07:29:38');
+INSERT INTO `tbl_faqs` VALUES (1,1,'What is the best credit card for me?','Credit cards offer a convenient and widely accepted method of payment for goods and services, both online and in physical stores. Credit cards also offer various benefits and rewards programs, such as cashback.','active',2,6,'2025-12-09 07:21:45','2026-01-01 10:03:33'),(2,1,'How do I apply for a credit card?','Credit cards offer a convenient and widely accepted method of payment for goods and services, both online and in physical stores. Credit cards also offer various benefits and rewards programs, such as cashback.','active',2,2,'2025-12-09 07:22:48','2026-01-02 04:27:30'),(3,2,'What are the eligibility requirements for a credit card?','Credit cards offer a convenient and widely accepted method of payment for goods and services, both online and in physical stores. Credit cards also offer various benefits and rewards programs, such as cashback.','inactive',2,6,'2025-12-09 07:23:01','2026-01-01 09:57:20'),(4,2,'How does a credit card work?','Credit cards offer a convenient and widely accepted method of payment for goods and services, both online and in physical stores. Credit cards also offer various benefits and rewards programs, such as cashback.','active',2,6,'2025-12-09 07:23:09','2026-01-01 10:03:22'),(5,6,'How can I build or improve my credit with a credit card?','Credit cards offer a convenient and widely accepted method of payment for goods and services, both online and in physical stores. Credit cards also offer various benefits and rewards programs, such as cashback.','active',2,2,'2025-12-09 07:23:18','2026-01-06 05:59:36'),(6,2,'How do I dispute fraudulent charges on my credit card?','Credit cards offer a convenient and widely accepted method of payment for goods and services, both online and in physical stores. Credit cards also offer various benefits and rewards programs, such as cashback.','active',6,6,'2026-01-01 10:13:29','2026-01-01 12:23:10'),(7,2,'How do I dispute fraudulent charges on my credit card?','Credit cards offer a convenient and widely accepted method of payment for goods and services, both online and in physical stores. Credit cards also offer various benefits and rewards programs, such as cashback.','active',6,NULL,'2026-01-01 10:13:42','2026-01-01 10:13:42'),(8,3,'How do I dispute fraudulent charges on my credit card?','Credit cards offer a convenient and widely accepted method of payment for goods and services, both online and in physical stores. Credit cards also offer various benefits and rewards programs, such as cashback.','active',6,2,'2026-01-01 10:13:43','2026-01-06 05:59:22'),(9,4,'How do I dispute fraudulent charges on my credit card?','Credit cards offer a convenient and widely accepted method of payment for goods and services, both online and in physical stores. Credit cards also offer various benefits and rewards programs, such as cashback.','active',6,2,'2026-01-01 10:14:25','2026-01-06 05:59:17'),(10,6,'How do I dispute fraudulent charges on my credit card?','Credit cards offer a convenient and widely accepted method of payment for goods and services, both online and in physical stores. Credit cards also offer various benefits and rewards programs, such as cashback.','active',6,2,'2026-01-01 10:14:26','2026-01-06 05:59:12');
 /*!40000 ALTER TABLE `tbl_faqs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -351,7 +533,7 @@ CREATE TABLE `tbl_management_team` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -360,7 +542,7 @@ CREATE TABLE `tbl_management_team` (
 
 LOCK TABLES `tbl_management_team` WRITE;
 /*!40000 ALTER TABLE `tbl_management_team` DISABLE KEYS */;
-INSERT INTO `tbl_management_team` VALUES (1,'\nChristopher Propst','Chief Executive Officer','http://localhost:5000/uploads/team/1765256810386.webp',NULL,'active',NULL,2,'2025-12-09 05:06:50','2025-12-09 08:14:01'),(2,'Robert Hartsfield','Chairman','http://localhost:5000/uploads/team/1765262658222.webp',NULL,'active',2,2,'2025-12-09 06:44:18','2025-12-09 08:14:37'),(3,'Evita Vernon','Director','http://localhost:5000/uploads/team/1765262779630.webp',NULL,'active',2,2,'2025-12-09 06:46:19','2025-12-09 06:46:19'),(4,'Willium Alfanso','Director','http://localhost:5000/uploads/team/1765262795790.webp',NULL,'active',2,2,'2025-12-09 06:46:35','2025-12-09 06:46:35'),(6,'Michael Ovellete','CEO','http://localhost:5000/uploads/team/1765263342920.webp',NULL,'active',2,2,'2025-12-09 06:55:42','2025-12-09 06:55:42');
+INSERT INTO `tbl_management_team` VALUES (1,'\nChristopher Propst','Chief Executive Officer','http://localhost:5000/uploads/team/1765256810386.webp',NULL,'inactive',NULL,2,'2025-12-09 05:06:50','2026-01-02 10:00:42'),(2,'Robert Hartsfield','Chairman','http://localhost:5000/uploads/team/1765262658222.webp',NULL,'active',2,2,'2025-12-09 06:44:18','2025-12-09 08:14:37'),(3,'Evita Vernon','Director','http://localhost:5000/uploads/team/1765262779630.webp',NULL,'active',2,2,'2025-12-09 06:46:19','2025-12-09 06:46:19'),(4,'Willium Alfanso','Director','http://localhost:5000/uploads/team/1765262795790.webp',NULL,'inactive',2,2,'2025-12-09 06:46:35','2026-01-02 12:22:13'),(6,'Michael Ovellete','CEO','http://localhost:5000/uploads/team/1765263342920.webp',NULL,'active',2,2,'2025-12-09 06:55:42','2026-01-05 08:45:22'),(8,'Samson Snyder','Manager','http://localhost:5000/uploads/team/1767350871166.webp','Iure aut ut quo ut i','active',2,2,'2026-01-02 10:47:51','2026-01-06 05:06:44');
 /*!40000 ALTER TABLE `tbl_management_team` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -433,7 +615,7 @@ CREATE TABLE `tbl_mortgage_rates` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -442,7 +624,7 @@ CREATE TABLE `tbl_mortgage_rates` (
 
 LOCK TABLES `tbl_mortgage_rates` WRITE;
 /*!40000 ALTER TABLE `tbl_mortgage_rates` DISABLE KEYS */;
-INSERT INTO `tbl_mortgage_rates` VALUES (1,'30-Year Fixed',2.50,2.692,0.301,500.00,'approved',2,2,'2025-12-22 08:02:28','2025-12-22 08:15:05'),(2,'15-Year Fixed',3.00,3.452,0.321,600.00,'approved',2,NULL,'2025-12-22 08:43:26','2025-12-22 08:43:26'),(3,'15-Year Fixed',3.00,6.020,6.102,1100.00,'approved',2,NULL,'2025-12-22 08:45:45','2025-12-22 08:45:45');
+INSERT INTO `tbl_mortgage_rates` VALUES (1,'30-Year Fixed',2.50,2.692,0.301,500.00,'approved',2,2,'2025-12-22 08:02:28','2026-01-05 12:03:46'),(2,'15-Year Fixed',3.00,3.452,0.321,600.00,'approved',2,2,'2025-12-22 08:43:26','2026-01-05 11:51:54'),(3,'15-Year Fixed',3.00,6.020,6.102,1100.00,'approved',2,2,'2025-12-22 08:45:45','2026-01-05 11:51:54'),(4,'15',3.00,5.020,6.012,500.00,'approved',2,6,'2026-01-05 11:40:05','2026-01-06 04:30:42');
 /*!40000 ALTER TABLE `tbl_mortgage_rates` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -473,7 +655,7 @@ CREATE TABLE `tbl_news` (
   UNIQUE KEY `slug` (`slug`),
   KEY `category_id` (`category_id`),
   CONSTRAINT `tbl_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `tbl_news_categories` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -482,7 +664,7 @@ CREATE TABLE `tbl_news` (
 
 LOCK TABLES `tbl_news` WRITE;
 /*!40000 ALTER TABLE `tbl_news` DISABLE KEYS */;
-INSERT INTO `tbl_news` VALUES (1,'Maximizing the benefits of online banking for credit cards','maximizing-the-benefits-of-online-banking-for-credit-cards','A guide to online banking for credit cards and banking\n','In today\'s digital age, online banking has become an essential part of managing our financial lives. With the convenience and accessibility it offers, online banking is particularly valuable for credit card and banking activities. In this comprehensive guide, we will explore the ins and outs of online banking, specifically focusing on credit cards and traditional banking services. Whether you\'re a beginner or looking to enhance your online banking experience, this guide will provide valuable insights and tips to help you navigate the world of digital finance.even gravida believable.','2025-12-02','http://localhost:5000/uploads/news/1765362308401.webp',1,2,'Smit','active',2,NULL,'2025-12-10 10:25:08','2025-12-18 05:17:18'),(2,'The benefits of online banking for credit cards','the-benefits-of-online-banking-for-credit-cards','A guide to online banking for credit cards and banking\n','In today\'s digital age, online banking has become an essential part of managing our financial lives. With the convenience and accessibility it offers, online banking is particularly valuable for credit card and banking activities. In this comprehensive guide, we will explore the ins and outs of online banking, specifically focusing on credit cards and traditional banking services. Whether you\'re a beginner or looking to enhance your online banking experience, this guide will provide valuable insights and tips to help you navigate the world of digital finance.even gravida believable.','2025-12-02','http://localhost:5000/uploads/news/1765362326079.webp',1,0,'Smit','active',2,NULL,'2025-12-10 10:25:26','2025-12-10 10:25:26'),(3,'The benefits of online banking for credit cards','the-benefits-of-online-banking-for-credit-cards-1','A guide to online banking for credit cards and banking\n','In today\'s digital age, online banking has become an essential part of managing our financial lives. With the convenience and accessibility it offers, online banking is particularly valuable for credit card and banking activities. In this comprehensive guide, we will explore the ins and outs of online banking, specifically focusing on credit cards and traditional banking services. Whether you\'re a beginner or looking to enhance your online banking experience, this guide will provide valuable insights and tips to help you navigate the world of digital finance.even gravida believable.','2025-12-08','http://localhost:5000/uploads/news/1765362352183.webp',1,0,'Smit','active',2,NULL,'2025-12-10 10:25:52','2025-12-10 10:25:52');
+INSERT INTO `tbl_news` VALUES (1,'Maximizing the benefits of online banking for credit cards','maximizing-the-benefits-of-online-banking-for-credit-cards','A guide to online banking for credit cards and banking\r\n','In today\'s digital age, online banking has become an essential part of managing our financial lives. With the convenience and accessibility it offers, online banking is particularly valuable for credit card and banking activities. In this comprehensive guide, we will explore the ins and outs of online banking, specifically focusing on credit cards and traditional banking services. Whether you\'re a beginner or looking to enhance your online banking experience, this guide will provide valuable insights and tips to help you navigate the world of digital finance.even gravida believable.','2025-12-02','http://localhost:5000/uploads/news/1767258541960.webp',3,2,'Smit','active',2,6,'2025-12-10 10:25:08','2026-01-01 09:09:01'),(2,'The benefits of online banking for credit cards','the-benefits-of-online-banking-for-credit-cards','A guide to online banking for credit cards and banking\r\n','In today\'s digital age, online banking has become an essential part of managing our financial lives. With the convenience and accessibility it offers, online banking is particularly valuable for credit card and banking activities. In this comprehensive guide, we will explore the ins and outs of online banking, specifically focusing on credit cards and traditional banking services. Whether you\'re a beginner or looking to enhance your online banking experience, this guide will provide valuable insights and tips to help you navigate the world of digital finance.even gravida believable.','2025-12-02','http://localhost:5000/uploads/news/1767258518503.webp',1,0,'Smit','active',2,6,'2025-12-10 10:25:26','2026-01-01 09:08:38'),(3,'The benefits of online banking for credit cards','the-benefits-of-online-banking-for-credit-cards-1','A guide to online banking for credit cards and banking\r\n','In today\'s digital age, online banking has become an essential part of managing our financial lives. With the convenience and accessibility it offers, online banking is particularly valuable for credit card and banking activities. In this comprehensive guide, we will explore the ins and outs of online banking, specifically focusing on credit cards and traditional banking services. Whether you\'re a beginner or looking to enhance your online banking experience, this guide will provide valuable insights and tips to help you navigate the world of digital finance.even gravida believable.','2025-12-08','http://localhost:5000/uploads/news/1767258485492.webp',1,0,'Smit','inactive',2,6,'2025-12-10 10:25:52','2026-01-01 09:08:05'),(4,'Online banking strategies for mortgage & Personal loans','online-banking-strategies-for-mortgage-and-personal-loans','A guide to online banking for credit cards and banking\r\n ','In today\'s digital age, online banking has become an essential part of managing our financial lives. With the convenience and accessibility it offers, online banking is particularly valuable for credit card and banking activities. In this comprehensive guide, we will explore the ins and outs of online banking, specifically focusing on credit cards and traditional banking services. Whether you\'re a beginner or looking to enhance your online banking experience, this guide will provide valuable insights and tips to help you navigate the world of digital finance.even gravida believable.','2026-01-01','http://localhost:5000/uploads/news/1767258510829.webp',5,0,'Raj Patel','active',6,6,'2026-01-01 05:18:54','2026-01-01 09:08:30'),(5,'Exploring online solutions for credit cards & banking','exploring-online-solutions-for-credit-cards-and-banking','A guide to online banking for credit cards and banking\r\n  ','In today\'s digital age, online banking has become an essential part of managing our financial lives. With the convenience and accessibility it offers, online banking is particularly valuable for credit card and banking activities. In this comprehensive guide, we will explore the ins and outs of online banking, specifically focusing on credit cards and traditional banking services. Whether you\'re a beginner or looking to enhance your online banking experience, this guide will provide valuable insights and tips to help you navigate the world of digital finance.even gravida believable.','2026-01-13','http://localhost:5000/uploads/news/1767258503215.webp',1,0,'Raj Patel','active',6,6,'2026-01-01 05:41:45','2026-01-06 05:31:29');
 /*!40000 ALTER TABLE `tbl_news` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -504,7 +686,7 @@ CREATE TABLE `tbl_news_categories` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -513,7 +695,7 @@ CREATE TABLE `tbl_news_categories` (
 
 LOCK TABLES `tbl_news_categories` WRITE;
 /*!40000 ALTER TABLE `tbl_news_categories` DISABLE KEYS */;
-INSERT INTO `tbl_news_categories` VALUES (1,'Banking','banking','active',2,NULL,'2025-12-10 07:28:30','2025-12-10 07:28:30'),(2,'Credit Card','credit-card','active',2,NULL,'2025-12-10 07:29:08','2025-12-10 07:29:08'),(3,'Mortgage','mortgage','active',2,NULL,'2025-12-10 07:29:21','2025-12-10 07:29:21'),(5,'Personal loan','personal-loan','active',2,2,'2025-12-10 07:50:00','2025-12-10 07:50:16');
+INSERT INTO `tbl_news_categories` VALUES (1,'Banking','banking','inactive',2,2,'2025-12-10 07:28:30','2026-01-02 09:13:50'),(2,'Credit Card','credit-card','active',2,2,'2025-12-10 07:29:08','2026-01-02 08:11:11'),(3,'Mortgage','mortgage','inactive',2,2,'2025-12-10 07:29:21','2026-01-02 08:11:11'),(5,'Personal loan','personal-loan','active',2,2,'2025-12-10 07:50:00','2026-01-02 12:21:31');
 /*!40000 ALTER TABLE `tbl_news_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -540,7 +722,7 @@ CREATE TABLE `tbl_news_comments` (
   PRIMARY KEY (`id`),
   KEY `fk_news_comment` (`news_id`),
   CONSTRAINT `fk_news_comment` FOREIGN KEY (`news_id`) REFERENCES `tbl_news` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -549,7 +731,7 @@ CREATE TABLE `tbl_news_comments` (
 
 LOCK TABLES `tbl_news_comments` WRITE;
 /*!40000 ALTER TABLE `tbl_news_comments` DISABLE KEYS */;
-INSERT INTO `tbl_news_comments` VALUES (1,1,'Smit','smit@gmail.com','9999999999','https://example.com','Testing comment','approved',4,NULL,'2025-12-18 05:21:33','2025-12-18 05:21:33'),(2,2,'Jenna Britt','lazobubada@mailinator.com','+1 (266) 481-8179','https://www.bokexefexori.tv','Ad amet eiusmod ali','approved',3,NULL,'2025-12-18 05:42:22','2025-12-18 05:42:22'),(3,2,'Mechelle Baxter','qurawipoc@mailinator.com','+1 (979) 933-1057','https://www.juzox.ws','Quod ut pariatur Do','approved',3,NULL,'2025-12-18 06:06:56','2025-12-18 06:06:56'),(4,1,'Christian Simon','zimycat@mailinator.com','+1 (566) 951-3376','https://www.wexowivecixybop.mobi','Mollitia consequatur','approved',3,NULL,'2025-12-18 11:52:59','2025-12-18 11:52:59');
+INSERT INTO `tbl_news_comments` VALUES (1,1,'Smit','smit@gmail.com','9999999999','https://example.com','Testing comment','approved',4,NULL,'2025-12-18 05:21:33','2025-12-18 05:21:33'),(2,2,'Jenna Britt','lazobubada@mailinator.com','+1 (266) 481-8179','https://www.bokexefexori.tv','Ad amet eiusmod ali','approved',3,NULL,'2025-12-18 05:42:22','2025-12-18 05:42:22'),(3,2,'Mechelle Baxter','qurawipoc@mailinator.com','+1 (979) 933-1057','https://www.juzox.ws','Quod ut pariatur Do','approved',3,NULL,'2025-12-18 06:06:56','2025-12-18 06:06:56'),(4,1,'Christian Simon','zimycat@mailinator.com','+1 (566) 951-3376','https://www.wexowivecixybop.mobi','Mollitia consequatur','approved',3,NULL,'2025-12-18 11:52:59','2025-12-18 11:52:59'),(5,3,'Holmes Townsend','rahupuje@mailinator.com','+1 (701) 775-4184','https://www.mefecutuhipudid.co.uk','Consequatur iusto f','approved',3,NULL,'2025-12-30 05:21:37','2025-12-30 05:21:37'),(6,3,'Kerry Chan','xicelavoh@mailinator.com','+1 (518) 965-2851','https://www.tiweq.ws','Iusto sit exercitat','approved',3,NULL,'2025-12-30 05:22:04','2025-12-30 05:22:04');
 /*!40000 ALTER TABLE `tbl_news_comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -571,7 +753,7 @@ CREATE TABLE `tbl_news_tags` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -580,7 +762,7 @@ CREATE TABLE `tbl_news_tags` (
 
 LOCK TABLES `tbl_news_tags` WRITE;
 /*!40000 ALTER TABLE `tbl_news_tags` DISABLE KEYS */;
-INSERT INTO `tbl_news_tags` VALUES (1,'Banking','banking','active',2,NULL,'2025-12-10 08:06:03','2025-12-10 08:06:03'),(2,'Business','business','active',2,NULL,'2025-12-10 08:06:38','2025-12-10 08:06:38'),(3,'Personal loan','personal-loan','active',2,NULL,'2025-12-10 08:06:45','2025-12-10 08:06:45'),(5,'Credit card','credit-card','active',2,NULL,'2025-12-10 08:22:17','2025-12-10 08:22:17');
+INSERT INTO `tbl_news_tags` VALUES (1,'Banking','banking','active',2,2,'2025-12-10 08:06:03','2026-01-02 08:11:11'),(2,'Business','business','active',2,2,'2025-12-10 08:06:38','2026-01-02 08:11:11'),(3,'Personal loan','personal-loan','inactive',2,2,'2025-12-10 08:06:45','2026-01-02 08:11:11'),(5,'Credit card','credit-card','active',2,2,'2025-12-10 08:22:17','2026-01-02 12:22:00');
 /*!40000 ALTER TABLE `tbl_news_tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -601,7 +783,7 @@ CREATE TABLE `tbl_news_tags_map` (
   KEY `tag_id` (`tag_id`),
   CONSTRAINT `tbl_news_tags_map_ibfk_1` FOREIGN KEY (`news_id`) REFERENCES `tbl_news` (`id`) ON DELETE CASCADE,
   CONSTRAINT `tbl_news_tags_map_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tbl_news_tags` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -610,7 +792,7 @@ CREATE TABLE `tbl_news_tags_map` (
 
 LOCK TABLES `tbl_news_tags_map` WRITE;
 /*!40000 ALTER TABLE `tbl_news_tags_map` DISABLE KEYS */;
-INSERT INTO `tbl_news_tags_map` VALUES (1,1,1,'2025-12-10 10:25:08'),(2,1,2,'2025-12-10 10:25:08'),(3,2,1,'2025-12-10 10:25:26'),(4,2,2,'2025-12-10 10:25:26'),(5,3,1,'2025-12-10 10:25:52'),(6,3,2,'2025-12-10 10:25:52');
+INSERT INTO `tbl_news_tags_map` VALUES (76,3,1,'2026-01-01 09:08:05'),(77,3,2,'2026-01-01 09:08:05'),(82,4,5,'2026-01-01 09:08:30'),(83,4,3,'2026-01-01 09:08:30'),(84,2,1,'2026-01-01 09:08:38'),(85,2,2,'2026-01-01 09:08:38'),(86,1,1,'2026-01-01 09:09:01'),(87,1,2,'2026-01-01 09:09:01'),(94,5,5,'2026-01-02 10:42:30'),(95,5,3,'2026-01-02 10:42:30');
 /*!40000 ALTER TABLE `tbl_news_tags_map` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -715,7 +897,7 @@ CREATE TABLE `tbl_service_categories` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -724,7 +906,7 @@ CREATE TABLE `tbl_service_categories` (
 
 LOCK TABLES `tbl_service_categories` WRITE;
 /*!40000 ALTER TABLE `tbl_service_categories` DISABLE KEYS */;
-INSERT INTO `tbl_service_categories` VALUES (1,'Investment Advisory','investment-advisory','active',2,NULL,'2025-12-09 10:36:51','2025-12-09 10:36:51'),(2,'Financial Products and Structuring','financial-products-and-structuring','active',2,NULL,'2025-12-09 10:37:30','2025-12-09 10:37:30'),(3,'Risk Management and Compliance','risk-management-and-compliance','active',2,NULL,'2025-12-09 10:37:44','2025-12-09 10:37:44'),(4,'Green Project Financing','green-project-financing','active',2,NULL,'2025-12-09 10:37:51','2025-12-09 10:37:51'),(5,'Corporate Sustainability Services','corporate-sustainability-services','active',2,2,'2025-12-09 10:37:57','2025-12-09 10:47:55');
+INSERT INTO `tbl_service_categories` VALUES (1,'Investment Advisory','investment-advisory','active',2,2,'2025-12-09 10:36:51','2026-01-02 08:01:30'),(2,'Financial Products and Structuring','financial-products-and-structuring','active',2,2,'2025-12-09 10:37:30','2026-01-02 05:35:35'),(3,'Risk Management and Compliance','risk-management-and-compliance','inactive',2,2,'2025-12-09 10:37:44','2026-01-02 05:35:35'),(4,'Green Project Financing','green-project-financing','inactive',2,2,'2025-12-09 10:37:51','2026-01-02 12:21:05'),(5,'Corporate Sustainability Services','corporate-sustainability-services','active',2,2,'2025-12-09 10:37:57','2026-01-02 12:21:15');
 /*!40000 ALTER TABLE `tbl_service_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -751,7 +933,7 @@ CREATE TABLE `tbl_services` (
   UNIQUE KEY `slug` (`slug`),
   KEY `category_id` (`category_id`),
   CONSTRAINT `tbl_services_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `tbl_service_categories` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -760,7 +942,7 @@ CREATE TABLE `tbl_services` (
 
 LOCK TABLES `tbl_services` WRITE;
 /*!40000 ALTER TABLE `tbl_services` DISABLE KEYS */;
-INSERT INTO `tbl_services` VALUES (1,1,'Investment Advisory','investment-advisory','We provide tailored investment strategies based on your unique financial objectives, risk tolerance, and sustainability preferences. Our advisors work closely with you to understand your needs and craft a personalized investment plan.','http://localhost:5000/uploads/services/1765341263688.webp','active',2,NULL,'2025-12-10 04:34:23','2025-12-10 04:34:23'),(2,1,'Financial Products and Structuring','financial-products-and-structuring','We provide tailored investment strategies based on your unique financial objectives, risk tolerance, and sustainability preferences. Our advisors work closely with you to understand your needs and craft a personalized investment plan.','http://localhost:5000/uploads/services/1765341280760.webp','active',2,NULL,'2025-12-10 04:34:40','2025-12-10 04:34:40'),(3,2,'Risk Management and Compliance','risk-management-and-compliance','We provide tailored investment strategies based on your unique financial objectives, risk tolerance, and sustainability preferences. Our advisors work closely with you to understand your needs and craft a personalized investment plan.','http://localhost:5000/uploads/services/1765341303980.webp','active',2,NULL,'2025-12-10 04:35:04','2025-12-10 04:35:04'),(6,2,'Green Project Financing','green-project-financing','We provide tailored investment strategies based on your unique financial objectives, risk tolerance, and sustainability preferences. Our advisors work closely with you to understand your needs and craft a personalized investment plan.','http://localhost:5000/uploads/services/1765344119212.webp','active',2,2,'2025-12-10 05:16:51','2025-12-10 05:21:59');
+INSERT INTO `tbl_services` VALUES (1,1,'Investment Advisory','investment-advisory','We provide tailored investment strategies based on your unique financial objectives, risk tolerance, and sustainability preferences. Our advisors work closely with you to understand your needs and craft a personalized investment plan.','http://localhost:5000/uploads/services/1765341263688.webp','active',2,6,'2025-12-10 04:34:23','2025-12-31 09:00:34'),(2,1,'Financial Products and Structuring','financial-products-and-structuring','We provide tailored investment strategies based on your unique financial objectives, risk tolerance, and sustainability preferences. Our advisors work closely with you to understand your needs and craft a personalized investment plan.','http://localhost:5000/uploads/services/1765341280760.webp','inactive',2,2,'2025-12-10 04:34:40','2025-12-31 08:54:52'),(3,2,'Risk Management and Compliance','risk-management-and-compliance','We provide tailored investment strategies based on your unique financial objectives, risk tolerance, and sustainability preferences. Our advisors work closely with you to understand your needs and craft a personalized investment plan.','http://localhost:5000/uploads/services/1765341303980.webp','active',2,2,'2025-12-10 04:35:04','2026-01-06 04:27:39'),(6,2,'Green Project Financing','green-project-financing','We provide tailored investment strategies based on your unique financial objectives, risk tolerance, and sustainability preferences. Our advisors work closely with you to understand your needs and craft a personalized investment plan.','http://localhost:5000/uploads/services/1765344119212.webp','active',2,6,'2025-12-10 05:16:51','2025-12-31 10:19:32'),(7,2,'Corporate Sustainability Services','corporate-sustainability-services','We provide tailored investment strategies based on your unique financial objectives, risk tolerance, and sustainability preferences. Our advisors work closely with you to understand your needs and craft a personalized investment plan.','http://localhost:5000/uploads/services/1767174405632.webp','inactive',6,2,'2025-12-31 09:46:45','2025-12-31 10:53:32'),(8,3,'Research and Thought Leadership','research-and-thought-leadership','We provide tailored investment strategies based on your unique financial objectives, risk tolerance, and sustainability preferences. Our advisors work closely with you to understand your needs and craft a personalized investment plan.','http://localhost:5000/uploads/services/1767178544459.webp','active',6,6,'2025-12-31 09:50:11','2026-01-01 08:37:59'),(9,3,'Quasi itaque dicta ','quasi-itaque-dicta','Quia cupidatat offic','http://localhost:5000/uploads/services/1767176040361.webp','active',6,6,'2025-12-31 10:14:00','2026-01-06 05:33:06');
 /*!40000 ALTER TABLE `tbl_services` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1033,6 +1215,79 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_add_credit_card` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_add_credit_card`(
+  IN p_category_id INT,
+  IN p_title VARCHAR(150),
+  IN p_slug VARCHAR(120),
+  IN p_subtitle VARCHAR(255),
+  IN p_rating DECIMAL(2,1),
+  IN p_total_reviews INT,
+  IN p_max_cashback_percent DECIMAL(4,2),
+  IN p_intro_bonus_amount INT,
+  IN p_selected_category_cashback DECIMAL(4,2),
+  IN p_other_purchase_cashback DECIMAL(4,2),
+  IN p_annual_fee DECIMAL(10,2),
+  IN p_annual_fee_note VARCHAR(255),
+  IN p_intro_apr_percent DECIMAL(4,2),
+  IN p_intro_apr_months INT,
+  IN p_card_image VARCHAR(255),
+  IN p_is_featured BOOLEAN,
+  IN p_created_by INT
+)
+BEGIN
+  INSERT INTO tbl_credit_cards (
+    category_id,
+    title,
+    slug,
+    subtitle,
+    rating,
+    total_reviews,
+    max_cashback_percent,
+    intro_bonus_amount,
+    selected_category_cashback,
+    other_purchase_cashback,
+    annual_fee,
+    annual_fee_note,
+    intro_apr_percent,
+    intro_apr_months,
+    card_image,
+    is_featured,
+    created_by
+  ) VALUES (
+    p_category_id,
+    p_title,
+    p_slug,
+    p_subtitle,
+    p_rating,
+    p_total_reviews,
+    p_max_cashback_percent,
+    p_intro_bonus_amount,
+    p_selected_category_cashback,
+    p_other_purchase_cashback,
+    p_annual_fee,
+    p_annual_fee_note,
+    p_intro_apr_percent,
+    p_intro_apr_months,
+    p_card_image,
+    p_is_featured,
+    p_created_by
+  );
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `sp_add_credit_card_category` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1062,6 +1317,50 @@ BEGIN
         p_icon,
         p_created_by
     );
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_add_document` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_add_document`(
+  IN p_title VARCHAR(150),
+  IN p_slug VARCHAR(120),
+  IN p_file_name VARCHAR(255),
+  IN p_file_path VARCHAR(255),
+  IN p_related_type ENUM('credit_card','general'),
+  IN p_related_id INT,
+  IN p_created_by INT
+)
+BEGIN
+  INSERT INTO tbl_documents (
+    title,
+    slug,
+    file_name,
+    file_path,
+    related_type,
+    related_id,
+    created_by
+  )
+  VALUES (
+    p_title,
+    p_slug,
+    p_file_name,
+    p_file_path,
+    p_related_type,
+    p_related_id,
+    p_created_by
+  );
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1741,6 +2040,108 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_admin_delete_credit_card` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_admin_delete_credit_card`(
+    IN p_id INT
+)
+BEGIN
+    IF EXISTS (SELECT 1 FROM tbl_credit_cards WHERE id = p_id) THEN
+        DELETE FROM tbl_credit_cards WHERE id = p_id;
+    ELSE
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Credit card not found';
+    END IF;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_admin_get_all_credit_cards` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_admin_get_all_credit_cards`()
+BEGIN
+  SELECT
+    c.*,
+    cat.name AS category_name,
+    cat.slug AS category_slug
+  FROM tbl_credit_cards c
+  JOIN tbl_credit_card_categories cat
+    ON cat.id = c.category_id
+  ORDER BY c.created_at DESC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_admin_get_credit_card_by_id` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_admin_get_credit_card_by_id`(
+  IN p_id INT
+)
+BEGIN
+  SELECT
+    c.id,
+    c.category_id,
+    c.title,
+    c.slug,
+    c.subtitle,
+    c.rating,
+    c.total_reviews,
+    c.max_cashback_percent,
+    c.intro_bonus_amount,
+    c.selected_category_cashback,
+    c.other_purchase_cashback,
+    c.annual_fee,
+    c.annual_fee_note,
+    c.intro_apr_percent,
+    c.intro_apr_months,
+    c.card_image,
+    c.is_featured,
+    c.status,
+    c.created_at,
+    c.updated_at,
+
+    cat.name AS category_name,
+    cat.slug AS category_slug
+
+  FROM tbl_credit_cards c
+  JOIN tbl_credit_card_categories cat
+    ON cat.id = c.category_id
+  WHERE c.id = p_id
+  LIMIT 1;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `sp_admin_login` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1766,6 +2167,64 @@ BEGIN
         updated_at
     FROM tbl_admins
     WHERE email = p_email;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_admin_update_credit_card` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_admin_update_credit_card`(
+  IN p_id INT,
+  IN p_category_id INT,
+  IN p_title VARCHAR(150),
+  IN p_slug VARCHAR(120),
+  IN p_subtitle VARCHAR(255),
+  IN p_rating DECIMAL(2,1),
+  IN p_total_reviews INT,
+  IN p_max_cashback_percent DECIMAL(4,2),
+  IN p_intro_bonus_amount INT,
+  IN p_selected_category_cashback DECIMAL(4,2),
+  IN p_other_purchase_cashback DECIMAL(4,2),
+  IN p_annual_fee DECIMAL(10,2),
+  IN p_annual_fee_note VARCHAR(255),
+  IN p_intro_apr_percent DECIMAL(4,2),
+  IN p_intro_apr_months INT,
+  IN p_card_image VARCHAR(255),   
+  IN p_is_featured TINYINT,
+  IN p_updated_by INT
+)
+BEGIN
+  UPDATE tbl_credit_cards
+  SET
+    category_id = p_category_id,
+    title = p_title,
+    slug = p_slug,
+    subtitle = p_subtitle,
+    rating = p_rating,
+    total_reviews = p_total_reviews,
+    max_cashback_percent = p_max_cashback_percent,
+    intro_bonus_amount = p_intro_bonus_amount,
+    selected_category_cashback = p_selected_category_cashback,
+    other_purchase_cashback = p_other_purchase_cashback,
+    annual_fee = p_annual_fee,
+    annual_fee_note = p_annual_fee_note,
+    intro_apr_percent = p_intro_apr_percent,
+    intro_apr_months = p_intro_apr_months,
+    card_image = IFNULL(p_card_image, card_image),
+    is_featured = p_is_featured,
+    updated_by = p_updated_by,
+    updated_at = CURRENT_TIMESTAMP
+  WHERE id = p_id;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1887,16 +2346,47 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_delete_credit_card_category`(
-    IN p_id INT,
+    IN p_id INT
+)
+BEGIN
+    IF EXISTS (
+        SELECT 1 
+        FROM tbl_credit_card_categories 
+        WHERE id = p_id
+    ) THEN
+        DELETE FROM tbl_credit_card_categories
+        WHERE id = p_id;
+    ELSE
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Category not found';
+    END IF;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_delete_document` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_delete_document`(
+    IN p_document_id INT,
     IN p_updated_by INT
 )
 BEGIN
-    UPDATE tbl_credit_card_categories
+    UPDATE tbl_documents
     SET
         status = 'inactive',
         updated_by = p_updated_by,
         updated_at = CURRENT_TIMESTAMP
-    WHERE id = p_id;
+    WHERE id = p_document_id;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1983,15 +2473,10 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_delete_mortgage_rate`(
-    IN p_id INT,
-    IN p_updated_by INT
+    IN p_id INT
 )
 BEGIN
-    UPDATE tbl_mortgage_rates
-    SET
-        status = 'rejected',
-        updated_by = p_updated_by,
-        updated_at = CURRENT_TIMESTAMP
+    DELETE FROM tbl_mortgage_rates
     WHERE id = p_id;
 END ;;
 DELIMITER ;
@@ -2365,7 +2850,7 @@ BEGIN
         status,
         created_at
     FROM tbl_service_categories
-    WHERE status = 'active'
+    
     ORDER BY id DESC;
 END ;;
 DELIMITER ;
@@ -2493,6 +2978,56 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_get_credit_card_by_slug` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_get_credit_card_by_slug`(
+    IN p_slug VARCHAR(120)
+)
+BEGIN
+    SELECT
+        cc.id,
+        cc.category_id,
+        c.name AS category_name,
+        cc.title,
+        cc.slug,
+        cc.subtitle,
+        cc.rating,
+        cc.total_reviews,
+        cc.max_cashback_percent,
+        cc.intro_bonus_amount,
+        cc.selected_category_cashback,
+        cc.other_purchase_cashback,
+        cc.annual_fee,
+        cc.annual_fee_note,
+        cc.intro_apr_percent,
+        cc.intro_apr_months,
+        cc.card_image,
+        cc.is_featured,
+        cc.status,
+        cc.created_at,
+        cc.updated_at,
+        cc.created_by,
+        cc.updated_by
+    FROM tbl_credit_cards cc
+    LEFT JOIN tbl_credit_card_categories c
+        ON cc.category_id = c.id
+    WHERE cc.slug = p_slug
+      AND cc.status = 'active'
+    LIMIT 1;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `sp_get_credit_card_categories_admin` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -2537,12 +3072,48 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_get_credit_card_categories_user`()
 BEGIN
     SELECT
+        c.id,
+        c.name,
+        c.slug,
+        c.icon,
+        COUNT(cc.id) AS total_cards
+    FROM tbl_credit_card_categories c
+    LEFT JOIN tbl_credit_cards cc
+        ON cc.category_id = c.id
+        AND cc.status = 'active'
+    WHERE c.status = 'active'
+    GROUP BY c.id, c.name, c.slug, c.icon
+    ORDER BY c.created_at DESC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_get_documents` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_get_documents`()
+BEGIN
+    SELECT
         id,
-        name,
+        title,
         slug,
-        icon,
-        total_cards
-    FROM tbl_credit_card_categories
+        file_name,
+        file_path,
+        file_type,
+        related_type,
+        related_id,
+        status,
+        created_at
+    FROM tbl_documents
     WHERE status = 'active'
     ORDER BY created_at DESC;
 END ;;
@@ -2710,9 +3281,14 @@ BEGIN
         n.status,
         n.created_at,
         n.updated_at,
+        n.created_by,
+        n.updated_by,
         (
             SELECT JSON_ARRAYAGG(
-                JSON_OBJECT('tag_id', t.id, 'tag_name', t.name)
+                JSON_OBJECT(
+                    'tag_id', t.id,
+                    'tag_name', t.name
+                )
             )
             FROM tbl_news_tags_map m
             JOIN tbl_news_tags t ON m.tag_id = t.id
@@ -3316,6 +3892,45 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_update_document` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_update_document`(
+    IN p_document_id INT,
+    IN p_title VARCHAR(150),
+    IN p_slug VARCHAR(120),
+    IN p_file_name VARCHAR(255),
+    IN p_file_path VARCHAR(255),
+    IN p_related_type ENUM('credit_card','general'),
+    IN p_related_id INT,
+    IN p_updated_by INT
+)
+BEGIN
+    UPDATE tbl_documents
+    SET
+        title = p_title,
+        slug = p_slug,
+        file_name = p_file_name,
+        file_path = p_file_path,
+        related_type = p_related_type,
+        related_id = p_related_id,
+        updated_by = p_updated_by,
+        updated_at = CURRENT_TIMESTAMP
+    WHERE id = p_document_id
+      AND status = 'active';
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `sp_update_faq` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -3673,6 +4288,35 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_user_get_active_credit_cards` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_user_get_active_credit_cards`()
+BEGIN
+  SELECT
+    c.*,
+    cat.name AS category_name,
+    cat.slug AS category_slug,
+    cat.total_cards AS category_total_cards
+  FROM tbl_credit_cards c
+  JOIN tbl_credit_card_categories cat
+    ON cat.id = c.category_id
+  WHERE c.status = 'active'
+    AND cat.status = 'active'
+  ORDER BY c.is_featured DESC, c.created_at DESC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -3683,4 +4327,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-12-24 17:36:56
+-- Dump completed on 2026-01-06 11:32:00

@@ -184,12 +184,12 @@ function Faq() {
                                                     onChange={(e) =>
                                                         updateFaqStatus(faq.id, e.target.value)
                                                     }
-                                                    className={`appearance-none px-4 py-1.5 pr-8 text-xs font-medium rounded-full  border transition-all cursor-pointer focus:outline-none focus:ring-0 ${faq.status === "active"
+                                                    className={`appearance-none px-4 py-1.5 pr-8 text-xs font-medium rounded-full  border transition-all focus:outline-none focus:ring-0 ${faq.status === "active"
                                                         ? "bg-green-100 text-green-700 border-green-200 hover:bg-green-200"
                                                         : "bg-red-50 text-red-700 border-red-200 hover:bg-red-100"
                                                         } ${!canManageFaq || updatingId === faq.id
                                                             ? "opacity-60 cursor-not-allowed"
-                                                            : ""
+                                                            : "cursor-pointer"
                                                         }
                                                    `}
                                                 >

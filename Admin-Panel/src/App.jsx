@@ -15,12 +15,15 @@ import AdminApprovals from "./pages/AdminApprovals";
 import CaseStudy from "./pages/case-study/CaseStudy";
 import AddCasestudy from "./pages/case-study/AddCasestudy";
 import UpdateCasestudy from "./pages/case-study/UpdateCasestudy";
+import CaseStudyDetails from "./pages/case-study/CaseStudyDetails";
 import Services from "./pages/Services/Services";
 import AddService from "./pages/Services/AddService";
 import UpdateService from "./pages/Services/UpdateService";
+import ServiceDetails from "./pages/Services/ServiceDetails";
 import News from "./pages/News/News";
 import AddNews from "./pages/News/AddNews";
 import UpdateNews from "./pages/News/UpdataNews";
+import NewsDetails from "./pages/News/NewsDetails";
 import Faq from "./pages/Faq/Faq";
 import AddFaq from "./pages/Faq/AddFaq";
 import UpdateFaq from "./pages/Faq/UpdateaFaq";
@@ -33,6 +36,7 @@ import UpdateaTeam from "./pages/Management_Team/UpdateaTeam";
 import CreditCard from "./pages/Credit-Cards/CreditCard";
 import AddCreditCard from "./pages/Credit-Cards/AddCreditCard";
 import UpdateCreditCard from "./pages/Credit-Cards/UpdateCreditCard";
+import CreditCardDetails from "./pages/Credit-Cards/CreditCardDetails";
 import CardCategory from "./pages/Credit-Cards/Category";
 import AdminList from "./pages/AdminList";
 import MortgageRates from "./pages/Mortgage-Rates/MortgageRates";
@@ -71,10 +75,13 @@ function App() {
             <Route element={<ProtectedRoleRoute allowedRoles={caseStudyRoles} />}>
               <Route path="admin/add-case-study" element={<AddCasestudy />} />
               <Route path="admin/edit-case-study/:slug" element={<UpdateCasestudy />} />
+              <Route path="admin/case-study/:slug" element={<CaseStudyDetails />} />
               <Route path="admin/add-service" element={<AddService />} />
               <Route path="admin/edit-service/:slug" element={<UpdateService />} />
+              <Route path="admin/service/:slug" element={<ServiceDetails />} />
               <Route path="admin/add-news" element={<AddNews />} />
               <Route path="admin/edit-news/:slug" element={<UpdateNews />} />
+              <Route path="admin/news/:slug" element={<NewsDetails />} />
               <Route path="admin/add-faq" element={<AddFaq />} />
               <Route path="admin/edit-faq/:id" element={<UpdateFaq />} />
               <Route path="admin/add-mortgage-rate" element={<AddMortgagerate />} />
@@ -88,6 +95,7 @@ function App() {
               <Route path="admin/edit-management-team/:id" element={<UpdateaTeam />} />
               <Route path="admin/add-credit-card" element={<AddCreditCard />} />
               <Route path="admin/edit-credit-card/:slug" element={<UpdateCreditCard />} />
+              <Route path="admin/credit-card/:slug" element={<CreditCardDetails />} />
               <Route path="admin/adminlist" element={<AdminList />} />
             </Route>
 
